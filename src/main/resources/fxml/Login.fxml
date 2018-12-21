@@ -15,7 +15,7 @@
         <ImageView>
             <image>
                 <Image url="/img/1.png" />
-            </image>
+        </image>
         </ImageView>
         <Label layoutX="85.0" layoutY="281.0" text="密码">
             <font>
