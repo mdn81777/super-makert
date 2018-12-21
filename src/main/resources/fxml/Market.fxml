@@ -1,35 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="422.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.sm.controller.MarketController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="422.0" prefWidth="560.0" style="-fx-background-color: #00A65A;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.sm.controller.MarketController">
     <children>
-        <ImageView fitHeight="430.0" fitWidth="560.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="/img/5.png" />
-            </image>
-        </ImageView>
-        <TextField layoutX="168.0" layoutY="-1.0" prefHeight="43.0" prefWidth="202.0" text="超市账单管理系统">
-            <font>
-                <Font size="21.0" />
-            </font>
-        </TextField>
-        <Label layoutX="87.0" layoutY="125.0" text="用户名" />
-        <TextField layoutX="161.0" layoutY="120.0" />
-        <Label layoutX="87.0" layoutY="192.0" text="密码" />
-        <PasswordField layoutX="161.0" layoutY="187.0" />
-        <Button layoutX="417.0" layoutY="120.0" mnemonicParsing="false" style="-fx-background-color: #90EE90;" text="登录" />
-        <Button layoutX="417.0" layoutY="187.0" mnemonicParsing="false" style="-fx-background-color: #90EE90;" text="退出" />
-        <Label layoutX="208.0" layoutY="259.0" prefHeight="20.0" prefWidth="125.0" text="记住密码" />
-        <Label layoutX="344.0" layoutY="259.0" prefHeight="20.0" prefWidth="84.0" text="忘记密码？" />
-        <ImageView fitHeight="20.0" fitWidth="31.0" layoutX="168.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="/img/5.png" />
-            </image>
-        </ImageView>
+        <VBox prefHeight="340.0" prefWidth="390.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="145.0" AnchorPane.topAnchor="70.0">
+            <children>
+                <HBox prefHeight="54.0" prefWidth="361.0" style="-fx-background-color: #12E388;">
+                    <children>
+                        <AnchorPane prefHeight="54.0" prefWidth="376.0">
+                            <children>
+                                <Label layoutX="83.0" layoutY="10.0" prefHeight="34.0" prefWidth="211.0" text="盐系Supermarket" textFill="#f8f3f3">
+                                    <padding>
+                                        <Insets left="30.0" right="10.0" />
+                                    </padding>
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                            <padding>
+                                <Insets right="30.0" />
+                            </padding>
+                        </AnchorPane>
+                    </children></HBox>
+                <AnchorPane prefHeight="252.0" prefWidth="361.0">
+                    <children>
+                        <TextField layoutX="60.0" layoutY="42.0" prefHeight="42.0" prefWidth="270.0" text="用户名" />
+                        <PasswordField layoutX="60.0" layoutY="105.0" prefHeight="42.0" prefWidth="270.0" />
+                        <Button layoutX="60.0" layoutY="169.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" style="-fx-background-color: #12E388; -fx-border-radius: 50px;" text="登录" />
+                        <Button layoutX="236.0" layoutY="169.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" style="-fx-background-color: #12E388;" text="退出" />
+                    </children>
+                </AnchorPane>
+            </children></VBox>
     </children>
 </AnchorPane>
