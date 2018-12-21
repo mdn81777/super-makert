@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<AnchorPane fx:controller="com.soft1841.sm.controller.LoginController"
+<AnchorPane fx:controller="com.soft1841.sm.controller.MainController"
             xmlns:fx="http://javafx.com/fxml">
     <children>
         <ImageView>

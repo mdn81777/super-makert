@@ -1,9 +1,25 @@
-# super-makert
-*Hello,this the team which name is 盐系Freshmen.*
-- We are students of software 1841 of Nanjing Insititute of Industry Technology.
-- We have five members.
-- This is our achievement
+#超市收银系统
+
+1.技术栈
+ 
+ - Java
+ - JavaFX
+-  Mysql
+-  maven
+
+2.前台的设计
+- 登录功能
+- 收银功能
 
 
-Yang
-2018/12/20
+
+3.后台的设计
+- 店长
+- 收银员
+- 收货员
+- 会员
+ - 会计
+ 
+ 
+
+
