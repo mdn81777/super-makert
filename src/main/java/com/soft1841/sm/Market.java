@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 public class Market extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Market.fxml"));
-        primaryStage.setTitle("盐系freshman");
+        primaryStage.setTitle("盐系Freshmen");
         primaryStage.setScene(new Scene(root, 1280, 853));
         primaryStage.getIcons().add(new Image("/img/6.png"));
         primaryStage.show();
