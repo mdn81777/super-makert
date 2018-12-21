@@ -8,14 +8,14 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class Login extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Login.fxml"));
         primaryStage.setTitle("盐系freshman");
         primaryStage.setScene(new Scene(root, 1280, 853));
-        primaryStage.getIcons().add(new Image("/img/2.png"));
+        primaryStage.getIcons().add(new Image("/img/TeamLogo.png"));
         primaryStage.show();
     }
 
