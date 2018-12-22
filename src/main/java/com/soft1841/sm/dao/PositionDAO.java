@@ -1,4 +1,4 @@
 package com.soft1841.sm.dao;
 
-public interface SellerDAO {
+public interface PositionDAO {
 }
