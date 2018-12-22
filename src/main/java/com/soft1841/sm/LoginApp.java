@@ -7,12 +7,13 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class LoginApp extends Application {
+    @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
         primaryStage.setTitle("盐系FRESHMEN");
         primaryStage.setScene(new Scene(root, 680, 500));
-        primaryStage.getIcons().add(new Image("/img/1.png"));
+        primaryStage.getIcons().add(new Image("/img/TeamLogo.png"));
         primaryStage.show();
     }
 
@@ -21,7 +22,5 @@ public class Main extends Application {
         launch(args);
     }
 }
-
-
 
 
