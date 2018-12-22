@@ -32,7 +32,7 @@ public interface SupplierDAO {
     int deleteSupplierById(long id) throws  SQLException;
 
     /**
-     * 跟新供货商信息
+     * 更新供货商信息
      * @param supplier
      * @return
      * @throws SQLException
