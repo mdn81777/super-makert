@@ -1,4 +1,4 @@
 package com.soft1841.sm.dao;
 
-public class SupplierDAO {
+public interface SupplierDAO {
 }
