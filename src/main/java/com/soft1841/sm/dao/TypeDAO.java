@@ -35,7 +35,7 @@ public interface TypeDAO {
     Entity getTypeByID(int id) throws  SQLException;
 
     /**
-     * 根据id修改类别信息
+     * 更新类别信息
      * @param id
      * @return
      * @throws SQLException
