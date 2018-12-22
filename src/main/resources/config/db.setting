@@ -1,13 +1,13 @@
-## db.settingÎÄ¼ş
+## db.settingæ–‡ä»¶
 
 url = jdbc:mysql://localhost:3306/db_book?useUnicode=true&characterEncoding=utf-8
 user = root
 pass = root
 
-## ¿ÉÑ¡ÅäÖÃ
-# ÊÇ·ñÔÚÈÕÖ¾ÖĞÏÔÊ¾Ö´ĞĞµÄSQL
+## å¯é€‰é…ç½®
+# æ˜¯å¦åœ¨æ—¥å¿—ä¸­æ˜¾ç¤ºæ‰§è¡Œçš„SQL
 showSql = true
-# ÊÇ·ñ¸ñÊ½»¯ÏÔÊ¾µÄSQL
+# æ˜¯å¦æ ¼å¼åŒ–æ˜¾ç¤ºçš„SQL
 formatSql = false
-# ÊÇ·ñÏÔÊ¾SQL²ÎÊı
+# æ˜¯å¦æ˜¾ç¤ºSQLå‚æ•°
 showParams = false
