@@ -12,8 +12,7 @@ public class Member {
     private final SimpleStringProperty phone = new SimpleStringProperty("");
     private final SimpleIntegerProperty integral = new SimpleIntegerProperty();
 
-    public Member(Long id,String memberId,String name,String address,String phone,Integer integer) {
-        setId(id);
+    public Member(String memberId,String name,String address,String phone,Integer integer) {
         setMemberId(memberId);
         setName(name);
         setAddress(address);

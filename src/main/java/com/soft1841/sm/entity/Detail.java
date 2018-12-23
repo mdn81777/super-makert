@@ -9,8 +9,7 @@ public class Detail {
     private final SimpleLongProperty barcode = new SimpleLongProperty();
     private final SimpleDoubleProperty amount = new SimpleDoubleProperty();
 
-    public Detail(Long id,Long receiptId,Long barcode,Double amount) {
-        setId(id);
+    public Detail(Long receiptId,Long barcode,Double amount) {
         setReceiptId(receiptId);
         setBarcode(barcode);
         setAmount(amount);

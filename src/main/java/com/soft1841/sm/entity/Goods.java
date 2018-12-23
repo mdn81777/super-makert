@@ -14,8 +14,7 @@ public class Goods {
     private final SimpleStringProperty description = new SimpleStringProperty("");
     private final SimpleIntegerProperty stock = new SimpleIntegerProperty();
 
-    public Goods(Long id, Long typeId, String name, Double price, String cover, String description, Integer stock) {
-        setId(id);
+    public Goods(Long typeId, String name, Double price, String cover, String description, Integer stock) {
         setTypeId(typeId);
         setName(name);
         setPrice(price);

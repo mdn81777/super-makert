@@ -1,21 +1,21 @@
 package com.soft1841.sm.entity;
 
+import com.sun.org.apache.xalan.internal.xsltc.dom.SimpleResultTreeImpl;
+
 /**
  * 供应商实体类
  */
 public class Supplier{
     private Long id;
-    private  String suppliername;
-    private  String supplieraddress;
-    private  String supplierphone;
+    private  String supplierName;
+    private  String supplierAddress;
+    private  String supplierPhone;
     private  String linkman;
 
-    public Supplier() {
-        this.id = id;
-        this.suppliername = suppliername;
-        this.supplieraddress = supplieraddress;
-        this.supplierphone = supplierphone;
-        this.linkman = linkman;
+    public Supplier(String supplierName,String supplierAddress,String supplierPhone) {
+        setSupplierAddress(supplierAddress);
+        setSupplierName(supplierName);
+        setSupplierPhone(supplierPhone);
     }
 
     public Long getId() {
@@ -26,28 +26,28 @@ public class Supplier{
         this.id = id;
     }
 
-    public String getSuppliername() {
-        return suppliername;
+    public String getSupplierName() {
+        return supplierName;
     }
 
-    public void setSuppliername(String suppliername) {
-        this.suppliername = suppliername;
+    public void setSupplierName(String supplierName) {
+        this.supplierName = supplierName;
     }
 
-    public String getSupplieraddress() {
-        return supplieraddress;
+    public String getSupplierAddress() {
+        return supplierAddress;
     }
 
-    public void setSupplieraddress(String supplieraddress) {
-        this.supplieraddress = supplieraddress;
+    public void setSupplierAddress(String supplierAddress) {
+        this.supplierAddress = supplierAddress;
     }
 
-    public String getSupplierphone() {
-        return supplierphone;
+    public String getSupplierPhone() {
+        return supplierPhone;
     }
 
-    public void setSupplierphone(String supplierphone) {
-        this.supplierphone = supplierphone;
+    public void setSupplierPhone(String supplierPhone) {
+        this.supplierPhone = supplierPhone;
     }
 
     public String getLinkman() {
@@ -56,17 +56,6 @@ public class Supplier{
 
     public void setLinkman(String linkman) {
         this.linkman = linkman;
-    }
-
-    @Override
-    public String toString() {
-        return "Supplier{" +
-                "id=" + id +
-                ", suppliername='" + suppliername + '\'' +
-                ", supplieraddress='" + supplieraddress + '\'' +
-                ", supplierphone='" + supplierphone + '\'' +
-                ", linkman='" + linkman + '\'' +
-                '}';
     }
 }
 

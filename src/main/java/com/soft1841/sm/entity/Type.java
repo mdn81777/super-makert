@@ -7,12 +7,11 @@ import javafx.beans.property.SimpleStringProperty;
 public class Type {
     //以JavaFx属性绑定的形式，定义和数据表字段id和type_name,type_cover对应的属性，注意命名规范
     private final SimpleLongProperty id = new SimpleLongProperty();
-    private final SimpleStringProperty typename = new SimpleStringProperty("");
-    private final SimpleStringProperty typecover = new SimpleStringProperty("");
-    public  Type(long id , String typeNmae,String typecover) {
-        setId(id);
-        setTypename(typeNmae);
-        setTypecover(typecover);
+    private final SimpleStringProperty typeName = new SimpleStringProperty("");
+    private final SimpleStringProperty typeCover = new SimpleStringProperty("");
+    public  Type(String typeName,String typeCover) {
+        setTypeName(typeName);
+        setTypeCover(typeCover);
     }
 
     public long getId() {
@@ -27,36 +26,27 @@ public class Type {
         this.id.set(id);
     }
 
-    public String getTypename() {
-        return typename.get();
+    public String getTypeName() {
+        return typeName.get();
     }
 
-    public SimpleStringProperty typenameProperty() {
-        return typename;
+    public SimpleStringProperty typeNameProperty() {
+        return typeName;
     }
 
-    public void setTypename(String typename) {
-        this.typename.set(typename);
+    public void setTypeName(String typeName) {
+        this.typeName.set(typeName);
     }
 
-    public String getTypecover() {
-        return typecover.get();
+    public String getTypeCover() {
+        return typeCover.get();
     }
 
-    public SimpleStringProperty typecoverProperty() {
-        return typecover;
+    public SimpleStringProperty typeCoverProperty() {
+        return typeCover;
     }
 
-    public void setTypecover(String typecover) {
-        this.typecover.set(typecover);
-    }
-
-    @Override
-    public String toString() {
-        return "Type{" +
-                "id=" + id +
-                ", typename=" + typename +
-                ", typecover=" + typecover +
-                '}';
+    public void setTypeCover(String typeCover) {
+        this.typeCover.set(typeCover);
     }
 }
