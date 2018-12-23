@@ -1,11 +1,10 @@
 package com.soft1841.sm.dao;
 
 import cn.hutool.db.Entity;
-import cn.hutool.db.SqlConnRunner;
-import com.soft1841.sm.entity.Supplier;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.function.Supplier;
 
 public interface SupplierDAO {
     /**
