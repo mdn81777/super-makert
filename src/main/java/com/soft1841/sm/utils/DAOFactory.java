@@ -1,4 +1,4 @@
 package com.soft1841.sm.utils;
 
-public class DAOfactory {
+public class DAOFactory {
 }

@@ -8,11 +8,11 @@ import java.util.List;
 
 public interface TypeDAO {
 
-//   /**
-//      * 新增商品类别，返回自增主键（Long）
-//      * @param type
-//      * @return
-//      */
+   /**
+      * 新增商品类别，返回自增主键（Long）
+      * @param type
+      * @return
+      */
     Long insertType(Type type) throws SQLException;
    /**
      * 根据id删除类别
