@@ -1,6 +1,5 @@
 package com.soft1841.sm;
 
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,13 +7,12 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-
-public class LoginApp extends Application {
+public class CashRegister extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/cashregister.fxml"));
         primaryStage.setTitle("盐系FRESHMEN");
-        primaryStage.setScene(new Scene(root, 700, 580));
+        primaryStage.setScene(new Scene(root, 700, 600));
         primaryStage.getIcons().add(new Image("/img/TeamLogo.png"));
         primaryStage.show();
     }
@@ -24,5 +22,3 @@ public class LoginApp extends Application {
         launch(args);
     }
 }
-
-
