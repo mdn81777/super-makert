@@ -5,9 +5,6 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-
-import java.util.Set;
-
 public class Goods {
     private final SimpleLongProperty id = new SimpleLongProperty();
     private final SimpleLongProperty typeId = new SimpleLongProperty();

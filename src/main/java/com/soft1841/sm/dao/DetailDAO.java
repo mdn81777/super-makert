@@ -1,8 +1,8 @@
 package com.soft1841.sm.dao;
 
 import cn.hutool.db.Entity;
+import com.soft1841.sm.entity.Detail;
 
-import javax.xml.soap.Detail;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -16,9 +16,11 @@ public interface DetailDAO {
     Long insertDetail(Detail detail) throws SQLException;
 
     /**
-     * 查询所有收银明细
+     * 通过小票号码查询明细
+     * @param receiptId
      * @return
      * @throws SQLException
      */
-    List<Entity> selectAllDetail() throws SQLException;
+    Entity getReceiptId(Long receiptId) throws SQLException;
+
 }
