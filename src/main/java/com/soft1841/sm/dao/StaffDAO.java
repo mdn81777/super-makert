@@ -31,7 +31,7 @@ public interface StaffDAO {
     List<Entity> selectAllStaff()throws SQLException;
 
     /**
-     * 通过ID查询某一员工
+     * 通过员工号查询某一员工
      * @param staffId
      * @return
      * @throws SQLException
