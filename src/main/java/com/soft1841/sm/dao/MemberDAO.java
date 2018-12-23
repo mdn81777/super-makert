@@ -31,10 +31,28 @@ public interface MemberDAO {
     List<Entity> selectAllMember() throws SQLException;
 
     /**
-     * 更新会员信息
+     * 通过会员id查询
      * @param memberId
      * @return
      * @throws SQLException
      */
-    int updateMember(String memberId) throws SQLException;
+    Entity getMemberByMemberId(String memberId) throws SQLException;
+
+    /**
+     * 通过关键词查询会员
+     * @param keywords
+     * @return
+     * @throws SQLException
+     */
+    List<Entity> selectMemberLike(String keywords) throws SQLException;
+
+
+
+    /**
+     * 更新会员信息
+     * @param member
+     * @return
+     * @throws SQLException
+     */
+    int updateMember(Member member) throws SQLException;
 }
