@@ -8,7 +8,7 @@ import com.soft1841.sm.entity.Type;
 import java.sql.SQLException;
 import java.util.List;
 
-public class TypeDAOimpl implements TypeDAO {
+public class TypeDAOImpl implements TypeDAO {
     @Override
     public Long insertType(Type type) throws SQLException {
         return Db.use().insertForGeneratedKey(

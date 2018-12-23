@@ -12,14 +12,17 @@ public class Goods {
     private final SimpleDoubleProperty price = new SimpleDoubleProperty();
     private final SimpleStringProperty cover = new SimpleStringProperty("");
     private final SimpleStringProperty description = new SimpleStringProperty("");
+    private final SimpleStringProperty barcode = new SimpleStringProperty("");
     private final SimpleIntegerProperty stock = new SimpleIntegerProperty();
 
-    public Goods(Long typeId, String name, Double price, String cover, String description, Integer stock) {
+
+    public Goods(Long typeId, String name, Double price, String cover, String description, String barcode,Integer stock) {
         setTypeId(typeId);
         setName(name);
         setPrice(price);
         setCover(cover);
         setDescription(description);
+        setBarcode(barcode);
         setStock(stock);
     }
 
@@ -95,6 +98,18 @@ public class Goods {
         this.description.set(description);
     }
 
+    public String getBarcode() {
+        return barcode.get();
+    }
+
+    public SimpleStringProperty barcodeProperty() {
+        return barcode;
+    }
+
+    public void setBarcode(String barcode) {
+        this.barcode.set(barcode);
+    }
+
     public int getStock() {
         return stock.get();
     }
@@ -106,19 +121,4 @@ public class Goods {
     public void setStock(int stock) {
         this.stock.set(stock);
     }
-
-    @Override
-    public String toString() {
-        return "Goods{" +
-                "id=" + id +
-                ", typeId=" + typeId +
-                ", name=" + name +
-                ", price=" + price +
-                ", cover=" + cover +
-                ", description=" + description +
-                ", stock=" + stock +
-                '}';
-    }
 }
-
-
