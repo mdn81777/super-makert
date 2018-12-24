@@ -14,7 +14,7 @@ public class LoginApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
         primaryStage.setTitle("盐系FRESHMEN");
-        primaryStage.setScene(new Scene(root, 700, 580));
+        primaryStage.setScene(new Scene(root, 700, 530));
         primaryStage.getIcons().add(new Image("/img/TeamLogo.png"));
         primaryStage.show();
     }

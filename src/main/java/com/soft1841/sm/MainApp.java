@@ -12,7 +12,7 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/main.fxml"));
         primaryStage.setTitle("盐系FRESHMEN");
-        primaryStage.setScene(new Scene(root, 700, 570));
+        primaryStage.setScene(new Scene(root, 670, 480));
         primaryStage.getIcons().add(new Image("/img/TeamLogo.png"));
         primaryStage.show();
     }

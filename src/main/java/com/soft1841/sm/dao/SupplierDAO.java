@@ -15,7 +15,7 @@ public interface SupplierDAO {
      * @return
      * @throws SQLException
      */
-    Long insetSupplier(Supplier supplier)throws SQLException;
+    Long insertSupplier(Supplier supplier)throws SQLException;
     /**
      * 查询所有供应商信息
      * @return
