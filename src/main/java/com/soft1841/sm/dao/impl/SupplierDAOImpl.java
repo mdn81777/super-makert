@@ -16,7 +16,7 @@ public class SupplierDAOImpl implements SupplierDAO {
     }
     @Override
     public List<Entity> selectSuppler() throws SecurityException {
-        return Db.use().query("") ;
+        return null;
     }
 
     @Override
