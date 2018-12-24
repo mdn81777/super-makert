@@ -6,6 +6,7 @@ import com.soft1841.sm.utils.DAOFactory;
 import org.junit.Test;
 
 import java.sql.SQLException;
+import java.util.List;
 
 
 public class GoodsDAOTest {
@@ -20,7 +21,9 @@ public class GoodsDAOTest {
     }
 
     @Test
-    public void selectAllGoods() {
+    public void selectAllGoods() throws SQLException {
+        List<Entity> goodList = goodsDAO.selectAllGoods();
+        goodList.forEach(entity -> System.out.println(entity.getStr("goods_name")));
     }
 
     @Test

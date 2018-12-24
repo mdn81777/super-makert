@@ -121,4 +121,18 @@ public class Goods {
     public void setStock(int stock) {
         this.stock.set(stock);
     }
+
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "id=" + id +
+                ", typeId=" + typeId +
+                ", name=" + name +
+                ", price=" + price +
+                ", cover=" + cover +
+                ", description=" + description +
+                ", barcode=" + barcode +
+                ", stock=" + stock +
+                '}';
+    }
 }
