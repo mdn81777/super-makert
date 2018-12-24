@@ -46,4 +46,22 @@ public class StaffDAOImpl implements StaffDAO {
                         .set("password", staff.getPassWord()),
                 Entity.create("t_staff").set("employee_id", staff.getEmployeeId()));
     }
+
+    @Override
+    public List<Staff> selectAllById(long emloyeeId) throws SQLException {
+        return null;
+    }
+
+    private  Staff converStaff(Entity entity){
+        Staff staff = new Staff(
+                entity.getLong("typeId"),
+                entity.getLong("employeeId"),
+                entity.getStr("name"),
+                entity.getStr("passWord"),
+                entity.getStr("address"),
+                entity.getStr("cover"));
+
+        return  staff;
+    }
+
 }

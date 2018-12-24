@@ -45,5 +45,7 @@ public interface StaffDAO {
      * @throws SQLException
      */
     int updateStaff(Staff staff)throws SQLException;
+     List<Staff> selectAllById(long emloyeeId)throws  SQLException;
+
 
 }
