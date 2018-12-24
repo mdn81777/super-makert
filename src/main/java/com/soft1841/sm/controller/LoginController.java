@@ -28,7 +28,7 @@ public class LoginController {
         Stage mainStage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
         BorderPane root = fxmlLoader.load();
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root,500,600);
         mainStage.getIcons().add(new Image("/img/TeamLogo.png"));
         mainStage.setTitle("盐系收银系统");
         mainStage.setMaximized(true);
