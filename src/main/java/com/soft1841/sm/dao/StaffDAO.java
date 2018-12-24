@@ -17,11 +17,11 @@ public interface StaffDAO {
 
     /**
      * 根据员工号删除员工
-     * @param staffId
+     * @param employeeId
      * @return
      * @throws SQLException
      */
-    int deleteStaff(long staffId)throws SQLException;
+    int deleteStaff(long employeeId)throws SQLException;
 
     /**
      * 查询所有员工
@@ -32,18 +32,18 @@ public interface StaffDAO {
 
     /**
      * 通过员工号查询某一员工
-     * @param staffId
+     * @param employeeId
      * @return
      * @throws SQLException
      */
-    Entity getStaffById(long staffId)throws SQLException;
+    Entity getStaffById(long employeeId)throws SQLException;
 
     /**
      * 根据员工号更新员工数据
-     * @param staffID
+     * @param staff
      * @return
      * @throws SQLException
      */
-    int updateStaff(long staffID)throws SQLException;
+    int updateStaff(Staff staff)throws SQLException;
 
 }
