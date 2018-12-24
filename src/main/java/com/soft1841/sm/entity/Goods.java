@@ -15,8 +15,10 @@ public class Goods {
     private final SimpleStringProperty barcode = new SimpleStringProperty("");
     private final SimpleIntegerProperty stock = new SimpleIntegerProperty();
 
+    public Goods() {
+    }
 
-    public Goods(Long typeId, String name, Double price, String cover, String description, String barcode,Integer stock) {
+    public Goods(Long typeId, String name, Double price, String cover, String description, String barcode, Integer stock) {
         setTypeId(typeId);
         setName(name);
         setPrice(price);

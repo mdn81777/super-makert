@@ -1,10 +1,10 @@
 package com.soft1841.sm.utils;
 
-import com.soft1841.sm.dao.StaffDAO;
-import com.soft1841.sm.dao.impl.StaffDAOImpl;
+import com.soft1841.sm.service.StaffService;
+import com.soft1841.sm.service.impl.StaffServiceImpl;
 
 public class ServiceFactory {
-    public  static StaffDAO getStaffDAOInstance(){
-        return  new StaffDAOImpl();
+    public static StaffService getStaffServiceInstance() {
+        return new StaffServiceImpl();
     }
 }
