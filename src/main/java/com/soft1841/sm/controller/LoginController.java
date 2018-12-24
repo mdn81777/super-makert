@@ -50,7 +50,7 @@ public class LoginController {
             BorderPane root = fxmlLoader.load();
             Scene scene = new Scene(root);
             mainStage.getIcons().add(new Image("/img/TeamLogo.png"));
-            mainStage.setTitle("盐系收银系统");
+            mainStage.setTitle("盐系超市后台系统");
             mainStage.setMaximized(true);
             mainStage.setScene(scene);
             mainStage.show();
