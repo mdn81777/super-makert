@@ -24,6 +24,8 @@ public interface SupplierDAO {
      */
     List<Entity> selectAllSupplier() throws SecurityException, SQLException;
 
+    List<Entity> selectAllSuppler() throws SQLException;
+
     /**
      * 根据id删除供应商实体
      * @param id
