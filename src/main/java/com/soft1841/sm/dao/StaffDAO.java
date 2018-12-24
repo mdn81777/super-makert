@@ -13,7 +13,7 @@ public interface StaffDAO {
      * @return
      * @throws SQLException
      */
-    Integer insertStaff(Staff staff) throws SQLException;
+    Long insertStaff(Staff staff) throws SQLException;
 
     /**
      * 根据员工号删除员工
