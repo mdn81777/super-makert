@@ -36,7 +36,11 @@
                     <children>
                         <TextField layoutX="60.0" layoutY="42.0" prefHeight="42.0" prefWidth="270.0" promptText="用户名" />
                         <PasswordField layoutX="60.0" layoutY="105.0" prefHeight="42.0" prefWidth="270.0" promptText="密码"/>
-                        <Button layoutX="60.0" layoutY="169.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" style="-fx-background-color: #63B9F3; -fx-border-radius: 50px;" text="登录" />
+                        <Button layoutX="60.0" layoutY="169.0" mnemonicParsing="false"
+                                onAction="#loginBtnOnAction"
+                                prefHeight="42.0" prefWidth="94.0"
+                                style="-fx-background-color: #63B9F3; -fx-border-radius: 50px;"
+                                text="登录" />
                         <Button layoutX="236.0" layoutY="169.0" mnemonicParsing="false"
                                 onAction="#closeBtnOnAction"  fx:id="closeButton"
                                 prefHeight="42.0" prefWidth="94.0"
