@@ -1,0 +1,56 @@
+.root{
+    -fx-font-size: 10px;
+    -fx-text-fill: rgb(110,110,110);}
+.blue-theme{
+    -fx-background-color: #7594B3;
+}
+.btn-basic{
+    -fx-background-color: #A7D3FF;
+    -fx-border-radius: 5px;
+}
+.btn-radius-normal{
+    -fx-border-radius: 5px;
+    -fx-border-color: #92DDF8;
+}
+.btn1-basic{
+    -fx-background-color: #A7FFA8;
+    -fx-border-radius: 5PX;
+    -fx-border-color: #A7D3FF
+}
+.btn2-basic{
+    -fx-background-color: #A7FFA8;
+    -fx-border-radius: 5PX;
+}
+.btn3-basic{
+    -fx-background-color: #FE9B6D;
+}
+.btn4-basic{
+    -fx-background-color: #FFFFFF;
+    -fx-border-radius: 5PX;
+    -fx-border-color: #A7D3FF;
+}
+.btn5-basic
+{
+    -fx-background-color: #00A588; -fx-border-radius: 5PX;
+}
+.btn6-basic{
+    -fx-background-color: #00C9B6; -fx-border-radius: 50px;
+}
+.btn7-basic{
+    -fx-background-color: #63B9F3; -fx-border-radius: 50px;
+}
+.btn8-basic{
+    -fx-background-color: #5197C6;
+}
+.btn9-basic{
+    -fx-background-color: #FFFFFF;
+}
+.green-theme{
+    -fx-background-color: #A7FFA8;
+}
+.btn10-basic{
+    -fx-background-color: #A7FFA8; -fx-border-radius: 5PX; -fx-border-color: #A7D3FF;
+}
+.btn11-basic{
+    -fx-background-color: #A7FFA8; -fx-border-radius: 5PX;
+}

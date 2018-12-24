@@ -10,13 +10,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="599.0" style="-fx-background-color: #00A588; -fx-border-radius: 5PX;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.sm.controller.FrontDeskController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="599.0" styleClass="btn5-basic" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.sm.controller.FrontDeskController">
 
 
     <children>
-        <VBox layoutX="122.0" layoutY="78.0" prefHeight="315.0" prefWidth="389.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="145" AnchorPane.topAnchor="70">
+        <VBox layoutX="122.0" layoutY="78.0" prefHeight="315.0" prefWidth="389.0" styleClass="btn9-basic" AnchorPane.leftAnchor="145" AnchorPane.topAnchor="70">
             <children>
-                <HBox prefHeight="54.0" prefWidth="361.0" style="-fx-background-color: #00C9B6;">
+                <HBox prefHeight="54.0" prefWidth="361.0" styleClass="btn6-basic">
                     <children>
                         <AnchorPane prefHeight="54.0" prefWidth="376.0">
                             <children>
@@ -38,8 +38,8 @@
                     <children>
                         <TextField layoutX="60.0" layoutY="42.0" prefHeight="42.0" prefWidth="270.0" text="用户名" />
                         <PasswordField layoutX="60.0" layoutY="105.0" prefHeight="42.0" prefWidth="270.0" />
-                        <Button layoutX="60.0" layoutY="169.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" style="-fx-background-color: #00C9B6; -fx-border-radius: 50px;" text="登录" />
-                        <Button layoutX="236.0" layoutY="169.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" style="-fx-background-color: #00C9B6;" text="退出" />
+                        <Button layoutX="60.0" layoutY="169.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" styleClass="btn6-basic" text="登录" />
+                        <Button layoutX="236.0" layoutY="169.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" styleClass="btn6-basic" text="退出" />
                     </children>
                 </AnchorPane>
             </children>
