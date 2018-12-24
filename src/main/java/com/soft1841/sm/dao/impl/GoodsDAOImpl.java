@@ -25,9 +25,9 @@ public class GoodsDAOImpl implements GoodsDAO {
     }
 
     @Override
-    public int deleteGoods(String name) throws SQLException {
+    public int deleteGoods(String barcode) throws SQLException {
         return Db.use().del(
-                Entity.create("t_goods").set("goods_name",name)
+                Entity.create("t_goods").set("goods_barcode",barcode)
         );
     }
 
@@ -37,9 +37,10 @@ public class GoodsDAOImpl implements GoodsDAO {
     }
 
     @Override
-    public Entity getGoodsByTypeId(String typeId) throws SQLException {
-        return Db.use().queryOne("SELECT * FROM t_goods WHERE type_id = ?");
+    public Entity getGoodsByTypeId(int typeId) throws SQLException {
+        return Db.use().queryOne("SELECT * FROM t_goods WHERE type_id = ?",typeId);
     }
+
 
     @Override
     public List<Entity> selectGoodsLike(String keywords) throws SQLException {
@@ -52,7 +53,7 @@ public class GoodsDAOImpl implements GoodsDAO {
         return Db.use().update(
                 Entity.create().set("goods_price",goods.getPrice())
                         .set("goods_ stock",goods.getStock()),
-                Entity.create("t_goods").set("goods_name",goods.getName())
+                Entity.create("t_goods").set("goods_barcode",goods.getBarcode())
         );
     }
 }

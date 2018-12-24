@@ -23,7 +23,7 @@ public class ReceiptDAOImpl implements ReceiptDAO {
 
     @Override
     public Entity getReceiptById(Long id) throws SQLException {
-        return Db.use().queryOne("SELECT * FROM t_receipt WHERE id = ?");
+        return Db.use().queryOne("SELECT * FROM t_receipt WHERE id = ?",id);
     }
 
     @Override

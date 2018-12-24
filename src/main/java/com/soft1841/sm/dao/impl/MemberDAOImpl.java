@@ -36,7 +36,7 @@ public class MemberDAOImpl implements MemberDAO {
 
     @Override
     public Entity getMemberByMemberId(String memberId) throws SQLException {
-        return Db.use().queryOne("SELECT * FROM t_member WHERE member_id = ?");
+        return Db.use().queryOne("SELECT * FROM t_member WHERE member_id = ?",memberId);
     }
 
     @Override
