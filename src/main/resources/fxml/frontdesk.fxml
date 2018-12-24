@@ -36,8 +36,8 @@
                     </children></HBox>
                 <AnchorPane prefHeight="230.0" prefWidth="383.0">
                     <children>
-                        <TextField layoutX="60.0" layoutY="42.0" prefHeight="42.0" prefWidth="270.0" text="用户名" />
-                        <PasswordField layoutX="60.0" layoutY="105.0" prefHeight="42.0" prefWidth="270.0" />
+                        <TextField layoutX="60.0" layoutY="42.0" prefHeight="42.0" prefWidth="270.0" promptText="用户名" />
+                        <PasswordField layoutX="60.0" layoutY="105.0" prefHeight="42.0" prefWidth="270.0" promptText="密码" />
                         <Button layoutX="60.0" layoutY="169.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" style="-fx-background-color: #00C9B6; -fx-border-radius: 50px;" text="登录" />
                         <Button layoutX="236.0" layoutY="169.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" style="-fx-background-color: #00C9B6;" text="退出" />
                     </children>
