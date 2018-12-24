@@ -14,18 +14,18 @@ public class MemberDAOImpl implements MemberDAO {
     public Long insertMember(Member member) throws SQLException {
         return Db.use().insertForGeneratedKey(
                 Entity.create("t_member")
-                        .set("member_id",member.getMemberId())
-                        .set("member_name",member.getName())
-                        .set("member_address",member.getAddress())
-                        .set("member_phone",member.getPhone())
-                        .set("member_integral",member.getIntegral())
+                        .set("member_id", member.getMemberId())
+                        .set("member_name", member.getName())
+                        .set("member_address", member.getAddress())
+                        .set("member_phone", member.getPhone())
+                        .set("member_integral", member.getIntegral())
         );
     }
 
     @Override
     public int deleteMember(String memberId) throws SQLException {
         return Db.use().del(
-                Entity.create("t_member").set("member_Id",memberId)
+                Entity.create("t_member").set("member_Id", memberId)
         );
     }
 
@@ -41,15 +41,15 @@ public class MemberDAOImpl implements MemberDAO {
 
     @Override
     public List<Entity> selectMemberLike(String keywords) throws SQLException {
-        return Db.use().findLike("t_member","member_name,",keywords, Condition.LikeType.Contains);
+        return Db.use().findLike("t_member", "member_name,", keywords, Condition.LikeType.Contains);
     }
 
     @Override
     public int updateMember(Member member) throws SQLException {
         return Db.use().update(
-                Entity.create().set("member_address",member.getAddress())
-                        .set("member_phone",member.getPhone()),
-                Entity.create("t_member").set("member_id",member.getMemberId())
+                Entity.create().set("member_address", member.getAddress())
+                        .set("member_phone", member.getPhone()),
+                Entity.create("t_member").set("member_id", member.getMemberId())
         );
 
     }

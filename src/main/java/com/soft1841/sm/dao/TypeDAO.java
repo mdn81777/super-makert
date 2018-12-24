@@ -37,11 +37,11 @@ public interface TypeDAO {
     Entity getTypeByID(int id) throws  SQLException;
 
     /**
-     * 更新类别信息
-     * @param id
+     *
+     * @param type
      * @return
      * @throws SQLException
      */
-    int updateTypeById(int id) throws  SQLException;
+    int updateType(Type type) throws  SQLException;
 
 }
