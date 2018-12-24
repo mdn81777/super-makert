@@ -5,6 +5,7 @@ import com.soft1841.sm.utils.ServiceFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -26,6 +27,7 @@ public class LoginController {
     @FXML
     private PasswordField passwordField;
 
+    private StaffService staffService = ServiceFactory.getStaffServiceInstance();
     //退出按钮的功能实现
     public void closeBtnOnAction() {
         Stage stage = (Stage) closeButton.getScene().getWindow();
@@ -33,11 +35,13 @@ public class LoginController {
     }
 
     public void loginBtnOnAction() throws IOException {
-        StaffService staffService = StaffService.getStaffServiceInstance();
         //读取文本框的账号密码
-        String account = accountField.getText().trim();
+        String accountStr = accountField.getText();
         String password = passwordField.getText().trim();
-        if (true) {
+        Long account = Long.parseLong(accountStr);
+        boolean flag = staffService.login(account,password);
+
+        if (flag) {
             Stage mainStage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
             BorderPane root = fxmlLoader.load();
@@ -49,6 +53,11 @@ public class LoginController {
             mainStage.show();
             Stage loginStage = (Stage) closeButton.getScene().getWindow();
             loginStage.close();
+        }else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("提示");
+            alert.setContentText("账号或密码错误，登录失败!");
+            alert.showAndWait();
         }
     }
 }

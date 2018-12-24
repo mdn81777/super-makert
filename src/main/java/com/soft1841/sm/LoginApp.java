@@ -20,7 +20,6 @@ public class LoginApp extends Application{
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
         scene.getStylesheets().add(LoginApp.class.getResource("/css/style.css").toExternalForm());
-        primaryStage.setMaximized(true);
         primaryStage.getIcons().add(new Image("/img/TeamLogo.png"));
         primaryStage.setScene(scene);
         primaryStage.show();
