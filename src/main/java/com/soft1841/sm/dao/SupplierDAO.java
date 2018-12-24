@@ -1,10 +1,11 @@
 package com.soft1841.sm.dao;
 
 import cn.hutool.db.Entity;
+import com.soft1841.sm.entity.Supplier;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.function.Supplier;
+
 
 public interface SupplierDAO {
 
@@ -21,7 +22,7 @@ public interface SupplierDAO {
      * @return
      * @throws SecurityException
      */
-    List<Entity> selectSuppler() throws  SecurityException;
+    List<Entity> selectAllSuppler() throws SecurityException, SQLException;
 
     /**
      * 根据id删除供应商实体
@@ -37,5 +38,5 @@ public interface SupplierDAO {
      * @return
      * @throws SQLException
      */
-    int Supplier(Supplier supplier) throws SQLException;
+    int updateSupplier(Supplier supplier) throws SQLException;
 }
