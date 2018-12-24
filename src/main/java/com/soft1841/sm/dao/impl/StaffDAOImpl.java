@@ -54,13 +54,13 @@ public class StaffDAOImpl implements StaffDAO {
     }
 
     private  Staff convertStaff(Entity entity){
-        Staff staff = new Staff(
+        Staff staff = new Staff(entity.getInt("id"),
                 entity.getLong("type_id"),
                 entity.getLong("employee_id"),
+                entity.getStr("password"),
                 entity.getStr("name"),
-                entity.getStr("passWord"),
-                entity.getStr("address"),
-                entity.getStr("cover"));
+                entity.getStr("cover"),
+                entity.getStr("address"));
 
         return  staff;
     }

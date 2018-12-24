@@ -27,6 +27,11 @@ public class SupplierDAOImpl implements SupplierDAO {
     }
 
     @Override
+    public List<Entity> selectAllSuppler() throws SQLException {
+        return null;
+    }
+
+    @Override
     public int deleteSupplierById(long id) throws SQLException {
         return Db.use().del(
                 Entity.create("t_supplier").set("id",id));

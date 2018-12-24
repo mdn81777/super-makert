@@ -5,6 +5,7 @@ import com.soft1841.sm.dao.StaffDAO;
 import com.soft1841.sm.entity.Staff;
 import com.soft1841.sm.service.StaffService;
 import com.soft1841.sm.utils.DAOFactory;
+import javafx.scene.control.Alert;
 
 import java.sql.SQLException;
 
@@ -18,7 +19,10 @@ public class StaffServiceImpl implements StaffService {
         try {
             staff = staffDAO.getStaffByEmployeeId(employeeId);
         } catch (SQLException e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("提示");
+            alert.setContentText("账号不存在!");
+            alert.showAndWait();
         }
         if (staff != null) {
             if (password.equals(staff.getPassWord())) {

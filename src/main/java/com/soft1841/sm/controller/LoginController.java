@@ -14,6 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * 这里写登录判断和权限判断
@@ -39,7 +40,10 @@ public class LoginController {
         String accountStr = accountField.getText().trim();
         String password = passwordField.getText().trim();
         Long account = Long.parseLong(accountStr);
-        boolean flag = staffService.login(account,password);
+        boolean flag;
+
+            flag = staffService.login(account,password);
+
         if (flag) {
             Stage mainStage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
