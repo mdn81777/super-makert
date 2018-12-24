@@ -14,13 +14,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
-/**
- * 这里写登录判断和权限判断
- */
-
-public class LoginController {
+public class LoginCintroller {
     @FXML
     private Button closeButton;
     @FXML
@@ -28,7 +23,8 @@ public class LoginController {
     @FXML
     private PasswordField passwordField;
 
-    private StaffService staffService = ServiceFactory.getStaffServiceInstance();
+    private StaffService staffService =  ServiceFactory.getStaffServiceInstance();
+
 
     //退出按钮的功能实现
     public void closeBtnOnAction() {
@@ -72,3 +68,4 @@ public class LoginController {
         }
     }
 }
+

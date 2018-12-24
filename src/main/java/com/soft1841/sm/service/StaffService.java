@@ -1,7 +1,5 @@
 package com.soft1841.sm.service;
 
-import java.sql.SQLException;
-
 public interface StaffService {
     /**
      * 登录功能
@@ -9,5 +7,6 @@ public interface StaffService {
      * @param password
      * @return
      */
-    boolean login (Long employeeId,String password);
+    boolean login (Long employeeId, String password);
 }
+

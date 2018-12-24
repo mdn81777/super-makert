@@ -1,6 +1,5 @@
 package com.soft1841.sm.service;
 
-import com.soft1841.sm.utils.ServiceFactory;
 import org.junit.Test;
 
 

@@ -1,6 +1,5 @@
 package com.soft1841.sm.service.impl;
 
-
 import com.soft1841.sm.dao.StaffDAO;
 import com.soft1841.sm.entity.Staff;
 import com.soft1841.sm.service.StaffService;
@@ -9,8 +8,7 @@ import javafx.scene.control.Alert;
 
 import java.sql.SQLException;
 
-public class StaffServiceImpl implements StaffService {
-
+public class StaffServiceImpl  implements StaffService {
     private StaffDAO staffDAO = DAOFactory.getStaffDAOInstance();
 
     @Override
@@ -32,3 +30,4 @@ public class StaffServiceImpl implements StaffService {
         return false;
     }
 }
+
