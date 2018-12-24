@@ -29,25 +29,38 @@ public class LoginController {
     private PasswordField passwordField;
 
     private StaffService staffService = ServiceFactory.getStaffServiceInstance();
+
     //退出按钮的功能实现
     public void closeBtnOnAction() {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }
 
-    public void loginBtnOnAction() throws IOException {
+    public void loginBtnOnAction(){
         //读取文本框的账号密码
         String accountStr = accountField.getText().trim();
         String password = passwordField.getText().trim();
         Long account = Long.parseLong(accountStr);
         boolean flag;
 
-            flag = staffService.login(account,password);
+        if (staffService.login(account, password)){ flag = true;}
+        else {
+            flag = false;
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("提示");
+            alert.setContentText("账号或密码错误，登录失败!");
+            alert.showAndWait();
+        }
 
         if (flag) {
             Stage mainStage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
-            BorderPane root = fxmlLoader.load();
+            BorderPane root = null;
+            try {
+                root = fxmlLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             Scene scene = new Scene(root);
             mainStage.getIcons().add(new Image("/img/TeamLogo.png"));
             mainStage.setTitle("盐系超市后台系统");
@@ -56,11 +69,6 @@ public class LoginController {
             mainStage.show();
             Stage loginStage = (Stage) closeButton.getScene().getWindow();
             loginStage.close();
-        }else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("提示");
-            alert.setContentText("账号或密码错误，登录失败!");
-            alert.showAndWait();
         }
     }
 }

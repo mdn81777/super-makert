@@ -16,8 +16,8 @@ public class StaffDAOTest {
     @Test
     public void insertStaff() throws SQLException {
         Staff staff = new Staff();
-        staff.setTypeId(1);
-        staff.setEmployeeId(1);
+        staff.setTypeId(1l);
+        staff.setEmployeeId(1l);
         staff.setPassWord("");
         staff.setName("");
         staff.setCover("");
@@ -45,8 +45,8 @@ public class StaffDAOTest {
     @Test
     public void updateStaff() throws SQLException{
         Staff staff = new Staff();
-        staff.setEmployeeId(12);
-        staff.setTypeId(12);
+        staff.setEmployeeId(12l);
+        staff.setTypeId(12l);
         staff.setPassWord("");
         staffDAO.updateStaff(staff);
     }

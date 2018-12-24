@@ -27,10 +27,7 @@ public class SupplierDAOImpl implements SupplierDAO {
         return Db.use().query("SELECT * FROM t_staff");
     }
 
-    @Override
-    public List<Entity> selectAllSuppler() throws SQLException {
-        return null;
-    }
+
 
     @Override
     public int deleteSupplierById(long id) throws SQLException {
