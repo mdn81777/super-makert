@@ -24,7 +24,7 @@ public interface ReceiptDAO {
      * @return
      * @throws SQLException
      */
-    Entity getReceiptId(Long id) throws SQLException;
+    Entity getReceiptById(Long id) throws SQLException;
 
     /**
      * 获取收银小票
