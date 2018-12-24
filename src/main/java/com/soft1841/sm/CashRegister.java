@@ -12,7 +12,7 @@ public class CashRegister extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/cashregister.fxml"));
         primaryStage.setTitle("盐系FRESHMEN");
-        primaryStage.setScene(new Scene(root, 700, 600));
+        primaryStage.setScene(new Scene(root, 1100, 730));
         primaryStage.getIcons().add(new Image("/img/TeamLogo.png"));
         primaryStage.show();
     }
