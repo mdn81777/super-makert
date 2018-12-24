@@ -17,11 +17,11 @@ public interface GoodsDAO {
 
     /**
      * 删除商品
-     * @param typeId
+     * @param name
      * @return
      * @throws SQLException
      */
-    int deleteGoods(Long typeId) throws SQLException;
+    int deleteGoods(String name) throws SQLException;
 
     /**
      * 查询所有商品
@@ -31,10 +31,25 @@ public interface GoodsDAO {
     List<Entity> selectAllGoods() throws SQLException;
 
     /**
-     * 更改商品信息
+     * 根据商品类型查询
      * @param typeId
      * @return
      * @throws SQLException
      */
-    int updateGoods(Long typeId) throws SQLException;
+    Entity getGoodsByTypeId(String typeId) throws SQLException;
+
+    /**
+     * 根据关键词查询
+     * @param keywords
+     * @return
+     * @throws SQLException
+     */
+    List<Entity> selectGoodsLike(String keywords) throws SQLException;
+    /**
+     * 更改商品信息
+     * @param goods
+     * @return
+     * @throws SQLException
+     */
+    int updateGoods(Goods goods) throws SQLException;
 }
