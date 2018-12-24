@@ -18,7 +18,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="653.0" style="-fx-background-image: #FFFFFFF; -fx-border-radius: 5PX;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.sm.controller.CashRegisterController">
 
     <children>
-        <HBox prefHeight="34.0" prefWidth="1096.0" style="-fx-background-color: #7594B3;" />
+        <HBox prefHeight="34.0" prefWidth="1096.0" styleClass="blue-theme"  />
         <HBox layoutX="332.0" layoutY="421.0" prefHeight="55.0" prefWidth="674.0" />
         <GridPane layoutX="-6.0" layoutY="537.0" prefHeight="120.0" prefWidth="301.0">
             <columnConstraints>
@@ -38,7 +38,7 @@
             </columns>
         </TableView>
         <TextField layoutX="79.0" layoutY="55.0" prefHeight="55.0" prefWidth="397.0" text="商品条形码" />
-        <HBox layoutX="7.0" layoutY="55.0" prefHeight="50.0" prefWidth="64.0" style="-fx-background-color: #A7D3FF;">
+        <HBox layoutX="7.0" layoutY="55.0" prefHeight="50.0" prefWidth="64.0" styleClass="btn-basic">
             <padding>
                 <Insets left="7.0" top="5.0" />
             </padding>
@@ -50,20 +50,20 @@
                 </ImageView>
             </children>
         </HBox>
-        <Label alignment="CENTER" layoutX="484.0" layoutY="55.0" prefHeight="54.0" prefWidth="101.0" style="-fx-background-color: #FE9B6D;" text="确认" />
+        <Label alignment="CENTER" layoutX="484.0" layoutY="55.0" prefHeight="54.0" prefWidth="101.0" styleClass="btn3-basic" text="确认" />
         <HBox layoutX="598.0" layoutY="55.0" prefHeight="69.0" prefWidth="490.0">
             <children>
-                <Label alignment="CENTER" prefHeight="69.0" prefWidth="150.0" style="-fx-border-radius: 5px; -fx-border-color: #92DDF8;" text="应收">
+                <Label alignment="CENTER" prefHeight="69.0" prefWidth="150.0" styleClass="btn-radius-normal" text="应收">
                     <font>
                         <Font size="22.0" />
                     </font>
                 </Label>
-                <Label alignment="CENTER" prefHeight="69.0" prefWidth="169.0" style="-fx-border-color: #92DDF8; -fx-border-radius: 5PX;" text="实收">
+                <Label alignment="CENTER" prefHeight="69.0" prefWidth="169.0" styleClass="btn-radius-normal"  text="实收">
                     <font>
                         <Font size="22.0" />
                     </font>
                 </Label>
-                <Label alignment="CENTER" prefHeight="76.0" prefWidth="169.0" style="-fx-border-color: #92DDF8; -fx-border-radius: 5PX;" text="找零">
+                <Label alignment="CENTER" prefHeight="76.0" prefWidth="169.0" styleClass="btn-radius-normal" text="找零">
                     <font>
                         <Font size="22.0" />
                     </font>
@@ -72,115 +72,115 @@
         </HBox>
         <HBox layoutX="598.0" layoutY="286.0" prefHeight="62.0" prefWidth="483.0" spacing="16.0">
             <children>
-                <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="155.0" style="-fx-background-color: #A7FFA8;" text="现金支付" />
-                <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="97.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #A7D3FF; -fx-border-radius: 5PX;" text="1">
-                    <font>
-                        <Font size="20.0" />
-                    </font></Button>
-                <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="91.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 5PX; -fx-border-color: #A7D3FF;" text="2">
-                    <font>
-                        <Font size="20.0" />
-                    </font></Button>
-                <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="91.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #A7D3FF; -fx-border-radius: 5PX;" text="3">
-                    <font>
-                        <Font size="20.0" />
-                    </font></Button>
-            </children>
+                <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="155.0" styleClass="btn2-basic" text="现金支付" />
+                <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="97.0" styleClass="btn4-basic" text="1">
+<font>
+    <Font size="20.0" />
+</font></Button>
+<Button mnemonicParsing="false" prefHeight="55.0" prefWidth="91.0" styleClass="btn4-basic" text="2">
+<font>
+    <Font size="20.0" />
+</font></Button>
+<Button mnemonicParsing="false" prefHeight="55.0" prefWidth="91.0" styleClass="btn4-basic" text="3">
+<font>
+    <Font size="20.0" />
+</font></Button>
+        </children>
         </HBox>
-        <HBox layoutX="598.0" layoutY="348.0" prefHeight="55.0" prefWidth="483.0" spacing="16.0">
-            <children>
-                <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="154.0" style="-fx-background-color: #A7FFA8;" text="支付宝支付" />
-                <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #A7D3FF; -fx-border-radius: 5PX;" text="4">
-                    <font>
-                        <Font size="20.0" />
-                    </font></Button>
-                <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="91.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #A7D3FF; -fx-border-radius: 5PX;" text="5">
-                    <font>
-                        <Font size="20.0" />
-                    </font></Button>
-                <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="91.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #A7D3FF; -fx-border-radius: 5PX;" text="6">
-                    <font>
-                        <Font size="20.0" />
-                    </font></Button>
-            </children>
-        </HBox>
-        <HBox layoutX="598.0" layoutY="413.0" prefHeight="57.0" prefWidth="483.0" spacing="16.0">
-            <children>
-                <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="164.0" style="-fx-background-color: #A7FFA8;" text="微信支付" />
-                <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="116.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #A7D3FF; -fx-background-radius: 5PX;" text="7">
-                    <font>
-                        <Font size="20.0" />
-                    </font></Button>
-                <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #A7D3FF; -fx-border-radius: 5PX;" text="8">
-                    <font>
-                        <Font size="20.0" />
-                    </font></Button>
-                <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #A7D3FF; -fx-border-radius: 5PX;" text="9">
-                    <font>
-                        <Font size="20.0" />
-                    </font></Button>
-            </children>
-        </HBox>
-        <HBox layoutX="598.0" layoutY="472.0" prefHeight="57.0" prefWidth="483.0" spacing="16.0">
-            <children>
-                <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="169.0" style="-fx-background-color: #A7FFA8;" text="银行卡支付" />
-                <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="122.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 5PX; -fx-border-color: #A7D3FF;" text="0">
-                    <font>
-                        <Font size="20.0" />
-                    </font></Button>
-                <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 5PX; -fx-border-color: #A7D3FF;" text="-">
-                    <font>
-                        <Font size="20.0" />
-                    </font></Button>
-                <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #A7D3FF; -fx-border-radius: 5PX;" text=".">
-                    <font>
-                        <Font size="20.0" />
-                    </font></Button>
-            </children>
-        </HBox>
-        <HBox layoutX="598.0" layoutY="536.0" prefHeight="55.0" prefWidth="483.0" spacing="20.0">
-            <children>
-                <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="167.0" style="-fx-background-color: #A7FFA8; -fx-border-radius: 5PX; -fx-border-color: #A7D3FF;" text="删除" />
-                <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="149.0" style="-fx-background-color: #A7FFA8; -fx-border-radius: 5PX;" text="清空" />
-                <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="140.0" style="-fx-background-color: #FE9B6D;" text="结算" />
-            </children>
-        </HBox>
-        <VBox layoutX="598.0" layoutY="128.0" prefHeight="157.0" prefWidth="241.0">
-            <children>
-                <Label prefHeight="37.0" prefWidth="240.0" text="收银员：" />
-                <Label prefHeight="39.0" prefWidth="241.0" text="班次：" />
-                <Label prefHeight="41.0" prefWidth="240.0" text="营业时间：" />
-                <Label prefHeight="43.0" prefWidth="241.0" text="流水号：" />
-            </children>
-        </VBox>
-        <VBox layoutX="843.0" layoutY="126.0" prefHeight="157.0" prefWidth="241.0">
-            <children>
-                <Label prefHeight="38.0" prefWidth="241.0" text="姓名：" />
-                <Label prefHeight="35.0" prefWidth="241.0" text="会员号：" />
-                <Label prefHeight="38.0" prefWidth="237.0" text="积分：" />
-                <Label prefHeight="38.0" prefWidth="241.0" text="折扣：" />
-            </children>
-        </VBox>
-        <HBox layoutX="598.0" layoutY="597.0" prefHeight="54.0" prefWidth="483.0" spacing="23.0">
-            <children>
-                <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="109.0" style="-fx-background-color: #A7D3FF; -fx-border-radius: 5px;" text="挂单" />
-                <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="108.0" style="-fx-background-color: #A7D3FF; -fx-border-radius: 5px;" text="退单" />
-                <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="105.0" style="-fx-background-color: #A7D3FF; -fx-border-radius: 5px;" text="免单" />
-                <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="105.0" style="-fx-background-color: #A7D3FF; -fx-border-radius: 5px;" text="退货" />
-            </children>
-        </HBox>
-        <HBox layoutX="598.0" layoutY="657.0" prefHeight="54.0" prefWidth="483.0" spacing="23.0">
-            <children>
-                <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="109.0" style="-fx-background-color: #A7D3FF; -fx-border-radius: 5px;" text="抹零" />
-                <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="108.0" style="-fx-background-color: #A7D3FF; -fx-border-radius: 5px;" text="会员" />
-                <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="105.0" style="-fx-background-color: #A7D3FF; -fx-border-radius: 5px;" text="日志" />
-                <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="105.0" style="-fx-background-color: #A7D3FF; -fx-border-radius: 5px;" text="打印" />
-            </children>
-        </HBox>
-        <Label layoutX="-98.0" layoutY="-34.0" prefHeight="34.0" prefWidth="210.0" text="盐系Supermarket" />
-    </children>
-    <padding>
-        <Insets top="5.0" />
-    </padding>
+<HBox layoutX="598.0" layoutY="348.0" prefHeight="55.0" prefWidth="483.0" spacing="16.0">
+<children>
+    <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="154.0" styleClass="green-theme" text="支付宝支付" />
+    <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" styleClass="btn4-basic" text="4">
+        <font>
+            <Font size="20.0" />
+        </font></Button>
+    <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="91.0" styleClass="btn4-basic" text="5">
+        <font>
+            <Font size="20.0" />
+        </font></Button>
+    <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="91.0" styleClass="btn4-basic" text="6">
+        <font>
+            <Font size="20.0" />
+        </font></Button>
+</children>
+</HBox>
+<HBox layoutX="598.0" layoutY="413.0" prefHeight="57.0" prefWidth="483.0" spacing="16.0">
+<children>
+    <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="164.0" styleClass="green-theme" text="微信支付" />
+    <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="116.0" styleClass="btn4-basic" text="7">
+        <font>
+            <Font size="20.0" />
+        </font></Button>
+    <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" styleClass="btn4-basic" text="8">
+        <font>
+            <Font size="20.0" />
+        </font></Button>
+    <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" styleClass="btn4-basic" text="9">
+        <font>
+            <Font size="20.0" />
+        </font></Button>
+</children>
+</HBox>
+<HBox layoutX="598.0" layoutY="472.0" prefHeight="57.0" prefWidth="483.0" spacing="16.0">
+<children>
+    <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="169.0" styleClass="green-theme" text="银行卡支付" />
+    <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="122.0" styleClass="btn4-basic" text="0">
+        <font>
+            <Font size="20.0" />
+        </font></Button>
+    <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" styleClass="btn4-basic" text="-">
+        <font>
+            <Font size="20.0" />
+        </font></Button>
+    <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" styleClass="btn4-basic" text=".">
+        <font>
+            <Font size="20.0" />
+        </font></Button>
+</children>
+</HBox>
+<HBox layoutX="598.0" layoutY="536.0" prefHeight="55.0" prefWidth="483.0" spacing="20.0">
+<children>
+    <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="167.0" styleClass="btn10-basic" text="删除" />
+    <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="149.0" styleClass="btn11-basic" text="清空" />
+    <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="140.0" styleClass="btn3-basic" text="结算" />
+</children>
+</HBox>
+<VBox layoutX="598.0" layoutY="128.0" prefHeight="157.0" prefWidth="241.0">
+<children>
+    <Label prefHeight="37.0" prefWidth="240.0" text="收银员：" />
+    <Label prefHeight="39.0" prefWidth="241.0" text="班次：" />
+    <Label prefHeight="41.0" prefWidth="240.0" text="营业时间：" />
+    <Label prefHeight="43.0" prefWidth="241.0" text="流水号：" />
+</children>
+</VBox>
+<VBox layoutX="843.0" layoutY="126.0" prefHeight="157.0" prefWidth="241.0">
+<children>
+    <Label prefHeight="38.0" prefWidth="241.0" text="姓名：" />
+    <Label prefHeight="35.0" prefWidth="241.0" text="会员号：" />
+    <Label prefHeight="38.0" prefWidth="237.0" text="积分：" />
+    <Label prefHeight="38.0" prefWidth="241.0" text="折扣：" />
+</children>
+</VBox>
+<HBox layoutX="598.0" layoutY="597.0" prefHeight="54.0" prefWidth="483.0" spacing="23.0">
+<children>
+    <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="109.0" styleClass="btn-radius-normal" text="挂单" />
+    <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="108.0" styleClass="btn-radius-normal" text="退单" />
+    <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="105.0" styleClass="btn-radius-normal" text="免单" />
+    <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="105.0" styleClass="btn-radius-normal" text="退货" />
+</children>
+</HBox>
+<HBox layoutX="598.0" layoutY="657.0" prefHeight="54.0" prefWidth="483.0" spacing="23.0">
+<children>
+    <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="109.0" styleClass="btn-radius-normal" text="抹零" />
+    <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="108.0" styleClass="btn-radius-normal" text="会员" />
+    <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="105.0" styleClass="btn-radius-normal" text="日志" />
+    <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="105.0" styleClass="btn-radius-normal" text="打印" />
+</children>
+</HBox>
+<Label layoutX="-98.0" layoutY="-34.0" prefHeight="34.0" prefWidth="210.0" text="盐系Supermarket" />
+        </children>
+<padding>
+<Insets top="5.0" />
+</padding>
 
-</AnchorPane>
+        </AnchorPane>
