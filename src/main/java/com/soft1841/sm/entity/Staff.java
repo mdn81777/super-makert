@@ -26,9 +26,6 @@ public class Staff {
         setAddress(address);
     }
 
-    public Staff() {
-    }
-
 
     public int getId() {
         return id.get();

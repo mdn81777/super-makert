@@ -22,7 +22,12 @@ public class SupplierDAOImpl implements SupplierDAO {
     }
 
     @Override
-    public List<Entity> selectAllSupplier() throws SQLException {
+    public List<Entity> selectAllSupplier() throws SecurityException, SQLException {
+        return Db.use().query("SELECT * FROM t_staff");
+    }
+
+    @Override
+    public List<Entity> selectAllSuppler() throws SQLException {
         return Db.use().query("SELECT * FROM t_staff");
     }
 
@@ -35,8 +40,8 @@ public class SupplierDAOImpl implements SupplierDAO {
     @Override
     public int updateSupplier(Supplier supplier) throws SQLException {
         return Db.use().update(
-                Entity.create().set("supplier_address", supplier.getSupplierName())
+                Entity.create().set("supplier_name", supplier.getSupplierName())
                         .set("supplier_phone", supplier.getSupplierPhone()),
-                Entity.create("t_supplier").set("name", supplier.getId()));
+                Entity.create("t_supplier").set("id", supplier.getId()));
     }
 }

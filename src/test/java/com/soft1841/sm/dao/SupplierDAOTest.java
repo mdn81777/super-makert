@@ -37,7 +37,7 @@ public class SupplierDAOTest {
     @Test
     public void updateSupplier() throws SQLException{
         Supplier supplier = new Supplier();
-        supplier.setSupplierName("");
+        supplier.setId(1l);
         supplier.setSupplierAddress("");
         supplier.setSupplierPhone("");
         supplierDAO.updateSupplier(supplier);
