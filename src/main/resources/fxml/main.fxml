@@ -20,7 +20,8 @@
                 </font>
             </Label>
             <Button text="退出系统"
-                    AnchorPane.topAnchor="20" AnchorPane.rightAnchor="20"/>
+                    AnchorPane.topAnchor="20" AnchorPane.rightAnchor="20"
+                    onAction="#closeBtnOnAction"  fx:id="closeButton"/>
         </AnchorPane>
     </top>
     <center>
