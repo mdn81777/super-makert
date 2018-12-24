@@ -17,11 +17,11 @@ public interface GoodsDAO {
 
     /**
      * 删除商品
-     * @param name
+     * @param barcode
      * @return
      * @throws SQLException
      */
-    int deleteGoods(String name) throws SQLException;
+    int deleteGoods(String barcode) throws SQLException;
 
     /**
      * 查询所有商品
