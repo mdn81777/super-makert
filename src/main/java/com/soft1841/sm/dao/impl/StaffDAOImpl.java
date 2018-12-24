@@ -36,7 +36,7 @@ public class StaffDAOImpl implements StaffDAO {
 
     @Override
     public Staff getStaffByEmployeeId(long employeeId) throws SQLException {
-        Entity entity =  Db.use().queryOne("SELECT * FROM t_cashier WHERE  = ? employee_id",employeeId );
+        Entity entity =  Db.use().queryOne("SELECT * FROM t_staff WHERE employee_id = ?",employeeId );
         return converStaff(entity);
     }
 
@@ -55,8 +55,8 @@ public class StaffDAOImpl implements StaffDAO {
 
     private  Staff converStaff(Entity entity){
         Staff staff = new Staff(
-                entity.getLong("typeId"),
-                entity.getLong("employeeId"),
+                entity.getLong("type_id"),
+                entity.getLong("employee_id"),
                 entity.getStr("name"),
                 entity.getStr("passWord"),
                 entity.getStr("address"),

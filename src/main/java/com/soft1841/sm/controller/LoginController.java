@@ -39,6 +39,7 @@ public class LoginController {
         String accountStr = accountField.getText();
         String password = passwordField.getText().trim();
         Long account = Long.parseLong(accountStr);
+
         boolean flag = staffService.login(account,password);
 
         if (flag) {

@@ -39,9 +39,10 @@
                 </HBox>
                 <AnchorPane prefHeight="252.0" prefWidth="361.0">
                     <children>
-                        <TextField layoutX="60.0" layoutY="42.0" prefHeight="42.0" prefWidth="270.0" promptText="用户名"/>
+                        <TextField layoutX="60.0" layoutY="42.0" prefHeight="42.0" prefWidth="270.0"
+                                   promptText="用户名" fx:id="accountField"/>
                         <PasswordField layoutX="60.0" layoutY="105.0" prefHeight="42.0" prefWidth="270.0"
-                                       promptText="密码"/>
+                                       promptText="密码" fx:id="passwordField"/>
                         <Button layoutX="60.0" layoutY="169.0" mnemonicParsing="false"
                                 onAction="#loginBtnOnAction"
                                 prefHeight="42.0" prefWidth="94.0"
