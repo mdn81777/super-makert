@@ -37,8 +37,8 @@ public class GoodsDAOImpl implements GoodsDAO {
     }
 
     @Override
-    public Entity getGoodsByTypeId(Long typeId) throws SQLException {
-        return Db.use().queryOne("SELECT * FROM t_goods WHERE type_id = ?");
+    public Entity getGoodsByTypeId(int typeId) throws SQLException {
+        return Db.use().queryOne("SELECT * FROM t_goods WHERE type_id = ?",typeId);
     }
 
 

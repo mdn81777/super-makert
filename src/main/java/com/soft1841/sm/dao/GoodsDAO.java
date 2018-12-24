@@ -36,7 +36,7 @@ public interface GoodsDAO {
      * @return
      * @throws SQLException
      */
-    Entity getGoodsByTypeId(Long typeId) throws SQLException;
+    Entity getGoodsByTypeId(int typeId) throws SQLException;
 
     /**
      * 根据关键词查询
@@ -52,4 +52,5 @@ public interface GoodsDAO {
      * @throws SQLException
      */
     int updateGoods(Goods goods) throws SQLException;
+
 }
