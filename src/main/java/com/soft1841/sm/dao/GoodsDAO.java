@@ -17,11 +17,11 @@ public interface GoodsDAO {
 
     /**
      * 删除商品
-     * @param name
+     * @param barcode
      * @return
      * @throws SQLException
      */
-    int deleteGoods(String name) throws SQLException;
+    int deleteGoods(String barcode) throws SQLException;
 
     /**
      * 查询所有商品
@@ -36,7 +36,7 @@ public interface GoodsDAO {
      * @return
      * @throws SQLException
      */
-    Entity getGoodsByTypeId(String typeId) throws SQLException;
+    Entity getGoodsByTypeId(int typeId) throws SQLException;
 
     /**
      * 根据关键词查询
@@ -52,4 +52,5 @@ public interface GoodsDAO {
      * @throws SQLException
      */
     int updateGoods(Goods goods) throws SQLException;
+
 }

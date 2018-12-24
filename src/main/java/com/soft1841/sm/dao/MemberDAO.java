@@ -9,6 +9,7 @@ import java.util.List;
 public interface MemberDAO {
     /**
      * 新增会员
+     *
      * @param member
      * @return
      * @throws SQLException
@@ -17,6 +18,7 @@ public interface MemberDAO {
 
     /**
      * 删除会员
+     *
      * @param memberId
      * @return
      * @throws SQLException
@@ -25,6 +27,7 @@ public interface MemberDAO {
 
     /**
      * 查询会员
+     *
      * @return
      * @throws SQLException
      */
@@ -32,6 +35,7 @@ public interface MemberDAO {
 
     /**
      * 通过会员id查询
+     *
      * @param memberId
      * @return
      * @throws SQLException
@@ -40,6 +44,7 @@ public interface MemberDAO {
 
     /**
      * 通过关键词查询会员
+     *
      * @param keywords
      * @return
      * @throws SQLException
@@ -47,9 +52,9 @@ public interface MemberDAO {
     List<Entity> selectMemberLike(String keywords) throws SQLException;
 
 
-
     /**
      * 更新会员信息
+     *
      * @param member
      * @return
      * @throws SQLException

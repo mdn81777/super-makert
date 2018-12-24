@@ -1,10 +1,16 @@
 package com.soft1841.sm.dao;
 
+
+import cn.hutool.db.Entity;
+import com.soft1841.sm.utils.DAOFactory;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import java.sql.SQLException;
+import java.util.List;
+
 
 public class MemberDAOTest {
+    private MemberDAO memberDAO = DAOFactory.getMemberDAOInstance();
 
     @Test
     public void insertMember() {
@@ -15,7 +21,9 @@ public class MemberDAOTest {
     }
 
     @Test
-    public void selectAllMember() {
+    public void selectAllMember() throws SQLException {
+        List<Entity> MemberList = memberDAO.selectAllMember();
+        MemberList.forEach(entity -> System.out.println(entity.getStr("name")));
     }
 
     @Test
