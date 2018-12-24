@@ -22,9 +22,9 @@ public interface SupplierDAO {
      * @return
      * @throws SecurityException
      */
-    List<Entity> selectAllSupplier() throws SecurityException, SQLException;
 
-    List<Entity> selectAllSuppler() throws SQLException;
+
+    List<Entity> selectAllSupplier() throws SQLException;
 
     /**
      * 根据id删除供应商实体
