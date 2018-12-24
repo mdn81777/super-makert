@@ -36,12 +36,10 @@ public class LoginController {
 
     public void loginBtnOnAction() throws IOException {
         //读取文本框的账号密码
-        String accountStr = accountField.getText();
+        String accountStr = accountField.getText().trim();
         String password = passwordField.getText().trim();
         Long account = Long.parseLong(accountStr);
-
         boolean flag = staffService.login(account,password);
-
         if (flag) {
             Stage mainStage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
