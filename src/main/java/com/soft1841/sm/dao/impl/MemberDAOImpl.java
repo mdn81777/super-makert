@@ -23,9 +23,9 @@ public class MemberDAOImpl implements MemberDAO {
     }
 
     @Override
-    public int deleteMember(String memberId) throws SQLException {
+    public int deleteMemberByMemberId(long memberId) throws SQLException {
         return Db.use().del(
-                Entity.create("t_member").set("member_Id", memberId)
+                Entity.create("t_member").set("member_Id",memberId)
         );
     }
 
@@ -35,7 +35,7 @@ public class MemberDAOImpl implements MemberDAO {
     }
 
     @Override
-    public Entity getMemberByMemberId(String memberId) throws SQLException {
+    public Entity getMemberByMemberId(long memberId) throws SQLException {
         return Db.use().queryOne("SELECT * FROM t_member WHERE member_id = ?",memberId);
     }
 
@@ -49,7 +49,7 @@ public class MemberDAOImpl implements MemberDAO {
         return Db.use().update(
                 Entity.create().set("member_address", member.getAddress())
                         .set("member_phone", member.getPhone()),
-                Entity.create("t_member").set("member_id", member.getMemberId())
+                Entity.create("t_member").set("member_name", member.getMemberId())
         );
 
     }

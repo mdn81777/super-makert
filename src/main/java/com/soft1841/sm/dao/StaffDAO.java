@@ -21,7 +21,7 @@ public interface StaffDAO {
      * @return
      * @throws SQLException
      */
-    int deleteStaff(long employeeId)throws SQLException;
+    int deleteStaffByEmployeeId(long employeeId)throws SQLException;
 
     /**
      * 查询所有员工

@@ -15,14 +15,13 @@ public class ReceiptDAOImpl implements ReceiptDAO {
                 Entity.create("t_receipt")
                         .set("employee_id", receipt.getEmployeeId())
                         .set("member_id", receipt.getMemberId())
-                        .set("time", receipt.getTime())
                         .set("total", receipt.getTotal())
         );
 
     }
 
     @Override
-    public Entity getReceiptById(Long id) throws SQLException {
+    public Entity getReceiptById(long id) throws SQLException {
         return Db.use().queryOne("SELECT * FROM t_receipt WHERE id = ?",id);
     }
 

@@ -23,7 +23,7 @@ public interface MemberDAO {
      * @return
      * @throws SQLException
      */
-    int deleteMember(String memberId) throws SQLException;
+    int deleteMemberByMemberId(long memberId) throws SQLException;
 
     /**
      * 查询会员
@@ -40,7 +40,7 @@ public interface MemberDAO {
      * @return
      * @throws SQLException
      */
-    Entity getMemberByMemberId(String memberId) throws SQLException;
+    Entity getMemberByMemberId(long memberId) throws SQLException;
 
     /**
      * 通过关键词查询会员

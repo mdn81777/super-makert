@@ -14,20 +14,21 @@ public class GoodsDAOTest {
     private GoodsDAO goodsDAO = DAOFactory.getGoodsDAOInstance();
 
     @Test
-    public void insertGoods() {
+    public void insertGoods() throws SQLException {
         Goods goods = new Goods();
-        goods.setTypeId(6);
-        goods.setName("果干");
-        goods.setPrice(54.0);
-        goods.setCover("https://img.alicdn.com/imgextra/i1/35184104/O1CN011gBfvYh83QhGJy6_!!0-saturn_solar.jpg_220x220.jpg_.webp");
-        goods.setDescription("test");
-        goods.setBarcode("123457000100");
-        goods.setStock(666);
+        goods.setTypeId(1);
+        goods.setName("");
+        goods.setPrice(20);
+        goods.setCover("");
+        goods.setDescription("");
+        goods.setBarcode("");
+        goods.setStock(123);
+        System.out.println(goodsDAO.insertGoods(goods));
     }
 
     @Test
-    public void deleteGoods() {
-
+    public void deleteGoods() throws SQLException {
+    goodsDAO.deleteGoodsByBarcode(888889000);
     }
 
     @Test
@@ -40,13 +41,20 @@ public class GoodsDAOTest {
     public void getGoodsByTypeId() throws SQLException {
         Entity entity = goodsDAO.getGoodsByTypeId(1);
         System.out.println(entity);
+}
+
+    @Test
+    public void selectGoodsLike() throws SQLException{
+        List<Entity> goodsList = goodsDAO.selectGoodsLike("");
+        goodsList.forEach(entity -> System.out.println(entity.getStr("name")));
     }
 
     @Test
-    public void selectGoodsLike() {
-    }
-
-    @Test
-    public void updateGoods() {
-    }
+    public void updateGoods() throws SQLException{
+    Goods goods = new Goods();
+    goods.setBarcode("");
+    goods.setName("");
+    goods.setStock(12);
+    goodsDAO.updateGoods(goods);
+}
 }

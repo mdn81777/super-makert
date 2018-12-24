@@ -14,7 +14,10 @@ public class Staff {
     private final SimpleStringProperty cover = new SimpleStringProperty("");
     private final SimpleStringProperty address = new SimpleStringProperty("");
 
-    public Staff(Long typeId,Long employeeId,String password,String name,String cover,String address) {
+    public Staff() {
+    }
+
+    public Staff(Long typeId, Long employeeId, String password, String name, String cover, String address) {
         setTypeId(typeId);
         setEmployeeId(employeeId);
         setPassWord(password);

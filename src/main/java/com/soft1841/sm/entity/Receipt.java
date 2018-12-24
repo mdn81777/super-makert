@@ -13,7 +13,10 @@ public class Receipt {
     private Date time;
     private final SimpleDoubleProperty total = new SimpleDoubleProperty();
 
-    public Receipt(Long employeeId, Long memberId, Date time,Double total) {
+    public Receipt() {
+    }
+
+    public Receipt(Long employeeId, Long memberId, Date time, Double total) {
         setEmployeeId(employeeId);
         setMemberId(memberId);
         setTime(time);

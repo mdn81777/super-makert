@@ -21,7 +21,7 @@ public class DetailDAOImpl implements DetailDAO {
     }
 
     @Override
-    public Entity getDetailByReceiptId(Long receiptId) throws SQLException {
+    public Entity getDetailByReceiptId(long receiptId) throws SQLException {
         return Db.use().queryOne("SELECT * FROM t_detail WHERE receipt_id = ? ",receiptId);
     }
 

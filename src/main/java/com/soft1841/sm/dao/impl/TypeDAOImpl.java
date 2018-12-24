@@ -12,7 +12,9 @@ public class TypeDAOImpl implements TypeDAO {
     @Override
     public Long insertType(Type type) throws SQLException {
         return Db.use().insertForGeneratedKey(
-                Entity.create("t_type").set("type_name", type.getTypeName())
+                Entity.create("t_type")
+                        .set("type_name", type.getTypeName())
+                        .set("type_cover",type.getTypeCover())
         );
     }
 

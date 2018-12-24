@@ -21,7 +21,7 @@ public interface DetailDAO {
      * @return
      * @throws SQLException
      */
-    Entity getDetailByReceiptId(Long receiptId) throws SQLException;
+    Entity getDetailByReceiptId(long receiptId) throws SQLException;
 
     /**
      * 获取所有明细

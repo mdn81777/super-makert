@@ -21,7 +21,7 @@ public interface GoodsDAO {
      * @return
      * @throws SQLException
      */
-    int deleteGoods(String barcode) throws SQLException;
+    int deleteGoodsByBarcode(long barcode) throws SQLException;
 
     /**
      * 查询所有商品

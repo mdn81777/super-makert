@@ -9,7 +9,11 @@ public class Type {
     private final SimpleLongProperty id = new SimpleLongProperty();
     private final SimpleStringProperty typeName = new SimpleStringProperty("");
     private final SimpleStringProperty typeCover = new SimpleStringProperty("");
-    public  Type(String typeName,String typeCover) {
+
+    public Type() {
+    }
+
+    public  Type(String typeName, String typeCover) {
         setTypeName(typeName);
         setTypeCover(typeCover);
     }

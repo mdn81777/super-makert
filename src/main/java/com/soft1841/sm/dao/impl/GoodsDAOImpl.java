@@ -25,7 +25,7 @@ public class GoodsDAOImpl implements GoodsDAO {
     }
 
     @Override
-    public int deleteGoods(String barcode) throws SQLException {
+    public int deleteGoodsByBarcode(long barcode) throws SQLException {
         return Db.use().del(
                 Entity.create("t_goods").set("goods_barcode",barcode)
         );

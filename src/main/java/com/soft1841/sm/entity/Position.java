@@ -7,6 +7,9 @@ public class Position {
     private final SimpleIntegerProperty id = new SimpleIntegerProperty();
     private final SimpleStringProperty position = new SimpleStringProperty("");
 
+    public Position() {
+    }
+
     public Position(String position) {
         setPosition(position);
     }

@@ -1,6 +1,7 @@
 package com.soft1841.sm.dao;
 
 import cn.hutool.db.Entity;
+import com.soft1841.sm.entity.Position;
 import com.soft1841.sm.utils.DAOFactory;
 import org.junit.Test;
 
@@ -13,7 +14,10 @@ public class PositionDAOTest {
     private PositionDAO positionDAO = DAOFactory.getPositionDAOInstance();
 
     @Test
-    public void insertPosition() {
+    public void insertPosition() throws SQLException{
+        Position position = new Position();
+        position.setPosition("");
+        System.out.println(positionDAO.insertPosition(position));
     }
 
     @Test

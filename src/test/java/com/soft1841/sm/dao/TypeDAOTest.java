@@ -1,6 +1,7 @@
 package com.soft1841.sm.dao;
 
 import cn.hutool.db.Entity;
+import com.soft1841.sm.entity.Type;
 import com.soft1841.sm.utils.DAOFactory;
 import org.junit.Test;
 
@@ -13,11 +14,16 @@ public class TypeDAOTest {
     private TypeDAO typeDAO = DAOFactory.getTypeDAOInstance();
 
     @Test
-    public void insertType() {
+    public void insertType() throws SQLException{
+        Type type = new Type();
+        type.setTypeName("");
+        type.setTypeCover("");
+        System.out.println(typeDAO.insertType(type));
     }
 
     @Test
-    public void deleteTypeById() {
+    public void deleteTypeById() throws SQLException {
+        typeDAO.deleteTypeById(1);
     }
 
     @Test
@@ -27,10 +33,17 @@ public class TypeDAOTest {
     }
 
     @Test
-    public void getTypeByID() {
+    public void getTypeByID()throws SQLException {
+        Entity entity = typeDAO.getTypeByID(1);
+        System.out.println(entity);
     }
 
     @Test
-    public void updateType() {
+    public void updateType() throws SQLException{
+        Type type = new Type();
+        type.setId(1);
+        type.setTypeName("");
+        type.setTypeCover("");
+        typeDAO.updateType(type);
     }
 }

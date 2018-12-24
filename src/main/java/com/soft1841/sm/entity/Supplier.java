@@ -6,16 +6,21 @@ import com.sun.org.apache.xalan.internal.xsltc.dom.SimpleResultTreeImpl;
  * 供应商实体类
  */
 public class Supplier{
-    private Long id;
+    private  Long id;
     private  String supplierName;
     private  String supplierAddress;
     private  String supplierPhone;
     private  String linkman;
 
-    public Supplier(String supplierName,String supplierAddress,String supplierPhone) {
-        setSupplierAddress(supplierAddress);
-        setSupplierName(supplierName);
-        setSupplierPhone(supplierPhone);
+    public Supplier(Long id, String supplierName, String supplierAddress, String supplierPhone, String linkman) {
+        this.id = id;
+        this.supplierName = supplierName;
+        this.supplierAddress = supplierAddress;
+        this.supplierPhone = supplierPhone;
+        this.linkman = linkman;
+    }
+
+    public Supplier() {
     }
 
     public Long getId() {
@@ -56,6 +61,17 @@ public class Supplier{
 
     public void setLinkman(String linkman) {
         this.linkman = linkman;
+    }
+
+    @Override
+    public String toString() {
+        return "Supplier{" +
+                "id=" + id +
+                ", supplierName='" + supplierName + '\'' +
+                ", supplierAddress='" + supplierAddress + '\'' +
+                ", supplierPhone='" + supplierPhone + '\'' +
+                ", linkman='" + linkman + '\'' +
+                '}';
     }
 }
 

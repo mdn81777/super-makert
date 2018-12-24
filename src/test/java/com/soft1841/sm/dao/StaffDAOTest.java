@@ -1,6 +1,7 @@
 package com.soft1841.sm.dao;
 
 import cn.hutool.db.Entity;
+import com.soft1841.sm.entity.Staff;
 import com.soft1841.sm.utils.DAOFactory;
 import org.junit.Test;
 
@@ -13,11 +14,20 @@ public class StaffDAOTest {
     private StaffDAO staffDAO = DAOFactory.getStaffDAOInstance();
 
     @Test
-    public void insertStaff() {
+    public void insertStaff() throws SQLException {
+        Staff staff = new Staff();
+        staff.setTypeId(1);
+        staff.setEmployeeId(1);
+        staff.setPassWord("");
+        staff.setName("");
+        staff.setCover("");
+        staff.setAddress("");
+        System.out.println(staffDAO.insertStaff(staff));
     }
 
     @Test
-    public void deleteStaff() {
+    public void deleteStaff() throws SQLException {
+        staffDAO.deleteStaffByEmployeeId(1);
     }
 
     @Test
@@ -27,10 +37,17 @@ public class StaffDAOTest {
     }
 
     @Test
-    public void getStaffById() {
+    public void getStaffById()throws SQLException {
+        Entity entity = staffDAO.getStaffById(1);
+        System.out.println(entity);
     }
 
     @Test
-    public void updateStaff() {
+    public void updateStaff() throws SQLException{
+        Staff staff = new Staff();
+        staff.setEmployeeId(12);
+        staff.setTypeId(12);
+        staff.setPassWord("");
+        staffDAO.updateStaff(staff);
     }
 }

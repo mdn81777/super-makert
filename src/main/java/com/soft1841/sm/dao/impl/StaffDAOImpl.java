@@ -24,7 +24,7 @@ public class StaffDAOImpl implements StaffDAO {
     }
 
     @Override
-    public int deleteStaff(long employeeId) throws SQLException {
+    public int deleteStaffByEmployeeId(long employeeId) throws SQLException {
         return Db.use().del(
                 Entity.create("t_staff").set("employee_id",employeeId));
     }
