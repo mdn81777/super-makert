@@ -47,7 +47,7 @@ public class SupplierController implements Initializable {
 
         showSupplier(supplierList);
     }
-    public void addSupperlier() throws SQLException{
+    public void addSupplier() throws SQLException{
         Supplier supplier = new Supplier();
         Stage stage = new Stage();
         stage.setTitle("新增供货商界面");
@@ -61,7 +61,7 @@ public class SupplierController implements Initializable {
         addBtn.getStyleClass().add("blue-theme");
 
         Scene scene = new Scene(vBox,600,380);
-        scene.getStylesheets().add("/css/style.css");
+        scene.getStylesheets().add("/fxml/supplier.fxml");
         stage.setScene(scene);
         stage.show();
         addBtn.setOnAction(event ->{
@@ -112,8 +112,8 @@ public class SupplierController implements Initializable {
             rightBox.setSpacing(10);
             rightBox.setAlignment(Pos.TOP_LEFT);
             javafx.scene.control.Label nameLabel = new javafx.scene.control.Label(entity.getStr("supplier_name"));
-            javafx.scene.control.Label departmentLabel = new javafx.scene.control.Label(entity.getStr("supplier_address"));
-            javafx.scene.control.Label emailLabel = new javafx.scene.control.Label(entity.getStr("supplier_phone"));
+            javafx.scene.control.Label addressLabel = new javafx.scene.control.Label(entity.getStr("supplier_address"));
+            javafx.scene.control.Label phoneLabel = new javafx.scene.control.Label(entity.getStr("supplier_phone"));
             javafx.scene.control.Button delButton = new javafx.scene.control.Button("删除");
             //点击删除按钮做的事件
             delButton.setOnAction(event -> {
@@ -137,7 +137,7 @@ public class SupplierController implements Initializable {
 
             delButton.getStyleClass().add("green-theme");
 
-            rightBox.getChildren().addAll(nameLabel,delButton);
+            rightBox.getChildren().addAll(nameLabel,addressLabel, phoneLabel,delButton);
             hBox.getChildren().add(rightBox);
 
         }
