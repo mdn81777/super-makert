@@ -48,18 +48,26 @@ public class LoginController {
             alert.setContentText("账号或密码错误，登录失败!");
             alert.showAndWait();
         }
-
-        if (typeId == 4) {
+        String position = new String();
+        if (typeId == 1) {
+            position = "store_manager.fxml";
+        } else if (typeId == 2) {
+            position = "bookkeeper.fxml";
+        } else if (typeId == 3) {
+            position = "receipt.fxml";
+        } else if (typeId == 4) {
             flag = false;
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("提示");
             alert.setContentText("您的权限不足!");
             alert.showAndWait();
+        } else if (typeId == 5) {
+            position = "customer_service.fxml";
         }
 
         if (flag) {
             Stage mainStage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/" + position));
             BorderPane root = null;
             try {
                 root = fxmlLoader.load();
