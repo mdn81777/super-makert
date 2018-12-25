@@ -44,9 +44,15 @@
                                 <Button styleClass="menu-btn" text="商品信息"/>
                             </VBox>
                         </TitledPane>
+                    <TitledPane alignment="TOP_LEFT" text="供应商管理">
+                        <VBox minHeight="130" spacing="10">
+                            <Button styleClass="menu-btn" text="供应商信息" />
+                        </VBox>
+                    </TitledPane>
                     </panes>
                 </Accordion>
             </AnchorPane>
         </SplitPane>
     </left>
+
 </BorderPane>

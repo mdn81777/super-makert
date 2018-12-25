@@ -35,12 +35,17 @@
                            AnchorPane.rightAnchor="0.0"
                            AnchorPane.topAnchor="0.0">
                     <panes>
-                        <TitledPane alignment="TOP_LEFT" text="财政管理">
-                            <VBox minHeight="100" spacing="10">
-                                <Button styleClass="menu-btn" text="优惠管理"/>
-                                <Button styleClass="menu-btn" text="数据分析"/>
-                            </VBox>
-                        </TitledPane>
+                    <TitledPane alignment="TOP_LEFT" text="财政管理">
+                        <VBox minHeight="100" spacing="10">
+                            <Button styleClass="menu-btn" text="优惠管理" onAction="#listPreferential"/>
+                        </VBox>
+                    </TitledPane>
+                    <TitledPane alignment="TOP_LEFT" text="员工管理">
+                        <VBox minHeight="130" spacing="10">
+                            <Button styleClass="menu-btn" text="职位类别" onAction="#listPositionType"/>
+                            <Button styleClass="menu-btn" text="员工信息" onAction="#liststaff"/>
+                        </VBox>
+                    </TitledPane>
                     </panes>
                 </Accordion>
             </AnchorPane>

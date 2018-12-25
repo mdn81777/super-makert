@@ -37,7 +37,12 @@
                     <panes>
                         <TitledPane alignment="TOP_LEFT" text="会员管理">
                             <VBox minHeight="130" spacing="10">
-                                <Button styleClass="menu-btn" text="会员信息"/>
+                                <Button styleClass="menu-btn" text="会员信息" />
+                            </VBox>
+                        </TitledPane>
+                        <TitledPane alignment="TOP_LEFT" text="财政管理">
+                            <VBox minHeight="100" spacing="10">
+                                <Button styleClass="menu-btn" text="优惠管理"/>
                             </VBox>
                         </TitledPane>
                     </panes>

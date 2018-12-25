@@ -12,6 +12,8 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.StackPane?>
 <BorderPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.soft1841.sm.controller.MainController">
     <top>
@@ -39,43 +41,50 @@
                     <panes>
                         <TitledPane alignment="TOP_LEFT" text="商品管理">
                             <VBox minHeight="100" spacing="10">
-                                <Button styleClass="menu-btn" text="商品类别"/>
-                                <Button styleClass="menu-btn" text="商品信息"/>
+                                <Button styleClass="menu-btn" text="商品类别" onAction="#listProductcategory"/>
+                                <Button styleClass="menu-btn" text="商品信息" onAction="#listProductinformation"/>
                             </VBox>
                         </TitledPane>
                         <TitledPane alignment="TOP_LEFT" text="员工管理">
                             <VBox minHeight="130" spacing="10">
-                                <Button styleClass="menu-btn" text="职位类别"/>
-                                <Button styleClass="menu-btn" text="员工信息"/>
+                                <Button styleClass="menu-btn" text="职位类别" onAction="#listJobCategories"/>
+                                <Button styleClass="menu-btn" text="员工信息" onAction="#listEmployeeInformation"/>
                             </VBox>
                         </TitledPane>
                         <TitledPane alignment="TOP_LEFT" text="会员管理">
                             <VBox minHeight="130" spacing="10">
-                                <Button styleClass="menu-btn" text="会员信息"/>
+                                <Button styleClass="menu-btn" text="会员信息" onAction="#listMemberInformation"/>
                             </VBox>
                         </TitledPane>
                         <TitledPane alignment="TOP_LEFT" text="供应商管理">
                             <VBox minHeight="130" spacing="10">
-                                <Button styleClass="menu-btn" text="供应商信息"/>
+                                <Button styleClass="menu-btn" text="供应商信息" onAction="#listSupplierInformation"/>
                             </VBox>
                         </TitledPane>
                         <TitledPane alignment="TOP_LEFT" text="财政管理">
                             <VBox minHeight="100" spacing="10">
-                                <Button styleClass="menu-btn" text="优惠管理"/>
-                                <Button styleClass="menu-btn" text="数据分析"/>
+                                <Button styleClass="menu-btn" text="优惠管理" onAction="#listPreferentialManagement"/>
+                                <Button styleClass="menu-btn" text="数据统计分析" onAction="#listStatisticalAnalysis"/>
                             </VBox>
                         </TitledPane>
                         <TitledPane alignment="TOP_LEFT" text="系统维护">
                             <VBox minHeight="130" spacing="10" styleClass="dark-theme">
-                                <Button styleClass="menu-btn" text="系统初始化"/>
-                                <Button styleClass="menu-btn" text="数据备份"/>
-                                <Button styleClass="menu-btn" text="主题设置"/>
+                                <Button styleClass="menu-btn" text="系统初始化" onAction="#listSystemInitialization"/>
+                                <Button styleClass="menu-btn" text="数据备份" onAction="#listDataBackup"/>
+                                <Button styleClass="menu-btn" text="主题设置" onAction="#listThemeSettings"/>
                             </VBox>
                         </TitledPane>
                     </panes>
                 </Accordion>
             </AnchorPane>
-
+            <ScrollPane  fitToWidth="true"  hbarPolicy="NEVER"
+                         vbarPolicy="AS_NEEDED" styleClass="default-theme">
+                <StackPane fx:id="mainContainer" styleClass="default-theme" minWidth="1060">
+                    <padding>
+                        <Insets top="10" left="30" bottom="5" right="10"/>
+                    </padding>
+                </StackPane>
+            </ScrollPane>
             <padding>
                 <Insets top="10"/>
             </padding>
@@ -84,4 +93,5 @@
     <center>
 
     </center>
+
 </BorderPane>

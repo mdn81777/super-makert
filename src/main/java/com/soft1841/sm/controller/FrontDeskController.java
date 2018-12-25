@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -44,13 +45,15 @@ public class FrontDeskController {
                 alert.setContentText("账号或密码错误，登录失败!");
                 alert.showAndWait();
             }
+
             if (flag) {
                 Stage mainStage = new Stage();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/fronfdesk.fxml"));
-                BorderPane root = null;
+                AnchorPane root = null;
+
                 try {
                     root = fxmlLoader.load();
-                } catch (IOException e) {
+                }           catch (IOException e) {
                     e.printStackTrace();
                 }
                 Scene scene = new Scene(root);
