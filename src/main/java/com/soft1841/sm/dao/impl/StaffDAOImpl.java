@@ -35,7 +35,7 @@ public class StaffDAOImpl implements StaffDAO {
     }
 
     @Override
-    public Staff getStaffByEmployeeId(long employeeId) throws SQLException {
+    public Staff getStaffByEmployeeId(Long employeeId) throws SQLException {
         Entity entity =  Db.use().queryOne("SELECT * FROM t_staff WHERE employee_id = ?",employeeId );
         return convertStaff(entity);
     }

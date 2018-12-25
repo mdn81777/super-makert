@@ -36,7 +36,7 @@ public interface StaffDAO {
      * @return
      * @throws SQLException
      */
-    Staff getStaffByEmployeeId(long employeeId)throws SQLException;
+    Staff getStaffByEmployeeId(Long employeeId)throws SQLException;
 
     /**
      * 根据员工号更新员工数据

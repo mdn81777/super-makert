@@ -38,7 +38,7 @@ public class StaffDAOTest {
 
     @Test
     public void getStaffByEmployeeId()throws SQLException {
-        Staff entity = staffDAO.getStaffByEmployeeId(1);
+        Staff entity = staffDAO.getStaffByEmployeeId(1L);
         System.out.println(entity);
     }
 

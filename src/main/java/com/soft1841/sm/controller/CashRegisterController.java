@@ -1,4 +1,13 @@
 package com.soft1841.sm.controller;
 
-public class CashRegisterController {
+import javafx.fxml.Initializable;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class CashRegisterController implements Initializable {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
 }

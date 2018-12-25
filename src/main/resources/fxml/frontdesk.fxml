@@ -36,10 +36,12 @@
                     </children></HBox>
                 <AnchorPane prefHeight="230.0" prefWidth="383.0">
                     <children>
-                        <TextField layoutX="60.0" layoutY="42.0" prefHeight="42.0" prefWidth="270.0" text="用户名" />
-                        <PasswordField layoutX="60.0" layoutY="105.0" prefHeight="42.0" prefWidth="270.0" />
-                        <Button layoutX="60.0" layoutY="169.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" styleClass="btn6-basic" text="登录" />
-                        <Button layoutX="236.0" layoutY="169.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" styleClass="btn6-basic" text="退出" />
+                        <TextField layoutX="60.0" layoutY="42.0" prefHeight="42.0" prefWidth="270.0" text="用户名" fx:id="accountField"/>
+                        <PasswordField layoutX="60.0" layoutY="105.0" prefHeight="42.0" prefWidth="270.0" fx:id="passwordField"/>
+                        <Button layoutX="60.0" layoutY="169.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" styleClass="btn6-basic" text="登录"
+                                onAction="#loginBtnOnAction" fx:id="loginButton"/>
+                        <Button layoutX="236.0" layoutY="169.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" styleClass="btn6-basic"
+                                onAction="#closeBtnOnAction" text="退出"  fx:id="closeButton"/>
                     </children>
                 </AnchorPane>
             </children>
