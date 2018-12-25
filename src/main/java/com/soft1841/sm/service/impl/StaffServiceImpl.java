@@ -8,7 +8,6 @@ import com.soft1841.sm.dao.StaffDAO;
 import com.soft1841.sm.entity.Staff;
 import com.soft1841.sm.service.StaffService;
 import com.soft1841.sm.utils.DAOFactory;
-import javafx.scene.control.Alert;
 
 import java.sql.SQLException;
 import java.util.List;

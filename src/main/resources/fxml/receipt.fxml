@@ -40,13 +40,13 @@
                     <panes>
                         <TitledPane alignment="TOP_LEFT" text="商品管理">
                             <VBox minHeight="100" spacing="10">
-                                <Button styleClass="menu-btn" text="商品类别"/>
-                                <Button styleClass="menu-btn" text="商品信息"/>
+                                <Button styleClass="menu-btn" text="商品类别" onAction="#listProductcategory"/>
+                                <Button styleClass="menu-btn" text="商品信息" onAction="#listProductinformation"/>
                             </VBox>
                         </TitledPane>
                     <TitledPane alignment="TOP_LEFT" text="供应商管理">
                         <VBox minHeight="130" spacing="10">
-                            <Button styleClass="menu-btn" text="供应商信息" />
+                            <Button styleClass="menu-btn" text="供应商信息" onAction="#listSupplierInformation"/>
                         </VBox>
                     </TitledPane>
                     </panes>

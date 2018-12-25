@@ -33,7 +33,7 @@ public class StaffDAOTest {
     @Test
     public void selectAllStaff() throws SQLException {
         List<Entity> StaffList =staffDAO.selectAllStaff();
-        StaffList.forEach(entity -> System.out.println(entity.getStr("name")));
+        StaffList.forEach(entity -> System.out.println(entity.getStr("cover")));
     }
 
     @Test

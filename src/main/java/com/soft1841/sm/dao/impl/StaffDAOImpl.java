@@ -61,6 +61,7 @@ public class StaffDAOImpl implements StaffDAO {
         return null;
     }
 
+
     private  Staff convertStaff(Entity entity){
         Staff staff = new Staff(entity.getInt("id"),
                 entity.getInt("type_id"),

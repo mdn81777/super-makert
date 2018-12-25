@@ -63,7 +63,7 @@
                         </TitledPane>
                         <TitledPane alignment="TOP_LEFT" text="财政管理">
                             <VBox minHeight="100" spacing="10">
-                                <Button styleClass="menu-btn" text="优惠管理" onAction="#listPreferentialManagement"/>
+                                <Button styleClass="menu-btn" text="优惠管理" onAction="#listPreferential"/>
                                 <Button styleClass="menu-btn" text="数据统计分析" onAction="#listStatisticalAnalysis"/>
                             </VBox>
                         </TitledPane>

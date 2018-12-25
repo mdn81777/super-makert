@@ -1,5 +1,12 @@
 package com.soft1841.sm.controller;
 
+/**
+ * 员工控制器
+ *
+ * @author 杨俣韬
+ * 2018-12-25
+ */
+
 import cn.hutool.db.Entity;
 import com.soft1841.sm.dao.StaffDAO;
 import com.soft1841.sm.utils.DAOFactory;
@@ -39,6 +46,7 @@ public class StaffController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         showStaff(list);
     }
 
@@ -50,7 +58,8 @@ public class StaffController implements Initializable {
             vBox.setPrefSize(240, 300);
             vBox.setSpacing(10);
             vBox.setAlignment(Pos.CENTER);
-            ImageView imageView = new ImageView(new Image(entity.getStr("cover")));
+            Image image = new Image(entity.getStr("cover"));
+            ImageView imageView = new ImageView(image);
             imageView.setFitWidth(100);
             imageView.setFitHeight(120);
             Label nameLabel = new Label(entity.getStr("name"));

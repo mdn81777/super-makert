@@ -1,5 +1,6 @@
 package com.soft1841.sm.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -45,7 +46,8 @@ public class MainController  implements Initializable {
         stageNow.close();
 
     }
-    public void closeBtnOnAction(){
+
+    public void closeBtnOnAction() {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }
@@ -62,10 +64,11 @@ public class MainController  implements Initializable {
         }
     }
 
-    public void  listDefault() throws  Exception{
+    public void listDefault() throws Exception {
         switchView("default.fxml");
     }
-    public void  listProductinformation () throws  Exception{
+
+    public void listProductinformation() throws Exception {
         switchView("Goods.fxml");
     }
 
@@ -82,6 +85,28 @@ public class MainController  implements Initializable {
         switchView("staff.fxml");
     }
 
+    public void listMemberInformation() {
+    }
+
+    public void listSupplierInformation() throws Exception {
+        switchView("supplier.fxml");
+    }
+
+    public void listStatisticalAnalysis() {
+    }
+
+    public void listSystemInitialization() {
+    }
+
+    public void listDataBackup() {
+    }
+
+    public void listThemeSettings() {
+    }
+
+    public void listPreferential() {
+    }
+
     private void switchView(String fileName) throws Exception {
         //清空原有内容
         mainContainer.getChildren().clear();
@@ -89,14 +114,7 @@ public class MainController  implements Initializable {
         mainContainer.getChildren().add(anchorPane);
     }
 
-    public  void listMemberInformation() {}
-    public  void listSupplierInformation() throws Exception {
-        switchView("supplier.fxml");
-    }
-    public  void listPreferentialManagement(){}
-    public  void listStatisticalAnalysis(){}
-    public  void listSystemInitialization(){}
-    public  void listDataBackup(){}
-    public  void listThemeSettings(){}
 
 }
+
+
