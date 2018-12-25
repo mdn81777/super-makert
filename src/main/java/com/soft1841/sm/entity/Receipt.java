@@ -83,4 +83,15 @@ public class Receipt {
     public void setTotal(double total) {
         this.total.set(total);
     }
+
+    @Override
+    public String toString() {
+        return "Receipt{" +
+                "id=" + id +
+                ", employeeId=" + employeeId +
+                ", memberId=" + memberId +
+                ", time=" + time +
+                ", total=" + total +
+                '}';
+    }
 }

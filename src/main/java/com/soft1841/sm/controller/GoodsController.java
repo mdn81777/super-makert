@@ -147,7 +147,7 @@ public class GoodsController implements Initializable {
                         Entity entity = goodsDAO.getGoodsByTypeId((int) id);
                         goods.setId(entity.getLong("id"));
                         goods.setTypeId(entity.getLong("type_id"));
-                        goods.setName(entity.getStr("name"));
+                        goods.setName(entity.getStr("goods_name"));
                         goods.setPrice(entity.getDouble("price"));
                         goods.setCover(entity.getStr("cover"));
                         goods.setDescription(entity.getStr("description"));
@@ -214,9 +214,10 @@ public class GoodsController implements Initializable {
         for (Entity entity:goodsList) {
             Goods goods = new Goods();
             goods.setId(entity.getLong("id"));
-            goods.setName(entity.getStr("name"));
+            goods.setName(entity.getStr("goods_name"));
             goods.setPrice(entity.getDouble("price"));
             goods.setStock(entity.getInt("stock"));
+            goods.setBarcode(entity.getStr("barcode"));
             goodsData.add(goods);
         }
         goodsTable.setItems(goodsData);
