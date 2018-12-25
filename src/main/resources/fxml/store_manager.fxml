@@ -26,6 +26,8 @@
             </Label>
             <Button fx:id="closeButton" onAction="#closeBtnOnAction" text="退出系统" AnchorPane.rightAnchor="20"
                     AnchorPane.topAnchor="20"/>
+            <Button fx:id="outLogin" onAction="#outLoginBtnOnAction" text="退出登录" AnchorPane.topAnchor="20"
+                    AnchorPane.rightAnchor="100"/>
         </AnchorPane>
     </top>
     <left>
