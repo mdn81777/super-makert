@@ -39,7 +39,7 @@ public class LoginController {
         stage.close();
     }
 
-    public void loginBtnOnAction() {
+    public void loginBtnOnAction() throws IOException {
 //        System.out.println("come");
         //读取文本框的账号密码
         String accountStr = accountField.getText().trim();
@@ -76,12 +76,7 @@ public class LoginController {
         if (flag) {
             Stage mainStage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/" + position));
-            BorderPane root = null;
-            try {
-                root = fxmlLoader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            BorderPane root = fxmlLoader.load();
             mainStage.getIcons().add(new Image("/img/TeamLogo.png"));
             mainStage.setTitle("盐系超市后台系统");
             Scene scene = new Scene(root);

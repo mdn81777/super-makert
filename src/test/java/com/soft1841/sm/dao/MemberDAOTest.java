@@ -20,7 +20,7 @@ public class MemberDAOTest {
     @Test
     public void insertMember() throws SQLException {
         Member member = new Member();
-        member.setId(1l);
+        member.setId("");
         member.setName("");
         member.setAddress("");
         member.setPhone("");

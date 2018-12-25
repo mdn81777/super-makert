@@ -106,4 +106,7 @@ public class Member {
                 ", integral=" + integral +
                 '}';
     }
+
+    public void setId(String toString) {
+    }
 }
