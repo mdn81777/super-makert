@@ -17,7 +17,7 @@ public class StaffServiceImpl implements StaffService {
         try {
             staff = staffDAO.getStaffByEmployeeId(employeeId);
         } catch (NullPointerException e) {
-            e.printStackTrace();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -35,7 +35,7 @@ public class StaffServiceImpl implements StaffService {
         try {
             staff = staffDAO.getStaffByEmployeeId(employeeId);
         } catch (NullPointerException e) {
-            e.printStackTrace();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
