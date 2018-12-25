@@ -24,7 +24,7 @@ public class SupplierDAOImpl implements SupplierDAO {
 
     @Override
     public List<Entity> selectAllSupplier() throws SQLException {
-        return Db.use().query("SELECT * FROM t_staff");
+        return Db.use().query("SELECT * FROM t_supplier");
     }
 
 

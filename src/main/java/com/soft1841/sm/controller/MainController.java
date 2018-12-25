@@ -55,7 +55,7 @@ public class MainController  implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         try {
-            AnchorPane anchorPane = new FXMLLoader(getClass().getResource("/fxml/default.fxml")).load();
+            AnchorPane anchorPane = new FXMLLoader(getClass().getResource("/fxml/login.fxml")).load();
             mainContainer.getChildren().add(anchorPane);
         } catch (IOException e) {
             e.printStackTrace();
@@ -90,7 +90,9 @@ public class MainController  implements Initializable {
     }
 
     public  void listMemberInformation() {}
-    public  void listSupplierInformation() {}
+    public  void listSupplierInformation() throws Exception {
+        switchView("supplier.fxml");
+    }
     public  void listPreferentialManagement(){}
     public  void listStatisticalAnalysis(){}
     public  void listSystemInitialization(){}
