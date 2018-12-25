@@ -57,7 +57,7 @@ public class PositionController implements Initializable {
                 deleteButton.setOnAction(event -> {
                     //删除操作之前，弹出确认对话框，点击确认按钮才删除
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert.setTitle("确认对话框");
+                    alert.setTitle("确认");
                     alert.setHeaderText("请确认");
                     alert.setContentText("确定要删除这行记录吗?");
                     Optional<ButtonType> result = alert.showAndWait();
@@ -96,7 +96,7 @@ public class PositionController implements Initializable {
             String positionName = result.get();
             Position position = new Position();
             position.setPosition(positionName);
-            long id = 0;
+            long id = Long.parseLong(null);
             try {
                 id = positionDAO.insertPosition(position);
             } catch (SQLException e) {
