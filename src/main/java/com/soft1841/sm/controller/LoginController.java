@@ -23,7 +23,7 @@ public class LoginController {
     @FXML
     private PasswordField passwordField;
 
-    private StaffService staffService =  ServiceFactory.getStaffServiceInstance();
+    private StaffService staffService = ServiceFactory.getStaffServiceInstance();
 
 
     //退出按钮的功能实现
@@ -38,7 +38,7 @@ public class LoginController {
         String password = passwordField.getText().trim();
         Long account = Long.parseLong(accountStr);
         boolean flag;
-
+        int typeId = staffService.getType(account);
         if (staffService.login(account, password)) {
             flag = true;
         } else {
@@ -49,8 +49,15 @@ public class LoginController {
             alert.showAndWait();
         }
 
-        if (flag) {
+        if (typeId == 4) {
+            flag = false;
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("提示");
+            alert.setContentText("您的权限不足!");
+            alert.showAndWait();
+        }
 
+        if (flag) {
             Stage mainStage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
             BorderPane root = null;
@@ -59,9 +66,9 @@ public class LoginController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            Scene scene = new Scene(root);
             mainStage.getIcons().add(new Image("/img/TeamLogo.png"));
             mainStage.setTitle("盐系超市后台系统");
+            Scene scene = new Scene(root);
             mainStage.setMaximized(true);
             mainStage.setScene(scene);
             mainStage.show();

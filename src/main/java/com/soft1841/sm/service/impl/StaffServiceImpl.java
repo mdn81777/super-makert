@@ -28,4 +28,17 @@ public class StaffServiceImpl implements StaffService {
         }
         return false;
     }
+
+    @Override
+    public int getType(Long employeeId) {
+        Staff staff = null;
+        try {
+            staff = staffDAO.getStaffByEmployeeId(employeeId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        int typeId = staff.getTypeId();
+        return typeId;
+    }
+
 }

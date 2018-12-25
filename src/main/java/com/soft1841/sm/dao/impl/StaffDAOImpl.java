@@ -35,10 +35,18 @@ public class StaffDAOImpl implements StaffDAO {
     }
 
     @Override
-    public Staff getStaffByEmployeeId(Long employeeId) throws SQLException {
+    public Staff getStaffByEmployeeId(long employeeId) throws SQLException {
         Entity entity =  Db.use().queryOne("SELECT * FROM t_staff WHERE employee_id = ?",employeeId );
         return convertStaff(entity);
     }
+
+    @Override
+    public Staff getStaffByTypeId(int typeId) throws SQLException {
+        Entity entity =  Db.use().queryOne("SELECT * FROM t_staff WHERE type_id = ?",typeId );
+        return convertStaff(entity);
+    }
+
+
 
     @Override
     public int updateStaff(Staff staff) throws SQLException {
@@ -55,7 +63,7 @@ public class StaffDAOImpl implements StaffDAO {
 
     private  Staff convertStaff(Entity entity){
         Staff staff = new Staff(entity.getInt("id"),
-                entity.getLong("type_id"),
+                entity.getInt("type_id"),
                 entity.getLong("employee_id"),
                 entity.getStr("password"),
                 entity.getStr("name"),
