@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.soft1841.sm.controller.GoodsController">
+    <HBox alignment="BOTTOM_CENTER" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" spacing="20">
+        <Button styleClass="btn7-basic" text="添加商品" onAction="#newGoodsStage"/>
+        <Button styleClass="btn5-basic" text="导出数据"/>
+    </HBox>
+    <HBox>
+        <ComboBox promptText="选择商品类别" fx:id="typeComboBox" prefWidth="150"/>
+        <TextField promptText="请输入关键词" fx:id="keywordsField"/>
+        <Button styleClass="btn9-basic" text="搜索" onAction="#search"/>
+    </HBox>
+    <TableView fx:id="goodsTable" prefWidth="1200"
+    AnchorPane.topAnchor="150" AnchorPane.leftAnchor="10">
+        <columns>
+            <TableColumn text="ID">
+                <cellValueFactory>
+                    <PropertyValueFactory property="id"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="商品名称">
+                <cellValueFactory>
+                    <PropertyValueFactory property="goods_name"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="价格">
+                <cellValueFactory>
+                    <PropertyValueFactory property="price"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="条形码">
+                <cellValueFactory>
+                    <PropertyValueFactory property="barcode"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="库存">
+                <cellValueFactory>
+                    <PropertyValueFactory property="stock"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+</AnchorPane>

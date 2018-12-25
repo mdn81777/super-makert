@@ -1,4 +1,8 @@
 package com.soft1841.sm.dao.impl;
+/**
+ *商品的实现类
+ * @author蔡一帆
+ */
 
 import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
@@ -46,7 +50,10 @@ public class GoodsDAOImpl implements GoodsDAO {
     public List<Entity> selectGoodsLike(String keywords) throws SQLException {
         return Db.use().findLike("t_goods","goods_name,",keywords, Condition.LikeType.Contains);
     };
-
+    @Override
+    public List<Entity> selectGoodsByTypeId(long id) throws SQLException{
+        return Db.use().query("SELECT *FROM t_goods WHERE id = ?",id);
+    };
 
     @Override
     public int updateGoods(Goods goods) throws SQLException {
@@ -55,5 +62,6 @@ public class GoodsDAOImpl implements GoodsDAO {
                         .set("goods_ stock",goods.getStock()),
                 Entity.create("t_goods").set("goods_barcode",goods.getBarcode())
         );
+
     }
 }

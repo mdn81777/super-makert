@@ -38,8 +38,8 @@ public class GoodsDAOTest {
     }
 
     @Test
-    public void getGoodsByTypeId() throws SQLException {
-        Entity entity = goodsDAO.getGoodsByTypeId(1);
+    public void selectGoodsByTypeId() throws SQLException {
+        Entity entity = (Entity) goodsDAO.selectGoodsByTypeId(1);
         System.out.println(entity);
 }
 

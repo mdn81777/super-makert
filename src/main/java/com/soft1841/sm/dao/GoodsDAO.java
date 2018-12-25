@@ -53,4 +53,11 @@ public interface GoodsDAO {
      */
     int updateGoods(Goods goods) throws SQLException;
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws SQLException
+     */
+    List<Entity> selectGoodsByTypeId(long id) throws SQLException;
 }

@@ -100,8 +100,8 @@ public class Goods {
         this.description.set(description);
     }
 
-    public String getBarcode() {
-        return barcode.get();
+    public long getBarcode() {
+        return Long.parseLong(barcode.get());
     }
 
     public SimpleStringProperty barcodeProperty() {

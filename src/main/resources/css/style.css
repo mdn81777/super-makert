@@ -32,7 +32,7 @@
 }
 .btn5-basic
 {
-    -fx-background-color: #00A588; -fx-border-radius: 5PX;
+    -fx-background-color: #00A588; -fx-border-radius: 50PX;
 }
 .btn6-basic{
     -fx-background-color: #00C9B6; -fx-border-radius: 50px;
@@ -55,6 +55,9 @@
 .btn11-basic{
     -fx-background-color: #A7FFA8; -fx-border-radius: 5PX;
 }
-.btn12-basic{
-    -fx-text-fill: #FFFFFF;
+.box{
+    -fx-border-color: rgb(162,162,162);
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 5 5 5 5 ;
 }
