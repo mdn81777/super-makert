@@ -9,6 +9,7 @@ import java.util.List;
 public interface PositionDAO {
     /**
      * 新增员工职位
+     *
      * @param position
      * @return
      * @throws SQLException
@@ -17,8 +18,18 @@ public interface PositionDAO {
 
     /**
      * 查询员工职业
+     *
      * @return
      * @throws SQLException
      */
     List<Entity> selectAllPosition() throws SQLException;
+
+    /**
+     * 根据ID删除职位
+     *
+     * @param id
+     * @return
+     * @throws SQLException
+     */
+    int deletePosition(int id) throws SQLException;
 }

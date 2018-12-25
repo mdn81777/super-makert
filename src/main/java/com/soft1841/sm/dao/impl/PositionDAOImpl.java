@@ -22,4 +22,11 @@ public class PositionDAOImpl implements PositionDAO {
     public List<Entity> selectAllPosition() throws SQLException {
         return Db.use().query("SELECT * FROM t_position");
     }
+
+    @Override
+    public int deletePosition(int id) throws SQLException {
+        return Db.use().del(
+                Entity.create("t_position").set("id", id)
+        );
+    }
 }

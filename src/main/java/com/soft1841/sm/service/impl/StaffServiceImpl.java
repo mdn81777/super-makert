@@ -9,17 +9,17 @@ import javafx.scene.control.Alert;
 import java.sql.SQLException;
 
 public class StaffServiceImpl implements StaffService {
-    private  StaffDAO staffDAO = DAOFactory.getStaffDAOInstance();
+    private StaffDAO staffDAO = DAOFactory.getStaffDAOInstance();
+
     @Override
     public boolean login(Long employeeId, String password) {
         Staff staff = null;
         try {
-            staff =staffDAO.getStaffByEmployeeId(employeeId) ;
+            staff = staffDAO.getStaffByEmployeeId(employeeId);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         } catch (SQLException e) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("提示");
-            alert.setContentText("账号不存在!");
-            alert.showAndWait();
+            e.printStackTrace();
         }
         if (staff != null) {
             if (password.equals(staff.getPassWord())) {
@@ -34,11 +34,15 @@ public class StaffServiceImpl implements StaffService {
         Staff staff = null;
         try {
             staff = staffDAO.getStaffByEmployeeId(employeeId);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        int typeId = staff.getTypeId();
-        return typeId;
+        if (staff != null) {
+            int typeId = staff.getTypeId();
+            return typeId;
+        } else return 0;
     }
 
 }

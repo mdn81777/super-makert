@@ -10,7 +10,7 @@ public class StaffServiceTest {
     @Test
     public void login(){
         Boolean flag;
-        flag = staffService.login(113l,"123");
+        flag = staffService.login(123l,"123");
         System.out.println(flag);
     }
 
