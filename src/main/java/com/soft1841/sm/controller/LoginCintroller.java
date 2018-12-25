@@ -32,15 +32,16 @@ public class LoginCintroller {
         stage.close();
     }
 
-    public void loginBtnOnAction(){
+    public void loginBtnOnAction() {
         //读取文本框的账号密码
         String accountStr = accountField.getText().trim();
         String password = passwordField.getText().trim();
         Long account = Long.parseLong(accountStr);
         boolean flag;
 
-        if (staffService.login(account, password)){ flag = true;}
-        else {
+        if (staffService.login(account, password)) {
+            flag = true;
+        } else {
             flag = false;
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("提示");
@@ -49,6 +50,7 @@ public class LoginCintroller {
         }
 
         if (flag) {
+
             Stage mainStage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
             BorderPane root = null;

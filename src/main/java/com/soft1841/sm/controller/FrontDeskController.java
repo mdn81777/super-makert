@@ -23,8 +23,9 @@ public class FrontDeskController {
 
     private StaffService staffService = ServiceFactory.getStaffServiceInstance();
     public void login() throws Exception {
-        String account = accountField.getText().trim();
+        String accountStr = accountField.getText().trim();
         String password = passwordField.getText().trim();
+        Long account = Long.parseLong(accountStr);
         //调用service的登录 功能
         boolean flag = staffService.login(account, password);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
