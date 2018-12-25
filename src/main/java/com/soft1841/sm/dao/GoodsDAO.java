@@ -1,4 +1,8 @@
 package com.soft1841.sm.dao;
+/**
+ * 商品接口
+ * @author蔡一帆
+ */
 
 import cn.hutool.db.Entity;
 import com.soft1841.sm.entity.Goods;
