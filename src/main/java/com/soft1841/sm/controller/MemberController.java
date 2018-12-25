@@ -187,7 +187,7 @@ public class MemberController implements Initializable {
             member.setAddress(addressString);
             member.setPhone(phoneString);
 
-            System.out.println(member.getName() + member.getId() + member.getPhone());
+            //System.out.println(member.getMemberId() + member.getId() + member.);
             try{
                 memberDAO.insertMember(member);
             }catch (SQLException e){
