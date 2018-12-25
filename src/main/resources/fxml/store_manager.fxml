@@ -77,8 +77,8 @@
                     </panes>
                 </Accordion>
             </AnchorPane>
-            <ScrollPane  fitToWidth="true"  hbarPolicy="NEVER"
-                         vbarPolicy="AS_NEEDED" styleClass="default-theme">
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER"
+                        vbarPolicy="AS_NEEDED" styleClass="default-theme">
                 <StackPane fx:id="mainContainer" styleClass="default-theme" minWidth="1060">
                     <padding>
                         <Insets top="10" left="30" bottom="5" right="10"/>
