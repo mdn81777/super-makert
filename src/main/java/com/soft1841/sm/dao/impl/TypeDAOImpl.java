@@ -1,4 +1,8 @@
 package com.soft1841.sm.dao.impl;
+/**
+ * 实现类别类
+ * @author 孟妮
+ */
 
 import cn.hutool.db.Db;
 import cn.hutool.db.Entity;

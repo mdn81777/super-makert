@@ -1,4 +1,8 @@
 package com.soft1841.sm.entity;
+/**
+ * 类别实体类
+ * @author 孟妮
+ */
 
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;

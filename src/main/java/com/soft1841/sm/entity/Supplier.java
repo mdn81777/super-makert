@@ -4,6 +4,7 @@ import com.sun.org.apache.xalan.internal.xsltc.dom.SimpleResultTreeImpl;
 
 /**
  * 供应商实体类
+ * @author 孟妮
  */
 public class Supplier{
     private  Long id;

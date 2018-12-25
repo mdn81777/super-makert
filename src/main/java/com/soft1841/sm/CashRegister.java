@@ -1,4 +1,8 @@
 package com.soft1841.sm;
+/**
+ * 收银界面主程序
+ * @author 孟妮
+ */
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

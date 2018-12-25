@@ -1,4 +1,8 @@
 package com.soft1841.sm.dao;
+/**
+ * 供应商类
+ * @author 孟妮
+ */
 
 import cn.hutool.db.Entity;
 import com.soft1841.sm.entity.Supplier;

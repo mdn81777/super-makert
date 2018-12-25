@@ -1,4 +1,8 @@
 package com.soft1841.sm.dao;
+/**
+ *
+ * @author 孟妮
+ */
 
 import cn.hutool.db.Entity;
 import com.soft1841.sm.entity.Detail;

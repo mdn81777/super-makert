@@ -1,5 +1,8 @@
 package com.soft1841.sm;
-
+/**
+ * 前台主程序
+ * @author 孟妮
+ */
 
 import com.soft1841.sm.LoginApp;
 import javafx.application.Application;

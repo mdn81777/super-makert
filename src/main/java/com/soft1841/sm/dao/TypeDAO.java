@@ -5,6 +5,10 @@ import com.soft1841.sm.entity.Type;
 
 import java.sql.SQLException;
 import java.util.List;
+/**
+ * 商品类别DAO接口
+ * @author 孟妮
+ */
 
 public  interface TypeDAO {
 
@@ -13,19 +17,19 @@ public  interface TypeDAO {
       * @param type
       * @return
       */
-   public abstract Long insertType(Type type) throws SQLException;
+   Long insertType(Type type) throws SQLException;
    /**
      * 根据id删除类别
      * @param  id
      * @return
      */
-   public abstract int deleteTypeById(long id)throws  SQLException;
+    int deleteTypeById(long id)throws  SQLException;
 
     /**
      * 查询所有类别
      * @return
      */
-    public abstract List<Entity> selectAllTypes() throws SQLException;
+    List<Entity> selectAllTypes() throws SQLException;
 
     /**
      * 根据id查询类别信息
@@ -33,14 +37,14 @@ public  interface TypeDAO {
      * @return
      * @throws SQLException
      */
-    public abstract Entity getTypeByID(int id) throws  SQLException;
+     Entity getTypeByID(int id) throws  SQLException;
 
     /**
-     *
+     *修改商品类别信息
      * @param type
      * @return
      * @throws SQLException
      */
-    public abstract int updateType(Type type) throws  SQLException;
+     int updateType(Type type) throws  SQLException;
 
 }
