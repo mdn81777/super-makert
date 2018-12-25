@@ -53,4 +53,9 @@ public class MemberDAOImpl implements MemberDAO {
         );
 
     }
+
+    @Override
+    public void deleteMemberid(long id) {
+
+    }
 }

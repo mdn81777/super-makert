@@ -60,4 +60,6 @@ public interface MemberDAO {
      * @throws SQLException
      */
     int updateMember(Member member) throws SQLException;
+
+    void deleteMemberid(long id);
 }

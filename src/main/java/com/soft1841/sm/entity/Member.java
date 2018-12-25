@@ -6,21 +6,30 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Member {
     private final SimpleLongProperty id = new SimpleLongProperty();
-    private final SimpleLongProperty memberId = new SimpleLongProperty();
+    private final SimpleStringProperty memberId = new SimpleStringProperty();
     private final SimpleStringProperty name = new SimpleStringProperty("");
     private final SimpleStringProperty address = new SimpleStringProperty("");
     private final SimpleStringProperty phone = new SimpleStringProperty("");
     private final SimpleIntegerProperty integral = new SimpleIntegerProperty();
 
     public Member() {
-    }
-
-    public Member(Long memberId, String name, String address, String phone, Integer integer) {
         setMemberId(memberId);
         setName(name);
         setAddress(address);
         setPhone(phone);
-        setIntegral(integer);
+        setIntegral(integral);
+    }
+
+    private void setIntegral(SimpleIntegerProperty integral) {
+    }
+
+    private void setPhone(SimpleStringProperty phone) {
+    }
+
+    private void setAddress(SimpleStringProperty address) {
+    }
+
+    private void setName(SimpleStringProperty name) {
     }
 
     public long getId() {
@@ -31,20 +40,20 @@ public class Member {
         return id;
     }
 
-    public void setId(long id) {
-        this.id.set(id);
+    public void setId(String id) {
+        this.id.set(Long.parseLong(id));
     }
 
-    public Long getMemberId() {
+    public String getMemberId() {
         return memberId.get();
     }
 
-    public SimpleLongProperty memberIdProperty() {
+    public SimpleStringProperty memberIdProperty() {
         return memberId;
     }
 
-    public void setMemberId(Long memberId) {
-        this.memberId.set(memberId);
+    public void setMemberId(SimpleStringProperty memberId) {
+        this.memberId.set(String.valueOf(memberId));
     }
 
     public String getName() {
