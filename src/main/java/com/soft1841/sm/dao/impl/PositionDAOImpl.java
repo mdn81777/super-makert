@@ -14,7 +14,7 @@ public class PositionDAOImpl implements PositionDAO {
     public Long insertPosition(Position position) throws SQLException {
         return Db.use().insertForGeneratedKey(
                 Entity.create("t_position")
-                .set("position",position.getPosition())
+                .set("PositionController",position.getPosition())
         );
     }
 

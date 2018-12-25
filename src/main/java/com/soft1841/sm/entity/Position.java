@@ -42,7 +42,7 @@ public class Position {
     public String toString() {
         return "Position{" +
                 "id=" + id +
-                ", position=" + position +
+                ", PositionController=" + position +
                 '}';
     }
 }
