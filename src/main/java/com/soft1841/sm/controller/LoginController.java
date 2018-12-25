@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LoginCintroller {
+public class LoginController {
     @FXML
     private Button closeButton;
     @FXML
