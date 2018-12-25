@@ -19,8 +19,8 @@
 
     <children>
         <HBox prefHeight="34.0" prefWidth="1096.0" styleClass="blue-theme"  />
-        <HBox layoutX="332.0" layoutY="421.0" prefHeight="55.0" prefWidth="674.0" />
-        <GridPane layoutX="-6.0" layoutY="537.0" prefHeight="120.0" prefWidth="301.0">
+        <HBox AnchorPane.leftAnchor="332.0" AnchorPane.topAnchor="421.0" prefHeight="55.0" prefWidth="674.0" />
+        <GridPane AnchorPane.leftAnchor="-6.0" AnchorPane.topAnchor="537.0" prefHeight="120.0" prefWidth="301.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="136.0" minWidth="10.0" prefWidth="56.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="225.0" minWidth="10.0" prefWidth="225.0" />
@@ -31,14 +31,14 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
         </GridPane>
-        <TableView layoutX="3.0" layoutY="123.0" prefHeight="596.0" prefWidth="585.0">
+        <TableView AnchorPane.leftAnchor="3.0" AnchorPane.topAnchor="123.0" prefHeight="596.0" prefWidth="585.0">
             <columns>
                 <TableColumn prefWidth="75.0" text="序号" />
                 <TableColumn prefWidth="75.0" text="商品名称" />
             </columns>
         </TableView>
-        <TextField layoutX="79.0" layoutY="55.0" prefHeight="55.0" prefWidth="397.0" text="商品条形码" />
-        <HBox layoutX="7.0" layoutY="55.0" prefHeight="50.0" prefWidth="64.0" styleClass="btn-basic">
+        <TextField AnchorPane.leftAnchor="79.0" AnchorPane.topAnchor="55.0" prefHeight="55.0" prefWidth="397.0" text="商品条形码" />
+        <HBox AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="55.0" prefHeight="50.0" prefWidth="64.0" styleClass="btn-basic">
             <padding>
                 <Insets left="7.0" top="5.0" />
             </padding>
@@ -51,7 +51,7 @@
             </children>
         </HBox>
         <Label alignment="CENTER" layoutX="484.0" layoutY="55.0" prefHeight="54.0" prefWidth="101.0" styleClass="btn3-basic" text="确认" />
-        <HBox layoutX="598.0" layoutY="55.0" prefHeight="69.0" prefWidth="490.0">
+        <HBox AnchorPane.leftAnchor="598.0" AnchorPane.topAnchor="55.0" prefHeight="69.0" prefWidth="490.0">
             <children>
                 <Label alignment="CENTER" prefHeight="69.0" prefWidth="150.0" styleClass="btn-radius-normal" text="应收">
                     <font>
@@ -70,7 +70,7 @@
                 </Label>
             </children>
         </HBox>
-        <HBox layoutX="598.0" layoutY="286.0" prefHeight="62.0" prefWidth="483.0" spacing="16.0">
+        <HBox AnchorPane.leftAnchor="598.0" AnchorPane.topAnchor="286.0" prefHeight="62.0" prefWidth="483.0" spacing="16.0">
             <children>
                 <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="155.0" styleClass="btn2-basic" text="现金支付" />
                 <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="97.0" styleClass="btn4-basic" text="1">
@@ -87,7 +87,7 @@
                     </font></Button>
             </children>
         </HBox>
-        <HBox layoutX="598.0" layoutY="348.0" prefHeight="55.0" prefWidth="483.0" spacing="16.0">
+        <HBox AnchorPane.leftAnchor="598.0" AnchorPane.topAnchor="348.0" prefHeight="55.0" prefWidth="483.0" spacing="16.0">
             <children>
                 <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="154.0" styleClass="green-theme" text="支付宝支付" />
                 <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" styleClass="btn4-basic" text="4">
@@ -104,7 +104,7 @@
                     </font></Button>
             </children>
         </HBox>
-        <HBox layoutX="598.0" layoutY="413.0" prefHeight="57.0" prefWidth="483.0" spacing="16.0">
+        <HBox AnchorPane.leftAnchor="598.0" AnchorPane.topAnchor="413.0" prefHeight="57.0" prefWidth="483.0" spacing="16.0">
             <children>
                 <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="164.0" styleClass="green-theme" text="微信支付" />
                 <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="116.0" styleClass="btn4-basic" text="7">
@@ -121,7 +121,7 @@
                     </font></Button>
             </children>
         </HBox>
-        <HBox layoutX="598.0" layoutY="472.0" prefHeight="57.0" prefWidth="483.0" spacing="16.0">
+        <HBox AnchorPane.leftAnchor="598.0" AnchorPane.topAnchor="472.0" prefHeight="57.0" prefWidth="483.0" spacing="16.0">
             <children>
                 <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="169.0" styleClass="green-theme" text="银行卡支付" />
                 <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="122.0" styleClass="btn4-basic" text="0">
@@ -138,14 +138,14 @@
                     </font></Button>
             </children>
         </HBox>
-        <HBox layoutX="598.0" layoutY="536.0" prefHeight="55.0" prefWidth="483.0" spacing="20.0">
+        <HBox AnchorPane.leftAnchor="598.0" AnchorPane.topAnchor="536.0" prefHeight="55.0" prefWidth="483.0" spacing="20.0">
             <children>
                 <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="167.0" styleClass="btn10-basic" text="删除" />
                 <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="149.0" styleClass="btn11-basic" text="清空" />
                 <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="140.0" styleClass="btn3-basic" text="结算" />
             </children>
         </HBox>
-        <VBox layoutX="598.0" layoutY="128.0" prefHeight="157.0" prefWidth="241.0">
+        <VBox AnchorPane.leftAnchor="598.0" AnchorPane.topAnchor="128.0" prefHeight="157.0" prefWidth="241.0">
             <children>
                 <Label prefHeight="37.0" prefWidth="240.0" text="收银员：" />
                 <Label prefHeight="39.0" prefWidth="241.0" text="班次：" />
@@ -153,7 +153,7 @@
                 <Label prefHeight="43.0" prefWidth="241.0" text="流水号：" />
             </children>
         </VBox>
-        <VBox layoutX="843.0" layoutY="126.0" prefHeight="157.0" prefWidth="241.0">
+        <VBox AnchorPane.leftAnchor="843.0" AnchorPane.topAnchor="126.0" prefHeight="157.0" prefWidth="241.0">
             <children>
                 <Label prefHeight="38.0" prefWidth="241.0" text="姓名：" />
                 <Label prefHeight="35.0" prefWidth="241.0" text="会员号：" />
@@ -161,7 +161,7 @@
                 <Label prefHeight="38.0" prefWidth="241.0" text="折扣：" />
             </children>
         </VBox>
-        <HBox layoutX="598.0" layoutY="597.0" prefHeight="54.0" prefWidth="483.0" spacing="23.0">
+        <HBox AnchorPane.leftAnchor="598.0" AnchorPane.topAnchor="597.0" prefHeight="54.0" prefWidth="483.0" spacing="23.0">
             <children>
                 <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="109.0" styleClass="btn-radius-normal" text="挂单" />
                 <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="108.0" styleClass="btn-radius-normal" text="退单" />
@@ -169,7 +169,7 @@
                 <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="105.0" styleClass="btn-radius-normal" text="退货" />
             </children>
         </HBox>
-        <HBox layoutX="598.0" layoutY="657.0" prefHeight="54.0" prefWidth="483.0" spacing="23.0">
+        <HBox AnchorPane.leftAnchor="598.0" AnchorPane.topAnchor="657.0" prefHeight="54.0" prefWidth="483.0" spacing="23.0">
             <children>
                 <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="109.0" styleClass="btn-radius-normal" text="抹零" />
                 <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="108.0" styleClass="btn-radius-normal" text="会员" />
@@ -177,7 +177,7 @@
                 <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="105.0" styleClass="btn-radius-normal" text="打印" />
             </children>
         </HBox>
-        <Label layoutX="-98.0" layoutY="-34.0" prefHeight="34.0" prefWidth="210.0" text="盐系Supermarket" />
+        <Label AnchorPane.leftAnchor="-98.0" AnchorPane.topAnchor="-34.0" prefHeight="34.0" prefWidth="210.0" text="盐系Supermarket" />
     </children>
     <padding>
         <Insets top="5.0" />

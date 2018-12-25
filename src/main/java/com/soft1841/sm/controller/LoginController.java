@@ -33,6 +33,7 @@ public class LoginController {
     }
 
     public void loginBtnOnAction() {
+//        System.out.println("come");
         //读取文本框的账号密码
         String accountStr = accountField.getText().trim();
         String password = passwordField.getText().trim();

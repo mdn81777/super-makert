@@ -10,6 +10,7 @@ import java.util.List;
 
 public class SupplierDAOImpl implements SupplierDAO {
 
+
     @Override
     public Long insertSupplier(Supplier supplier) throws SQLException {
         return Db.use().insertForGeneratedKey(
@@ -17,10 +18,9 @@ public class SupplierDAOImpl implements SupplierDAO {
                         .set("supplier_name", supplier.getSupplierName())
                         .set("supplier_address", supplier.getSupplierAddress())
                         .set("supplier_phone",supplier.getSupplierPhone())
-                        .set("linkman", supplier.getLinkman())
-        );
-    }
+                        .set("linkman", supplier.getLinkman()));
 
+    }
 
     @Override
     public List<Entity> selectAllSupplier() throws SQLException {

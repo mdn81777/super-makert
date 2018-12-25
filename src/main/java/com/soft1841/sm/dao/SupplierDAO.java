@@ -12,7 +12,7 @@ public interface SupplierDAO {
 
     /**
      * 新增供应商，返回自增主键
-     * @param supplier
+     * @param
      * @return
      * @throws SQLException
      */

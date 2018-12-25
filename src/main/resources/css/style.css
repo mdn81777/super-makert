@@ -55,3 +55,6 @@
 .btn11-basic{
     -fx-background-color: #A7FFA8; -fx-border-radius: 5PX;
 }
+.btn12-basic{
+    -fx-text-fill: #FFFFFF;
+}
