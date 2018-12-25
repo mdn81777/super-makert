@@ -1,7 +1,7 @@
 package com.soft1841.sm.dao.impl;
 /**
  *商品的实现类
- * @author蔡一帆
+ * @author 蔡一帆
  */
 
 import cn.hutool.db.Db;

@@ -45,35 +45,35 @@ public class StaffController implements Initializable {
     private void showStaff(List<Entity> list) {
         ObservableList<Node> observableList = staffPane.getChildren();
         staffPane.getChildren().removeAll(observableList);
-for(Entity entity : list){
-    VBox vBox = new VBox();
-    vBox.setPrefSize(240, 300);
-    vBox.setSpacing(10);
-    vBox.setAlignment(Pos.CENTER);
-    ImageView imageView = new ImageView(new Image(entity.getStr("cover")));
-    imageView.setFitWidth(100);
-    imageView.setFitHeight(120);
-    Label nameLabel = new Label(entity.getStr("name"));
-    Label addressLabel = new Label(entity.getStr("address"));
-    Button delBtn = new Button("删除");
-    delBtn.getStyleClass().add("warning-theme");
-    vBox.getChildren().addAll(imageView, nameLabel,addressLabel,delBtn);
-    staffPane.getChildren().add(vBox);
-    delBtn.setOnAction(event -> {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("确认对话框");
-        alert.setContentText("确定要删除吗?");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK) {
-            try {
-                long employeeId = entity.getLong("employee_id");
-                staffDAO.deleteStaffByEmployeeId(employeeId);
-                staffPane.getChildren().remove(vBox);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+        for (Entity entity : list) {
+            VBox vBox = new VBox();
+            vBox.setPrefSize(240, 300);
+            vBox.setSpacing(10);
+            vBox.setAlignment(Pos.CENTER);
+            ImageView imageView = new ImageView(new Image(entity.getStr("cover")));
+            imageView.setFitWidth(100);
+            imageView.setFitHeight(120);
+            Label nameLabel = new Label(entity.getStr("name"));
+            Label addressLabel = new Label(entity.getStr("address"));
+            Button delBtn = new Button("删除");
+            delBtn.getStyleClass().add("warning-theme");
+            vBox.getChildren().addAll(imageView, nameLabel, addressLabel, delBtn);
+            staffPane.getChildren().add(vBox);
+            delBtn.setOnAction(event -> {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("确认对话框");
+                alert.setContentText("确定要删除吗?");
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == ButtonType.OK) {
+                    try {
+                        long employeeId = entity.getLong("employee_id");
+                        staffDAO.deleteStaffByEmployeeId(employeeId);
+                        staffPane.getChildren().remove(vBox);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         }
-    });
-}
     }
 }

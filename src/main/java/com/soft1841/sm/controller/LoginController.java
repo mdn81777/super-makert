@@ -87,48 +87,6 @@ public class LoginController {
             loginStage.close();
         }
     }
-
-//    @Override
-//    public void initialize(URL location, ResourceBundle resources) {
-//
-//        try {
-//            AnchorPane anchorPane = new FXMLLoader(getClass().getResource("/fxml/default.fxml")).load();
-//            mainContainer.getChildren().add(anchorPane);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//    public void  listDefault() throws  Exception{
-//        switchView("default.fxml");
-//    }
-//
-//
-//    public void listType() throws Exception {
-//        switchView("type.fxml");
-//    }
-//
-//
-//    public void listPosition() throws Exception {
-//        switchView("position.fxml");
-//    }
-//
-//    public void listStaff() throws Exception {
-//        switchView("staff.fxml");
-//    }
-//
-//    private void switchView(String fileName) throws Exception {
-//        //清空原有内容
-//        mainContainer.getChildren().clear();
-//        AnchorPane anchorPane = new FXMLLoader(getClass().getResource("/fxml/" + fileName)).load();
-//        mainContainer.getChildren().add(anchorPane);
-//    }
-//
-//
-
-
-
-
-
 }
 
 

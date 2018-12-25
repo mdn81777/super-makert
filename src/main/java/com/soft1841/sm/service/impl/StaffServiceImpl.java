@@ -1,4 +1,8 @@
 package com.soft1841.sm.service.impl;
+/**
+ * 实现员工服务类
+ * @author 孟妮
+ */
 
 import com.soft1841.sm.dao.StaffDAO;
 import com.soft1841.sm.entity.Staff;

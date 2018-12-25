@@ -1,5 +1,9 @@
 package com.soft1841.sm.entity;
 
+/**
+ *
+ */
+
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleLongProperty;
 
