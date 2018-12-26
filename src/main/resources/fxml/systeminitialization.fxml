@@ -6,9 +6,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.effect.Reflection?>
-<?import javafx.scene.text.Font?>
-<AnchorPane xmlns="http://javafx.com/javafx">
-
-
+<AnchorPane xmlns="http://javafx.com/javafx" prefHeight="400.0" prefWidth="600.0">
+    <Label text="系统初始化" styleClass="font-title" AnchorPane.topAnchor="10"/>
 </AnchorPane>

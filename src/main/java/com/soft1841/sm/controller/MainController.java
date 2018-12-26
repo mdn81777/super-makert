@@ -57,16 +57,16 @@ public class MainController  implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         try {
-            AnchorPane anchorPane = new FXMLLoader(getClass().getResource("/fxml/login.fxml")).load();
+            AnchorPane anchorPane = new FXMLLoader(getClass().getResource("/fxml/default.fxml")).load();
             mainContainer.getChildren().add(anchorPane);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
     public void listDefault() throws Exception {
         switchView("default.fxml");
     }
+    public  void  listStatisticalAnalysis() throws  Exception{}
 
     public void listProductinformation() throws Exception {
         switchView("Goods.fxml");
@@ -85,26 +85,28 @@ public class MainController  implements Initializable {
         switchView("staff.fxml");
     }
 
-    public void listMemberInformation() {
+    public void listMemberInformation()  throws  Exception{
+        switchView("member.fxml");
     }
 
     public void listSupplierInformation() throws Exception {
         switchView("supplier.fxml");
     }
 
-    public void listStatisticalAnalysis() {
+    public void listSystemInitialization() throws  Exception{
+        switchView("systeminitialization.fxml");
     }
 
-    public void listSystemInitialization() {
+    public void listDataBackup() throws  Exception{
+        switchView("databackup.fxml");
     }
 
-    public void listDataBackup() {
+    public void listThemeSettings()throws Exception {
+        switchView("themesettings.fxml");
     }
 
-    public void listThemeSettings() {
-    }
-
-    public void listPreferential() {
+    public void listPreferential()  throws  Exception{
+        switchView("preferential.fxml");
     }
 
     private void switchView(String fileName) throws Exception {
@@ -113,8 +115,6 @@ public class MainController  implements Initializable {
         AnchorPane anchorPane = new FXMLLoader(getClass().getResource("/fxml/" + fileName)).load();
         mainContainer.getChildren().add(anchorPane);
     }
-
-
 }
 
 
