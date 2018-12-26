@@ -65,6 +65,7 @@ public class GoodsController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         initTable();
         initComBox();
+        System.out.println(goodsList.size());
     }
 
     private void initTable() {

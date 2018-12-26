@@ -20,11 +20,11 @@ public class GoodsDAOTest {
     public void insertGoods() throws SQLException {
         Goods goods = new Goods();
         goods.setTypeId(1);
-        goods.setName("");
+        goods.setName("df");
         goods.setPrice(20);
-        goods.setCover("");
-        goods.setDescription("");
-        goods.setBarcode("");
+        goods.setCover("sd");
+        goods.setDescription("测试吗");
+        goods.setBarcode("123");
         goods.setStock(123);
         System.out.println(goodsDAO.insertGoods(goods));
     }
@@ -36,14 +36,15 @@ public class GoodsDAOTest {
 
     @Test
     public void selectAllGoods() throws SQLException {
+        List<Goods> goodsList = goodsDAO.selectAllGoods();
+        goodsList.forEach(goods -> System.out.println(goods.getName()));
     }
 
     @Test
     public void selectGoodsByTypeId() throws SQLException {
-        Entity entity = (Entity) goodsDAO.selectGoodsByTypeId(1);
-        System.out.println(entity);
-}
-
+        List<Goods> goodsList = goodsDAO.selectGoodsByTypeId(1);
+        goodsList.forEach(goods -> System.out.println(goods.getName()));
+    }
     @Test
     public void selectGoodsLike() throws SQLException{
     }
