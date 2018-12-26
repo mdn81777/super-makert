@@ -17,7 +17,7 @@
     </HBox>
     <HBox spacing="10">
         <TextField promptText="会员ID" fx:id="memberId"/>
-        <TextField promptText="会员姓名" fx:id="memberNameName"/>
+        <TextField promptText="会员姓名" fx:id="memberName"/>
         <TextField promptText="会员地址" fx:id="memberAddress"/>
         <TextField promptText="联系方式" fx:id="memberPhone" prefWidth="290"/>
         <TextField promptText="积分" fx:id="memberIntegral" prefWidth="290"/>
