@@ -52,13 +52,5 @@ public class SupplierServiceImpl implements SupplierService {
         return supplierList;
     }
 
-    @Override
-    public List<Supplier> getSupplierByTypeId(long typeId) {
-        return null;
-    }
 
-    @Override
-    public int countByType(long typeId) {
-        return 0;
-    }
 }

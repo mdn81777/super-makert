@@ -4,6 +4,7 @@ package com.soft1841.sm.dao;
  * @author 孟妮
  */
 
+import com.soft1841.sm.entity.Goods;
 import com.soft1841.sm.entity.Supplier;
 
 import java.sql.SQLException;
@@ -43,5 +44,7 @@ public interface SupplierDAO {
      * @return
      * @throws SQLException
      */
+    Supplier getSupplierByID(long id) throws SQLException;
+
     int updateSupplier(Supplier supplier) throws SQLException;
 }
