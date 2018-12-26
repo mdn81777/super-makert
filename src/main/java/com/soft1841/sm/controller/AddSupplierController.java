@@ -6,15 +6,11 @@ package com.soft1841.sm.controller;
  */
 
 
-import com.soft1841.sm.dao.SupplierDAO;
-import com.soft1841.sm.dao.TypeDAO;
 import com.soft1841.sm.entity.Supplier;
 import com.soft1841.sm.entity.Type;
 import com.soft1841.sm.service.SupplierService;
 import com.soft1841.sm.service.TypeService;
-import com.soft1841.sm.utils.DAOFactory;
 import com.soft1841.sm.utils.ServiceFactory;
-import com.sun.xml.internal.bind.v2.model.core.ID;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -25,10 +21,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import javax.activation.MimeTypeParameterList;
-import javax.swing.text.html.Option;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -62,7 +55,7 @@ public class AddSupplierController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         typeList = typeService.getAllTypes();
         typeData.addAll(typeList);
-        supplierType.setItems(suppliersData);
+
         supplierType.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
             typeId = newValue.getId();
         });
