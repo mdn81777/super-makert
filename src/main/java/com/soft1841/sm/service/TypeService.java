@@ -14,7 +14,7 @@ public interface TypeService {
      * 获取所有类别
      * @return
      */
-    List<Entity> getAllTypes();
+    List<Type> getAllTypes();
 
     /**
      * 添加类别

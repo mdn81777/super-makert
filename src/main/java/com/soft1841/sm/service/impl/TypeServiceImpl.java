@@ -15,7 +15,7 @@ public class TypeServiceImpl implements TypeService {
     private TypeDAO typeDAO = DAOFactory.getTypeDAOInstance();
 
     @Override
-    public List<Entity> getAllTypes() {
+    public List<Type> getAllTypes() {
         List<Type> typeList = new ArrayList<>();
         try {
             typeList = typeDAO.selectAllTypes();
