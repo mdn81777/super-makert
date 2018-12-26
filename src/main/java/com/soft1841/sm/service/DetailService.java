@@ -1,4 +1,8 @@
 package com.soft1841.sm.service;
+/**
+ * 小票服务类
+ * author蔡一帆
+ */
 
 import com.soft1841.sm.entity.Detail;
 
@@ -27,6 +31,6 @@ public interface DetailService {
      * @param receiptId
      * @return Book
      */
-    List<Detail> getDetail(long receiptId);
+    List<Detail> getDetailByReceiptId(long receiptId);
 
 }

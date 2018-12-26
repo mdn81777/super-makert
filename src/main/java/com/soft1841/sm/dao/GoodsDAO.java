@@ -32,7 +32,7 @@ public interface GoodsDAO {
      * @return
      * @throws SQLException
      */
-    List<Entity> selectAllGoods() throws SQLException;
+    List<Goods> selectAllGoods() throws SQLException;
 
     /**
      * 根据商品类型查询
@@ -40,7 +40,7 @@ public interface GoodsDAO {
      * @return
      * @throws SQLException
      */
-    Entity getGoodsByTypeId(int typeId) throws SQLException;
+    Goods getGoodsByTypeId(long typeId) throws SQLException;
 
     /**
      * 根据关键词查询
@@ -48,7 +48,7 @@ public interface GoodsDAO {
      * @return
      * @throws SQLException
      */
-    List<Entity> selectGoodsLike(String keywords) throws SQLException;
+    List<Goods> selectGoodsLike(String keywords) throws SQLException;
     /**
      * 更改商品信息
      * @param goods
@@ -63,5 +63,5 @@ public interface GoodsDAO {
      * @return
      * @throws SQLException
      */
-    List<Entity> selectGoodsByTypeId(long id) throws SQLException;
+    List<Goods> selectGoodsByTypeId(long id) throws SQLException;
 }

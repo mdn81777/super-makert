@@ -9,8 +9,10 @@ import cn.hutool.db.Entity;
 import cn.hutool.db.sql.Condition;
 import com.soft1841.sm.dao.GoodsDAO;
 import com.soft1841.sm.entity.Goods;
+import org.apache.xerces.impl.dv.dtd.ENTITYDatatypeValidator;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GoodsDAOImpl implements GoodsDAO {
@@ -36,23 +38,34 @@ public class GoodsDAOImpl implements GoodsDAO {
     }
 
     @Override
-    public List<Entity> selectAllGoods() throws SQLException {
-        return Db.use().query("SELECT * FROM t_goods");
+    public List<Goods> selectAllGoods() throws SQLException {
+        List<Entity> entityList = Db.use().query("SELECT * FROM t_goods");
+        List<Goods> goodsList = new ArrayList<>();
+        return goodsList;
     }
 
     @Override
-    public Entity getGoodsByTypeId(int typeId) throws SQLException {
-        return Db.use().queryOne("SELECT * FROM t_goods WHERE type_id = ?",typeId);
+    public Goods getGoodsByTypeId(long typeId) throws SQLException {
+        Entity entity = Db.use().queryOne("SELECT * FROM t_goods WHERE type_id = ?",typeId );
+        return convertGoods(entity);
+    }
+    private Goods convertGoods(Entity entity){
+        Goods goods = new Goods();
+        return  goods;
     }
 
 
     @Override
-    public List<Entity> selectGoodsLike(String keywords) throws SQLException {
-        return Db.use().findLike("t_goods","goods_name,",keywords, Condition.LikeType.Contains);
+    public List<Goods> selectGoodsLike(String keywords) throws SQLException {
+        List<Entity> entityList = Db.use().findLike("t_goods","name",keywords,Condition.LikeType.Contains);
+        List<Goods> goodsList = new ArrayList<>();
+        return goodsList;
     };
     @Override
-    public List<Entity> selectGoodsByTypeId(long id) throws SQLException{
-        return Db.use().query("SELECT *FROM t_goods WHERE id = ?",id);
+    public List<Goods> selectGoodsByTypeId(long typeId) throws SQLException{
+        List<Entity> entityList = Db.use().query("SELECT * FROM t_goods WHERE type_id = ?",typeId);
+        List<Goods> goodsList = new ArrayList<>();
+        return goodsList;
     };
 
     @Override
