@@ -19,20 +19,20 @@ public class GoodsDAOImpl implements GoodsDAO {
     public Long insertGoods(Goods goods) throws SQLException {
         return Db.use().insertForGeneratedKey(
                 Entity.create("t_goods")
-                        .set("type_id",goods.getTypeId())
-                        .set("goods_name",goods.getName())
-                        .set("goods_price",goods.getPrice())
-                        .set("goods_cover",goods.getCover())
-                        .set("goods_description",goods.getDescription())
-                        .set("goods_barcode",goods.getBarcode())
-                        .set("goods_stock",goods.getStock())
+                        .set("type_id", goods.getTypeId())
+                        .set("goods_name", goods.getName())
+                        .set("price", goods.getPrice())
+                        .set("cover", goods.getCover())
+                        .set("description", goods.getDescription())
+                        .set("barcode", goods.getBarcode())
+                        .set("stock", goods.getStock())
         );
     }
 
     @Override
     public int deleteGoodsByBarcode(long barcode) throws SQLException {
         return Db.use().del(
-                Entity.create("t_goods").set("goods_barcode",barcode)
+                Entity.create("t_goods").set("goods_barcode", barcode)
         );
     }
 
@@ -40,36 +40,45 @@ public class GoodsDAOImpl implements GoodsDAO {
     public List<Goods> selectAllGoods() throws SQLException {
         List<Entity> entityList = Db.use().query("SELECT * FROM t_goods");
         List<Goods> goodsList = new ArrayList<>();
+        for (Entity entity : entityList) {
+            goodsList.add(convertGoods(entity));
+        }
         return goodsList;
     }
 
     @Override
     public Goods getGoodsByTypeId(long typeId) throws SQLException {
-        Entity entity = Db.use().queryOne("SELECT * FROM t_goods WHERE type_id = ?",typeId );
+        Entity entity = Db.use().queryOne("SELECT * FROM t_goods WHERE type_id = ?", typeId);
         return convertGoods(entity);
-    }
-    private Goods convertGoods(Entity entity){
-        Goods goods = new Goods();
-        return  goods;
+
     }
 
 
     @Override
     public List<Goods> selectGoodsLike(String keywords) throws SQLException {
-        List<Entity> entityList = Db.use().findLike("t_goods","name",keywords,Condition.LikeType.Contains);
+        List<Entity> entityList = Db.use().findLike("t_goods", "name", keywords, Condition.LikeType.Contains);
         List<Goods> goodsList = new ArrayList<>();
+        for (Entity entity : entityList) {
+           goodsList.add(convertGoods(entity));
+        }
         return goodsList;
-    };
+    }
+
+    ;
+
     @Override
-    public List<Goods> selectGoodsByTypeId(long typeId) throws SQLException{
-        List<Entity> entityList = Db.use().query("SELECT * FROM t_goods WHERE type_id = ?",typeId);
+    public List<Goods> selectGoodsByTypeId(long typeId) throws SQLException {
+        List<Entity> entityList = Db.use().query("SELECT * FROM t_goods WHERE type_id = ?", typeId);
         List<Goods> goodsList = new ArrayList<>();
+        for (Entity entity : entityList) {
+            goodsList.add(convertGoods(entity));
+        }
         return goodsList;
     }
 
     @Override
-    public Goods getGoodsByID(long id) throws SQLException{
-        Entity entity = Db.use().queryOne("SELECT * FROM t_goods WHERE id = ?",id);
+    public Goods getGoodsByID(long id) throws SQLException {
+        Entity entity = Db.use().queryOne("SELECT * FROM t_goods WHERE id = ?", id);
         return convertGoods(entity);
     }
 
@@ -78,10 +87,23 @@ public class GoodsDAOImpl implements GoodsDAO {
     @Override
     public int updateGoods(Goods goods) throws SQLException {
         return Db.use().update(
-                Entity.create().set("goods_price",goods.getPrice())
-                        .set("goods_ stock",goods.getStock()),
-                Entity.create("t_goods").set("goods_barcode",goods.getBarcode())
+                Entity.create().set("goods_price", goods.getPrice())
+                        .set("goods_ stock", goods.getStock()),
+                Entity.create("t_goods").set("goods_barcode", goods.getBarcode())
         );
 
+    }
+
+    private Goods convertGoods(Entity entity) {
+        Goods goods = new Goods();
+        goods.setId(entity.getLong("id"));
+        goods.setTypeId(entity.getLong("type_id"));
+        goods.setName(entity.getStr("goods_name"));
+        goods.setPrice(entity.getDouble("price"));
+        goods.setCover(entity.getStr("cover"));
+        goods.setBarcode(entity.getStr("barcode"));
+        goods.setDescription(entity.getStr("description"));
+        goods.setStock(entity.getInt("stock"));
+        return goods;
     }
 }
