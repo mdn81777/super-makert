@@ -11,6 +11,7 @@ import com.soft1841.sm.utils.DAOFactory;
 import javafx.scene.control.Alert;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class StaffServiceImpl implements StaffService {
     private StaffDAO staffDAO = DAOFactory.getStaffDAOInstance();
@@ -47,6 +48,36 @@ public class StaffServiceImpl implements StaffService {
             int typeId = staff.getTypeId();
             return typeId;
         } else return 0;
+    }
+
+    @Override
+    public Long addStaff(Staff staff) {
+        return null;
+    }
+
+    @Override
+    public void deleteStaff(long employId) {
+
+    }
+
+    @Override
+    public List<Staff> getAllStaff() {
+        return null;
+    }
+
+    @Override
+    public Staff getStaff(long employId) {
+        return null;
+    }
+
+    @Override
+    public Staff getStaff(int typeId) {
+        return null;
+    }
+
+    @Override
+    public void updateStaff(long employId) {
+
     }
 
 }
