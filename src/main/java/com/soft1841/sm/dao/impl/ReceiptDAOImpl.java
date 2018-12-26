@@ -28,8 +28,11 @@ public class ReceiptDAOImpl implements ReceiptDAO {
 
     @Override
     public List<Receipt> selectAllReceipt() throws SQLException {
-        List<Entity> entityList = Db.use().query("SELECT * FROM t_receipt");
+            List<Entity> entityList = Db.use().query("SELECT * FROM t_receipt");
         List<Receipt> receiptList = new ArrayList<>();
+        for (Entity entity : entityList) {
+            receiptList.add(convertReceipt(entity));
+        }
         return receiptList;
     }
     private  Receipt convertReceipt(Entity entity){
