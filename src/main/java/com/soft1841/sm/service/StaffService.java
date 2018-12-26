@@ -10,7 +10,7 @@ import java.util.List;
 public interface StaffService {
     /**
      * 登录功能
-     * @author 孟妮
+     * @author
      * @param employeeId
      * @param password
      * @return
