@@ -61,5 +61,5 @@ public interface MemberDAO {
      */
     int updateMember(Member member) throws SQLException;
 
-    void deleteMemberid(long id);
+
 }

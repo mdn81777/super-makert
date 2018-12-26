@@ -22,7 +22,7 @@ public interface ReceiptService {
      * @param id
      * @return
      */
-    Entity getRecriptById(long id);
+    Entity getReceiptById(long id);
 
     /**
      * 新增收银小票

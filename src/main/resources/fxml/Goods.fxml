@@ -14,12 +14,12 @@
         <Button styleClass="btn7-basic" text="添加商品" onAction="#newGoodsStage"/>
         <Button styleClass="btn5-basic" text="导出数据"/>
     </HBox>
-    <HBox>
+    <HBox alignment="CENTER" AnchorPane.topAnchor="60" AnchorPane.leftAnchor="10" spacing="10">
         <ComboBox promptText="选择商品类别" fx:id="typeComboBox" prefWidth="150"/>
         <TextField promptText="请输入关键词" fx:id="keywordsField"/>
         <Button styleClass="btn9-basic" text="搜索" onAction="#search"/>
     </HBox>
-    <TableView fx:id="goodsTable" prefWidth="1200"
+    <TableView fx:id="goodsTable" prefWidth="1000"
     AnchorPane.topAnchor="150" AnchorPane.leftAnchor="10">
         <columns>
             <TableColumn text="ID">

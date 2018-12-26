@@ -19,9 +19,9 @@ public interface MemberService {
 
     /**
      * 根据id删除会员
-     * @param id
+     * @param memberId
      */
-    void deleteMember(Long id);
+    void deleteMember(long memberId);
 
     /**
      * 查询所有会员

@@ -57,4 +57,9 @@ public class Type {
     public void setTypeCover(String typeCover) {
         this.typeCover.set(typeCover);
     }
+
+    @Override
+    public String toString() {
+        return "typeName=" + typeName ;
+    }
 }
