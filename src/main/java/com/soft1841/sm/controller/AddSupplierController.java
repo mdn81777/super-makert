@@ -1,13 +1,18 @@
 package com.soft1841.sm.controller;
+/**
+ * 新增供应商服务类
+ * @author 林斌涛
+ */
 
-import cn.hutool.db.Entity;
+
 import com.soft1841.sm.dao.SupplierDAO;
 import com.soft1841.sm.dao.TypeDAO;
-import com.soft1841.sm.entity.Goods;
 import com.soft1841.sm.entity.Supplier;
 import com.soft1841.sm.entity.Type;
+import com.soft1841.sm.service.SupplierService;
+import com.soft1841.sm.service.TypeService;
 import com.soft1841.sm.utils.DAOFactory;
-import com.sun.org.glassfish.gmbal.Description;
+import com.soft1841.sm.utils.ServiceFactory;
 import com.sun.xml.internal.bind.v2.model.core.ID;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,6 +24,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import javax.activation.MimeTypeParameterList;
+import javax.swing.text.html.Option;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
@@ -39,28 +46,18 @@ public class AddSupplierController implements Initializable {
     private TextArea supplierDescription;
 
     private ObservableList<Type> typeData = FXCollections.observableArrayList();
+     private TypeService typeService = ServiceFactory.getTypeServiceInstance();
 
-    private SupplierDAO supplierDAO = DAOFactory.getSupplierDAOInstance();
-
-    private TypeDAO typeDAO = DAOFactory.getTypeDAOInstance();
-
+    private SupplierService supplierService = ServiceFactory.getSupplierServiceInstance();
     private List<Type> entityList = null;
 
     private Long typeId;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            entityList = typeDAO.selectAllTypes();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        for (Entity entity : entityList) {
-            Type type = new Type();
-            type.setId(entity.getLong("id"));
-            type.setTypeName(entity.getStr("type_name"));
-            typeData.add(type);
-        }
-        supplierType.setItems(typeData);
+        typeList = typeService.getAllTypes();
+        typeData.addAll(typeList);
+
+        supplierType.setItems(suppliersData);
         supplierType.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
             typeId = newValue.getId();
         });
@@ -70,15 +67,12 @@ public class AddSupplierController implements Initializable {
         String address = supplierAddress.getText();
         String phone = supplierPhone.getText();
         String linkmen = supplierLinkMen.getText();
-        System.out.println(stock);
         Supplier supplier=new Supplier();
-        supplier.setId(id);
+        supplier.setId(typeId);
         supplier.setSupplierAddress(address);
         supplier.setSupplierPhone(phone);
         supplier.setLinkman(linkmen);
-        supplier.setStock();
-        supplier.setDescription(description);
-        long id = supplierDAO.insertSupplier(supplier);
+        long id = supplierService.addSuppler(supplier);
         supplier.setId(id);
         this.getSupplierData().add(supplier);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
