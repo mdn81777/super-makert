@@ -23,7 +23,7 @@ public class ReceiptServiceImpl implements ReceiptService {
         }
         return receiptList;
     }
-
+  
     @Override
     public Entity getReceiptById(long id) {
         return null;
