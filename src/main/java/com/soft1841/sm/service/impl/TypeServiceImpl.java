@@ -1,6 +1,7 @@
 package com.soft1841.sm.service.impl;
 
 
+import cn.hutool.db.Entity;
 import com.soft1841.sm.dao.TypeDAO;
 import com.soft1841.sm.entity.Type;
 import com.soft1841.sm.service.TypeService;
@@ -14,7 +15,7 @@ public class TypeServiceImpl implements TypeService {
     private TypeDAO typeDAO = DAOFactory.getTypeDAOInstance();
 
     @Override
-    public List<Type> getAllTypes() {
+    public List<Entity> getAllTypes() {
         List<Type> typeList = new ArrayList<>();
         try {
             typeList = typeDAO.selectAllTypes();

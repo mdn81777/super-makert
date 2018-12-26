@@ -10,8 +10,10 @@ import com.soft1841.sm.dao.GoodsDAO;
 import com.soft1841.sm.dao.TypeDAO;
 import com.soft1841.sm.entity.Goods;
 import com.soft1841.sm.entity.Type;
+import com.soft1841.sm.service.TypeService;
 import com.soft1841.sm.utils.ComponentUtil;
 import com.soft1841.sm.utils.DAOFactory;
+import com.soft1841.sm.utils.ServiceFactory;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -50,7 +52,7 @@ public class GoodsController implements Initializable {
 
     private GoodsDAO goodsDAO = DAOFactory.getGoodsDAOInstance();
 
-    private TypeDAO typeDAO = DAOFactory.getTypeDAOInstance();
+    private TypeService typeService = ServiceFactory.getTypeServiceInstance();
 
     private List<Entity> goodsList = null;
 
@@ -187,11 +189,7 @@ public class GoodsController implements Initializable {
     }
 
     private void initComBox() {
-        try {
-            typeList = typeDAO.selectAllTypes();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        typeList = typeService.getAllTypes();
         for (Entity entity : typeList) {
             Type type = new Type();
             type.setId(entity.getLong("id"));
