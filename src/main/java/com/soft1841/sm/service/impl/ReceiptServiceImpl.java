@@ -17,11 +17,11 @@ public class ReceiptServiceImpl implements ReceiptService {
     public List<Receipt> getAllReceipt() {
         List<Receipt> receiptList = new ArrayList<>();
         try {
-            receiptList = receiptDAO.getAllReceipt();
+            receiptList = receiptDAO.selectAllReceipt();
         }catch (SQLException e){
-            return receiptList;
+            System.err.println("查询所有收银明细出现异常");
         }
-        return result;
+        return receiptList;
     }
 
     @Override

@@ -31,6 +31,6 @@ public interface ReceiptDAO {
      * @return
      * @throws SQLException
      */
-    List<Entity> getAllReceipt() throws  SQLException;
+    List<Receipt> selectAllReceipt() throws  SQLException;
 
 }
