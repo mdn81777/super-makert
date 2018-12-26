@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.soft1841.sm.controller.AddSupplierController"
+            prefHeight="400.0" prefWidth="600.0">
+    <HBox AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+          minHeight="50" alignment="CENTER" styleClass="blue-theme">
+        <Label text="新增供应商" styleClass="btn3-basic"/>
+    </HBox>
+        <HBox spacing="10">
+            <TextField promptText="供应商名称" fx:id="supplierName"/>
+            <TextField promptText="供应商地址" fx:id="supplierAddress"/>
+            <TextField promptText="联系方式" fx:id="supplierPhone" prefWidth="290"/>
+            <TextField promptText="称呼" fx:id="linkMen" prefWidth="290"/>
+        </HBox>
+
+        <padding>
+            <Insets top="10" left="50" bottom="10" right="50"/>
+        </padding>
+
+    <Button text="确认" onAction="#addsupplier" styleClass="btn4-basic"
+            AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="180" AnchorPane.rightAnchor="180"/>
+</AnchorPane>

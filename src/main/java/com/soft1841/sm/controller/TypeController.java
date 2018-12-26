@@ -7,8 +7,10 @@ package com.soft1841.sm.controller;
 import cn.hutool.db.Entity;
 import com.soft1841.sm.dao.TypeDAO;
 import com.soft1841.sm.entity.Type;
+import com.soft1841.sm.service.TypeService;
 import com.soft1841.sm.utils.ComponentUtil;
 import com.soft1841.sm.utils.DAOFactory;
+import com.soft1841.sm.utils.ServiceFactory;
 import com.sun.org.apache.bcel.internal.classfile.LocalVariableTypeTable;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -28,7 +30,7 @@ public class TypeController implements Initializable {
     @FXML
     private  TableView<Type> typeTable;
     private  ObservableList<Type>  typeData = FXCollections.observableArrayList();
-    private TypeDAO typeDAO = DAOFactory.getTypeDAOInstance();
+    private TypeService typeService = ServiceFactory.getTypeServiceInstance();
     private  List<Entity> entityList = null;
     private TableColumn<Type,Type> delCol = new TableColumn<>("操作");
     @Override
@@ -59,22 +61,15 @@ public class TypeController implements Initializable {
                     //点击了确认按钮，执行删除操作，同时移除一行模型数据
                     if (result.get() == ButtonType.OK) {
                         typeData.remove(type);
-                        try {
-                            typeDAO.deleteTypeById(type.getId());
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        }
+                        typeService.deleteType(type.getId());
+//                            typeService.deleteTypeById(type.getId());
                     }
                 });
             }
         });
         //删除列加入表格
         typeTable.getColumns().add(delCol);
-        try {
-            entityList = typeDAO.selectAllTypes();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        entityList = typeService.getAllTypes();
         showTypeData(entityList);
     }
     public void listType() throws SQLException {
@@ -93,11 +88,7 @@ public class TypeController implements Initializable {
             Type type = new Type();
             type.setTypeName(typeName);
             long id = 0;
-            try {
-                id = typeDAO.insertType(type);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            id = typeService.addType(type);
             type.setId(id);
             //加入ObservableList，刷新模型，不用重新查询数据库也可以立刻看到结果
             typeData.add(type);

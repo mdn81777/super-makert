@@ -1,4 +1,8 @@
 package com.soft1841.sm.service;
+/**
+ * 商品服务
+ * author@蔡一帆
+ */
 
 import com.soft1841.sm.entity.Goods;
 
@@ -35,7 +39,7 @@ public interface GoodsService {
      * @param typeId
      * @return
      */
-    Goods getGoods(long typeId);
+    List<Goods>getGoodsByTypeId(long typeId);
 
     /**
      * 根据商品名称关键词模糊查询商品

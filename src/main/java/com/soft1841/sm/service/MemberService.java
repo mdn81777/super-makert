@@ -1,5 +1,6 @@
 package com.soft1841.sm.service;
 
+import cn.hutool.db.Entity;
 import com.soft1841.sm.entity.Member;
 
 import java.util.List;
@@ -27,20 +28,20 @@ public interface MemberService {
      * 查询所有会员
      * @return
      */
-    List<Member> getAllMember();
+    List<Entity> getAllMember();
 
     /**
      * 根据id查询会员
      * @param memberId
      * @return
      */
-    Member getMember(long memberId);
+    Entity getMember(long memberId);
     /**
      * 根据关键词模糊查询图书
      * @param keywords
      * @return List<Book>
      */
 
-    List<Member> getMemberLike(String keywords);
+    List<Entity> getMemberLike(String keywords);
 
 }

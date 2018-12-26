@@ -15,7 +15,7 @@ public interface ReceiptService {
      * 获取所有收银小票信息
      * @return
      */
-    List<Receipt> getAllReceipt() ;
+    List<Entity> getAllReceipt() ;
 
     /**
      * 通过小票号码查询明细

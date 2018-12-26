@@ -49,13 +49,19 @@ public class MemberDAOImpl implements MemberDAO {
         return Db.use().update(
                 Entity.create().set("member_address", member.getAddress())
                         .set("member_phone", member.getPhone()),
-                Entity.create("t_member").set("member_name", member.getMemberId())
-        );
+                Entity.create("t_member").set("member_name", member.getMemberId()));
+    }
+    private  Member convertMember(Entity entity){
+        Member member = new Member();
+        member.setId(entity.getLong("id"));
+        member.setName(entity.getStr("member_name"));
+        member.setAddress(entity.getStr("member_address"));
+        member.setPhone(entity.getStr("member_phone"));
+        member.setIntegral(entity.getInt("member_interal"));
+        return  member;
+    }
+
+
 
     }
 
-    @Override
-    public void deleteMemberid(long id) {
-
-    }
-}

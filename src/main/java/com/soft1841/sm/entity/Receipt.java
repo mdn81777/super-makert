@@ -4,6 +4,7 @@ import cn.hutool.db.ds.simple.SimpleDataSource;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleLongProperty;
 
+import java.sql.Time;
 import java.util.Date;
 
 public class Receipt {
@@ -94,4 +95,6 @@ public class Receipt {
                 ", total=" + total +
                 '}';
     }
+
+
 }
