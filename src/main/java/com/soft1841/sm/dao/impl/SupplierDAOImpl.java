@@ -55,6 +55,16 @@ public class SupplierDAOImpl implements SupplierDAO {
                 Entity.create("t_supplier").set("id", supplier.getId()));
     }
 
+    @Override
+    public List<Supplier> selectSupplierByTypeId(long id) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public Supplier getSupplierByID(long id) throws SQLException {
+        return null;
+    }
+
     private Supplier convertSupplier(Entity entity) {
         Supplier supplier = new Supplier();
         supplier.setId(entity.getLong("id"));
