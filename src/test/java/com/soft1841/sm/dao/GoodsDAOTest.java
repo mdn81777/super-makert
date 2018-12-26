@@ -36,8 +36,6 @@ public class GoodsDAOTest {
 
     @Test
     public void selectAllGoods() throws SQLException {
-        List<Entity> goodList = goodsDAO.selectAllGoods();
-        goodList.forEach(entity -> System.out.println(entity.getStr("goods_name")));
     }
 
     @Test
@@ -48,8 +46,6 @@ public class GoodsDAOTest {
 
     @Test
     public void selectGoodsLike() throws SQLException{
-        List<Entity> goodsList = goodsDAO.selectGoodsLike("");
-        goodsList.forEach(entity -> System.out.println(entity.getStr("name")));
     }
 
     @Test

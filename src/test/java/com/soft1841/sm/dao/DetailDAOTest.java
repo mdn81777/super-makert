@@ -28,8 +28,6 @@ public class DetailDAOTest {
 
     @Test
     public void getDetailByReceiptId() throws SQLException{
-        Entity entity = detailDAO.getDetailByReceiptId(1);
-        System.out.println(entity);
 }
 
     @Test

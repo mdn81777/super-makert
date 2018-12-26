@@ -29,7 +29,5 @@ public class ReceiptDAOTest {
 
     @Test
     public void getAllReceipt() throws SQLException {
-        List<Entity> entity = receiptDAO.getAllReceipt();
-        System.out.println(entity);
     }
 }

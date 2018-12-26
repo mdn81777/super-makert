@@ -25,8 +25,6 @@ public class SupplierDAOTest {
 
     @Test
     public void selectAllSupplier() throws SQLException {
-        List<Entity> SupplierList =supplierDAO.selectAllSupplier();
-        SupplierList.forEach(entity -> System.out.println(entity.getStr("name")));
     }
 
     @Test
