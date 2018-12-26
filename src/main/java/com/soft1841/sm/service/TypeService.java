@@ -1,5 +1,6 @@
 package com.soft1841.sm.service;
 
+import cn.hutool.db.Entity;
 import com.soft1841.sm.entity.Type;
 
 import java.util.List;
@@ -13,7 +14,7 @@ public interface TypeService {
      * 获取所有类别
      * @return
      */
-    List<Type> getAllTypes();
+    List<Entity> getAllTypes();
 
     /**
      * 添加类别

@@ -1,12 +1,13 @@
 package com.soft1841.sm.controller;
-
 import cn.hutool.db.Entity;
 import com.soft1841.sm.dao.MemberDAO;
 import com.soft1841.sm.entity.Member;
 import com.soft1841.sm.dao.MemberDAO;
 import com.soft1841.sm.entity.Member;
+import com.soft1841.sm.service.MemberService;
 import com.soft1841.sm.utils.DAOFactory;
 import com.soft1841.sm.utils.DAOFactory;
+import com.soft1841.sm.utils.ServiceFactory;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -49,17 +50,13 @@ public class MemberController implements Initializable {
     @FXML
     private FlowPane memberPane;
     //读取数据
-    private MemberDAO memberDAO = DAOFactory.getMemberDAOInstance();
+    private MemberService memberService = ServiceFactory.getMemberServiceInstance();
     //接口回调
     List<Entity> memberList = new ArrayList<>();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            memberList = memberDAO.selectAllMember();
-            System.out.println(memberList.size());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        memberList = memberService.getAllMember();
+        System.out.println(memberList.size());
         showMembers(memberList);
 
     }
@@ -77,16 +74,6 @@ public class MemberController implements Initializable {
             VBox leftBox = new VBox();
             leftBox.setSpacing(10);
             leftBox.setAlignment(Pos.TOP_CENTER);
-      //   ImageView avatarImg = new ImageView(new Image(entity.getStr("")));
-        //    avatarImg.setFitWidth(80);
-         //   avatarImg.setFitHeight(80);
-          //  Circle cricle = new Circle();
-          //  cricle.setCenterX(40);
-          //  cricle.setCenterY(40);
-         //   cricle.setRadius(40);
-          //  avatarImg.setClip(cricle);
-            //头像加入左边
-           // leftBox.getChildren().add(avatarImg);
             Label roleLabel =  new Label(entity.getStr("role"));
             leftBox.getChildren().add(roleLabel);
             //左边加入主布局
@@ -112,7 +99,7 @@ public class MemberController implements Initializable {
                 if (result.get() == ButtonType.OK){
                     //得到这个人的ID
                     long id = entity.getLong("id");
-                    memberDAO.deleteMemberid(id);
+                    memberService.deleteMember(id);
                     memberPane.getChildren().remove(hBox);
                 }
             });
@@ -146,30 +133,30 @@ public class MemberController implements Initializable {
         group.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
 
 
-                    @Override
-                    public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-                        System.out.println(group.getSelectedToggle().getUserData().toString());
-                        member.setId(group.getSelectedToggle().getUserData().toString());
-                    }
-                });
-                String[] names = {"刘伟","李明","林斌涛","李启鹏","王东东","王刚","王超"};
-                List<String> list = Arrays.asList(names);
-                ObservableList<String> observableList = FXCollections.observableArrayList();
-                observableList.addAll(list);
-                ComboBox<String> depComboBox = new ComboBox<>();
-                depComboBox.setPromptText("请选择姓名");
-                depComboBox.setItems(observableList);
-                depComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+                System.out.println(group.getSelectedToggle().getUserData().toString());
+                member.setId(group.getSelectedToggle().getUserData().toString());
+            }
+        });
+        String[] names = {"刘伟","李明","林斌涛","李启鹏","王东东","王刚","王超"};
+        List<String> list = Arrays.asList(names);
+        ObservableList<String> observableList = FXCollections.observableArrayList();
+        observableList.addAll(list);
+        ComboBox<String> depComboBox = new ComboBox<>();
+        depComboBox.setPromptText("请选择姓名");
+        depComboBox.setItems(observableList);
+        depComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
 
-        @Override
+            @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 member.setName(newValue);
             }
         });
         DatePicker datePicker = new DatePicker();
         datePicker.setValue(LocalDate.now());
-       // TextField addressField = new TextField("请输入地址");
+        // TextField addressField = new TextField("请输入地址");
         TextField phoneField = new TextField("请输入电话");
         Button addBtn = new Button("新增");
         addBtn.getStyleClass().add("blue-theme");
@@ -188,17 +175,10 @@ public class MemberController implements Initializable {
             member.setPhone(phoneString);
 
             //System.out.println(member.getMemberId() + member.getId() + member.);
-            try{
-                memberDAO.insertMember(member);
-            }catch (SQLException e){
-                e.printStackTrace();
-            }
+            memberService.addMember(member);
+
             stage.close();
-            try{
-                memberList = memberDAO.selectAllMember();
-            }catch (SQLException e){
-                e.printStackTrace();
-            }
+            memberList = memberService.getAllMember();
             showMembers(memberList);
         });
     }
