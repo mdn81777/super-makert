@@ -4,7 +4,6 @@ package com.soft1841.sm.dao;
  * @author 孟妮
  */
 
-import cn.hutool.db.Entity;
 import com.soft1841.sm.entity.Supplier;
 
 import java.sql.SQLException;
@@ -28,7 +27,7 @@ public interface SupplierDAO {
      */
 
 
-    List<Entity> selectAllSupplier() throws SQLException;
+    List<Supplier> selectAllSupplier() throws SQLException;
 
     /**
      * 根据id删除供应商实体
