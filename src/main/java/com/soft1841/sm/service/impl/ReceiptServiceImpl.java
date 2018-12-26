@@ -6,7 +6,6 @@ import com.soft1841.sm.entity.Receipt;
 import com.soft1841.sm.service.ReceiptService;
 import com.soft1841.sm.utils.DAOFactory;
 
-import javax.xml.transform.Result;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +13,8 @@ import java.util.List;
 public class ReceiptServiceImpl implements ReceiptService {
     private  ReceiptDAO receiptDAO = DAOFactory.getReceiptDAOInstance();
     @Override
-    public List<Receipt> getAllReceipt() {
-        List<Receipt> receiptList = new ArrayList<>();
+    public List<Entity> getAllReceipt() {
+        List<Entity> receiptList = new ArrayList<>();
         try {
             receiptList = receiptDAO.getAllReceipt();
         }catch (SQLException e){
