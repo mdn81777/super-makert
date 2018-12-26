@@ -23,19 +23,20 @@ public class ReceiptDAOImpl implements ReceiptDAO {
 
     @Override
     public Entity getReceiptById(long id) throws SQLException {
-        return Db.use().queryOne("SELECT * FROM t_receipt WHERE id = ?",id);
+        return Db.use().queryOne("SELECT * FROM t_receipt WHERE id = ?", id);
     }
 
     @Override
     public List<Receipt> selectAllReceipt() throws SQLException {
-            List<Entity> entityList = Db.use().query("SELECT * FROM t_receipt");
+        List<Entity> entityList = Db.use().query("SELECT * FROM t_receipt");
         List<Receipt> receiptList = new ArrayList<>();
         for (Entity entity : entityList) {
             receiptList.add(convertReceipt(entity));
         }
         return receiptList;
     }
-    private  Receipt convertReceipt(Entity entity){
+
+    private Receipt convertReceipt(Entity entity) {
         Receipt receipt = new Receipt();
         receipt.setId(entity.getLong("id"));
         receipt.setEmployeeId(entity.getLong("employee_id"));
