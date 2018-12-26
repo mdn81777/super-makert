@@ -6,6 +6,7 @@ import com.soft1841.sm.dao.ReceiptDAO;
 import com.soft1841.sm.entity.Receipt;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReceiptDAOImpl implements ReceiptDAO {
@@ -27,6 +28,16 @@ public class ReceiptDAOImpl implements ReceiptDAO {
 
     @Override
     public List<Entity> getAllReceipt() throws SQLException {
-        return Db.use().query("SELECT * FROM t_receipt");
+        List<Entity> entityList = Db.use().query("SELECT * FROM t_receipt");
+        List<Entity> receiptList = new ArrayList<>();
+        return entityList;
+    }
+    private  Receipt convertReceipt(Entity entity){
+        Receipt receipt = new Receipt();
+        receipt.setId(entity.getLong("id"));
+        receipt.setEmployeeId(entity.getLong("employee_id"));
+        receipt.setMemberId(entity.getLong("member_id"));
+        receipt.setTotal(entity.getDouble("total"));
+        return receipt;
     }
 }

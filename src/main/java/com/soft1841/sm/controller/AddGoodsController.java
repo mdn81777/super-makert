@@ -46,7 +46,7 @@ public class AddGoodsController implements Initializable {
 
     private TypeDAO typeDAO = DAOFactory.getTypeDAOInstance();
 
-    private List<Entity> entityList = null;
+    private List<Type> entityList = null;
 
     private Long typeId;
     @Override
@@ -56,7 +56,7 @@ public class AddGoodsController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        for (Entity entity : entityList) {
+        for (Type entity : entityList) {
             Type type = new Type();
             type.setId(entity.getLong("id"));
             type.setTypeName(entity.getStr("type_name"));
