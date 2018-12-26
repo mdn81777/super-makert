@@ -30,11 +30,11 @@ public interface SupplierService {
     void  updateSupplier(Supplier supplier);
 
     /**
-     * 根据id查询供应商信息
+     * 查询所有供应商
      * @param
      * @return
      */
-    List<Supplier> getAllSuplier();
+    List<Supplier> getAllSupplier();
 
 
 

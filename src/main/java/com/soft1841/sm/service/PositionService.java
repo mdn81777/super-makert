@@ -26,6 +26,6 @@ public interface PositionService {
      * 删除职位
      * @param id
      */
-    void delePosition(int id);
+    void deletePosition(int id);
 
 }
