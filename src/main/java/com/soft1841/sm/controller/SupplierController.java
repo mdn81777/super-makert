@@ -1,13 +1,14 @@
 package com.soft1841.sm.controller;
 
 import cn.hutool.db.Entity;
-import com.soft1841.sm.dao.SupplierDAO;
 
 import com.soft1841.sm.entity.Supplier;
 
+import com.soft1841.sm.service.SupplierService;
 import com.soft1841.sm.utils.ComponentUtil;
 import com.soft1841.sm.utils.DAOFactory;
 
+import com.soft1841.sm.utils.ServiceFactory;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,7 +17,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -26,7 +26,7 @@ public class SupplierController implements Initializable {
     @FXML
     private  TableView<Supplier> supplierTable;
     private  ObservableList<Supplier>  supplierData = FXCollections.observableArrayList();
-    private SupplierDAO supplierDAO = DAOFactory.getSupplierDAOInstance();
+    private SupplierService supplierService= ServiceFactory.getSupplierServiceInstance();
     private  List<Entity> entityList = null;
     private TableColumn<Supplier,Supplier> delCol = new TableColumn<>("操作");
     @Override
@@ -57,22 +57,14 @@ public class SupplierController implements Initializable {
                     //点击了确认按钮，执行删除操作，同时移除一行模型数据
                     if (result.get() == ButtonType.OK) {
                         supplierData.remove(supplier);
-                        try {
-                            supplierDAO.deleteSupplierById(supplier.getId());
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        }
+                        supplierService.deleteSupplier(supplier.getId());
                     }
                 });
             }
         });
         //删除列加入表格
         supplierTable.getColumns().add(delCol);
-        try {
-            entityList = supplierDAO.selectAllSupplier();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        supplierService.getAllSupplier();
         showSupplierData(entityList);
     }
     public void listSupplier() {
@@ -91,11 +83,7 @@ public class SupplierController implements Initializable {
             Supplier supplier = new Supplier();
             supplier.setSupplierName(supplierName);
             long id = 0;
-            try {
-                id = supplierDAO.insertSupplier(supplier);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            supplierService.addSuppler(supplier);
             supplier.setId(id);
             //加入ObservableList，刷新模型，不用重新查询数据库也可以立刻看到结果
             supplierData.add(supplier);

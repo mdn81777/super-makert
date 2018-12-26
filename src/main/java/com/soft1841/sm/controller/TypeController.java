@@ -4,14 +4,10 @@ package com.soft1841.sm.controller;
  * @author 孟妮
  */
 
-import cn.hutool.db.Entity;
-import com.soft1841.sm.dao.TypeDAO;
 import com.soft1841.sm.entity.Type;
 import com.soft1841.sm.service.TypeService;
 import com.soft1841.sm.utils.ComponentUtil;
-import com.soft1841.sm.utils.DAOFactory;
 import com.soft1841.sm.utils.ServiceFactory;
-import com.sun.org.apache.bcel.internal.classfile.LocalVariableTypeTable;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,7 +27,7 @@ public class TypeController implements Initializable {
     private  TableView<Type> typeTable;
     private  ObservableList<Type>  typeData = FXCollections.observableArrayList();
     private TypeService typeService = ServiceFactory.getTypeServiceInstance();
-    private  List<Entity> entityList = null;
+    private List<Type> typeList;
     private TableColumn<Type,Type> delCol = new TableColumn<>("操作");
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -69,8 +65,8 @@ public class TypeController implements Initializable {
         });
         //删除列加入表格
         typeTable.getColumns().add(delCol);
-        entityList = typeService.getAllTypes();
-        showTypeData(entityList);
+        typeList = typeService.getAllTypes();
+        showTypeData(typeList);
     }
     public void listType() throws SQLException {
         //创建一个输入对话框
@@ -94,16 +90,8 @@ public class TypeController implements Initializable {
             typeData.add(type);
         }
     }
-    private  void  showTypeData(List<Entity> entityList) {
-        //遍历实体集合
-        for (Entity entity : entityList) {
-            //取出属性，创建Type的对象
-            Type type = new Type();
-            type.setId(entity.getInt("id"));
-            type.setTypeName(entity.getStr("type_name"));
-            //加入ObservableList模型数据集合
-            typeData.add(type);
-        }
+    private  void  showTypeData(List<Type> entityList) {
+        typeData.addAll(typeList);
         typeTable.setItems(typeData);
     }
 }

@@ -13,8 +13,8 @@ import java.util.List;
 public class ReceiptServiceImpl implements ReceiptService {
     private  ReceiptDAO receiptDAO = DAOFactory.getReceiptDAOInstance();
     @Override
-    public List<Entity> getAllReceipt() {
-        List<Entity> receiptList = new ArrayList<>();
+    public List<Receipt> getAllReceipt() {
+        List<Receipt> receiptList = new ArrayList<>();
         try {
             receiptList = receiptDAO.selectAllReceipt();
         }catch (SQLException e){
