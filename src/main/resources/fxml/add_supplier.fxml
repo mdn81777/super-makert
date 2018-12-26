@@ -26,6 +26,6 @@
             <Insets top="10" left="50" bottom="10" right="50"/>
         </padding>
 
-    <Button text="确认" onAction="#addSupplier" styleClass="btn4-basic"
+    <Button text="确认" onAction="#addsupplier" styleClass="btn4-basic"
             AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="180" AnchorPane.rightAnchor="180"/>
 </AnchorPane>
