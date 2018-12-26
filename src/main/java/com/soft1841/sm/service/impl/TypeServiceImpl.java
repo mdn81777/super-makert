@@ -55,7 +55,7 @@ public class TypeServiceImpl implements TypeService {
     }
 
     @Override
-    public Type getType(int id) {
+    public Type getType(long id) {
         Type type = new Type();
         try {
             type = typeDAO.getTypeByID(id);

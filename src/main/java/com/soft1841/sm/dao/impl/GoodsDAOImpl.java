@@ -9,13 +9,12 @@ import cn.hutool.db.Entity;
 import cn.hutool.db.sql.Condition;
 import com.soft1841.sm.dao.GoodsDAO;
 import com.soft1841.sm.entity.Goods;
-import org.apache.xerces.impl.dv.dtd.ENTITYDatatypeValidator;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GoodsDAOImpl implements GoodsDAO {
+
     @Override
     public Long insertGoods(Goods goods) throws SQLException {
         return Db.use().insertForGeneratedKey(
@@ -66,7 +65,15 @@ public class GoodsDAOImpl implements GoodsDAO {
         List<Entity> entityList = Db.use().query("SELECT * FROM t_goods WHERE type_id = ?",typeId);
         List<Goods> goodsList = new ArrayList<>();
         return goodsList;
-    };
+    }
+
+    @Override
+    public Goods getGoodsByID(long id) throws SQLException{
+        Entity entity = Db.use().queryOne("SELECT * FROM t_goods WHERE id = ?",id);
+        return convertGoods(entity);
+    }
+
+    ;
 
     @Override
     public int updateGoods(Goods goods) throws SQLException {

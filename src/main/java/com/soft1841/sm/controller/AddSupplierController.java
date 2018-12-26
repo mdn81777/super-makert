@@ -1,6 +1,7 @@
 package com.soft1841.sm.controller;
 /**
  * 新增供应商服务类
+ *
  * @author 林斌涛
  */
 
@@ -34,40 +35,45 @@ import java.util.ResourceBundle;
 public class AddSupplierController implements Initializable {
     private ObservableList<Supplier> suppliersData = FXCollections.observableArrayList();
 
-    public ObservableList<Supplier> getSupplierData(){return suppliersData;}
+    public ObservableList<Supplier> getSupplierData() {
+        return suppliersData;
+    }
 
-    public void setSuppliersData(ObservableList<Supplier> suppliersData){this.suppliersData = suppliersData;}
+    public void setSuppliersData(ObservableList<Supplier> suppliersData) {
+        this.suppliersData = suppliersData;
+    }
 
     @FXML
     private ComboBox<Type> supplierType;
     @FXML
-    private TextField supplierName,supplierAddress,supplierPhone,supplierLinkMen;
+    private TextField supplierName, supplierAddress, supplierPhone, supplierLinkMen;
     @FXML
     private TextArea supplierDescription;
 
     private ObservableList<Type> typeData = FXCollections.observableArrayList();
-     private TypeService typeService = ServiceFactory.getTypeServiceInstance();
+    private TypeService typeService = ServiceFactory.getTypeServiceInstance();
 
     private SupplierService supplierService = ServiceFactory.getSupplierServiceInstance();
-    private List<Type> entityList = null;
+    private List<Type> typeList = null;
 
     private Long typeId;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         typeList = typeService.getAllTypes();
         typeData.addAll(typeList);
-
         supplierType.setItems(suppliersData);
         supplierType.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
             typeId = newValue.getId();
         });
     }
-    public void addsupplier() throws Exception{
+
+    public void addsupplier() throws Exception {
         String name = supplierName.getText();
         String address = supplierAddress.getText();
         String phone = supplierPhone.getText();
         String linkmen = supplierLinkMen.getText();
-        Supplier supplier=new Supplier();
+        Supplier supplier = new Supplier();
         supplier.setId(typeId);
         supplier.setSupplierAddress(address);
         supplier.setSupplierPhone(phone);

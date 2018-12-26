@@ -1,18 +1,16 @@
 package com.soft1841.sm.controller;
 /**
  * 商品管理模块
- * @author 蔡一帆
  *
+ * @author 蔡一帆
  */
 
 import cn.hutool.db.Entity;
-import com.soft1841.sm.dao.GoodsDAO;
-import com.soft1841.sm.dao.TypeDAO;
 import com.soft1841.sm.entity.Goods;
 import com.soft1841.sm.entity.Type;
+import com.soft1841.sm.service.GoodsService;
 import com.soft1841.sm.service.TypeService;
 import com.soft1841.sm.utils.ComponentUtil;
-import com.soft1841.sm.utils.DAOFactory;
 import com.soft1841.sm.utils.ServiceFactory;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -50,13 +48,13 @@ public class GoodsController implements Initializable {
 
     private ObservableList<Type> typeData = FXCollections.observableArrayList();
 
-    private GoodsDAO goodsDAO = DAOFactory.getGoodsDAOInstance();
+    private GoodsService goodsService = ServiceFactory.getGoodsServiceInstance();
 
     private TypeService typeService = ServiceFactory.getTypeServiceInstance();
 
-    private List<Entity> goodsList = null;
+    private List<Goods> goodsList = null;
 
-    private List<Entity> typeList = null;
+    private List<Type> typeList = null;
 
     private TableColumn<Goods, Goods> editCol = new TableColumn<>("操作");
 
@@ -71,11 +69,7 @@ public class GoodsController implements Initializable {
 
     private void initTable() {
         goodsTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        try {
-            goodsList = goodsDAO.selectAllGoods();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        goodsList = goodsService.getAllGoods();
         showGoodsData(goodsList);
         editCol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
         editCol.setCellFactory(param -> new TableCell<Goods, Goods>() {
@@ -98,11 +92,7 @@ public class GoodsController implements Initializable {
                     if (result.isPresent()) {
                         String priceString = result.get();
                         goods.setPrice(Double.parseDouble(priceString));
-                        try {
-                            goodsDAO.updateGoods(goods);
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        }
+                        goodsService.updateGoods(goods);
                     }
                 });
             }
@@ -128,12 +118,9 @@ public class GoodsController implements Initializable {
                     alert.setContentText("确定要删除这行记录吗？");
                     Optional<ButtonType> result = alert.showAndWait();
                     if (result.get() == ButtonType.OK) {
+                        long id = goods.getId();
                         goodsData.remove(goods);
-                        try {
-                            goodsDAO.deleteGoodsByBarcode(goods.getBarcode());
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        }
+                        goodsService.deleteGoods(id);
                     }
                 });
             }
@@ -144,21 +131,8 @@ public class GoodsController implements Initializable {
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && (!row.isEmpty())) {
                     long id = row.getItem().getId();
-                    Goods goods = new Goods();
-                    try {
-                        Entity entity = goodsDAO.getGoodsByTypeId((int) id);
-                        goods.setId(entity.getLong("id"));
-                        goods.setTypeId(entity.getLong("type_id"));
-                        goods.setName(entity.getStr("goods_name"));
-                        goods.setPrice(entity.getDouble("price"));
-                        goods.setCover(entity.getStr("cover"));
-                        goods.setDescription(entity.getStr("description"));
-                        goods.setBarcode(entity.getStr("barcode"));
-                        goods.setStock(entity.getInt("stock"));
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
                     Stage goodsInfoStage = new Stage();
+                    Goods goods = goodsService.getGoods(id);
                     goodsInfoStage.setTitle("商品详情界面");
                     VBox vBox = new VBox();
                     vBox.setSpacing(10);
@@ -190,37 +164,23 @@ public class GoodsController implements Initializable {
 
     private void initComBox() {
         typeList = typeService.getAllTypes();
-        for (Entity entity : typeList) {
-            Type type = new Type();
-            type.setId(entity.getLong("id"));
-            type.setTypeName(entity.getStr("type_name"));
-            typeData.add(type);
-        }
         typeComboBox.setItems(typeData);
         typeComboBox.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
                     goodsTable.getItems().removeAll(goodsData);
-                    try {
-                        goodsList = goodsDAO.selectGoodsByTypeId(newValue.getId());
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
+
                     showGoodsData(goodsList);
                 }
         );
     }
-    private void showGoodsData(List<Entity> goodsList){
-        for (Entity entity:goodsList) {
-            Goods goods = new Goods();
-            goods.setId(entity.getLong("id"));
-            goods.setName(entity.getStr("goods_name"));
-            goods.setPrice(entity.getDouble("price"));
-            goods.setStock(entity.getInt("stock"));
-            goods.setBarcode(entity.getStr("barcode"));
+
+    private void showGoodsData(List<Goods> goodsList) {
+        for (Goods goods : goodsList) {
             goodsData.add(goods);
         }
         goodsTable.setItems(goodsData);
     }
-    public void newGoodsStage()throws Exception{
+
+    public void newGoodsStage() throws Exception {
         Stage addGoodsStage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/add_goods.fxml"));
         AnchorPane root = fxmlLoader.load();
@@ -233,14 +193,11 @@ public class GoodsController implements Initializable {
         addGoodsStage.setScene(scene);
         addGoodsStage.show();
     }
-    public void search(){
+
+    public void search() {
         goodsTable.getItems().removeAll(goodsData);
         String keywords = keywordsField.getText().trim();
-        try {
-            goodsList = goodsDAO.selectGoodsLike(keywords);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        goodsList = goodsService.getGoodsLike(keywords);
         showGoodsData(goodsList);
     }
 }

@@ -4,7 +4,6 @@ package com.soft1841.sm.dao;
  * @author蔡一帆
  */
 
-import cn.hutool.db.Entity;
 import com.soft1841.sm.entity.Goods;
 
 import java.sql.SQLException;
@@ -64,4 +63,11 @@ public interface GoodsDAO {
      * @throws SQLException
      */
     List<Goods> selectGoodsByTypeId(long id) throws SQLException;
+
+    /**
+     * 通过ID查询单件商品
+     * @param id
+     * @return
+     */
+    Goods getGoodsByID(long id) throws SQLException;
 }

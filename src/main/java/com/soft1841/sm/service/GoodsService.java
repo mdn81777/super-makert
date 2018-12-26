@@ -47,4 +47,11 @@ public interface GoodsService {
      * @return
      */
     List<Goods> getGoodsLike(String keywords);
+
+    /**
+     * 根据ID查询商品
+     * @param id
+     * @return
+     */
+    Goods getGoods(long id);
 }

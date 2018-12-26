@@ -40,8 +40,8 @@ public class TypeDAOImpl implements TypeDAO {
     }
 
     @Override
-    public Type getTypeByID(int id) throws SQLException {
-        Entity entity = Db.use().queryOne("SELECT * FROM t_type WHERE id = ?", id);
+    public Type getTypeByID(long id) throws SQLException {
+        Entity entity = Db.use().queryOne("SELECT * FROM t_type WHERE id = ? ", id);
         return convertType(entity);
     }
 

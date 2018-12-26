@@ -39,7 +39,7 @@ public interface TypeService {
      * @param id
      * @return
      */
-   Type getType(int id);
+   Type getType(long id);
 
 
 }

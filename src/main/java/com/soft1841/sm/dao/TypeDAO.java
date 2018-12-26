@@ -36,7 +36,7 @@ public  interface TypeDAO {
      * @return
      * @throws SQLException
      */
-     Type getTypeByID(int id) throws  SQLException;
+     Type getTypeByID(long id) throws  SQLException;
 
     /**
      *修改商品类别信息
@@ -45,5 +45,4 @@ public  interface TypeDAO {
      * @throws SQLException
      */
      int updateType(Type type) throws  SQLException;
-
 }

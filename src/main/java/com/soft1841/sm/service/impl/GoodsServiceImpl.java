@@ -78,4 +78,15 @@ public class GoodsServiceImpl implements GoodsService {
         }
         return goodsList;
     }
+
+    @Override
+    public Goods getGoods(long id) {
+        Goods goods = new Goods();
+        try {
+            goods = goodsDAO.getGoodsByID(id);
+        } catch (SQLException e) {
+            System.err.println("根据ID查询商品出现异常");
+        }
+        return  goods;
+    }
 }
