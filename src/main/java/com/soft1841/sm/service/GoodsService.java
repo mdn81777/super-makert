@@ -6,7 +6,8 @@ package com.soft1841.sm.service;
 
 import com.soft1841.sm.entity.Goods;
 
-import java.util.List;
+        import java.sql.SQLException;
+        import java.util.List;
 
 public interface GoodsService {
     /**
@@ -49,9 +50,17 @@ public interface GoodsService {
     List<Goods> getGoodsLike(String keywords);
 
     /**
+     <<<<<<< Updated upstream
      * 根据ID查询商品
      * @param id
      * @return
      */
     Goods getGoods(long id);
-}
+
+    /**
+     *
+     * @param typeId
+     * @return
+     */
+    int countByType(long typeId) ;}
+

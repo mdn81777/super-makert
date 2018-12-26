@@ -73,7 +73,6 @@ public class GoodsDAOImpl implements GoodsDAO {
         return convertGoods(entity);
     }
 
-    ;
 
     @Override
     public int updateGoods(Goods goods) throws SQLException {
@@ -82,6 +81,9 @@ public class GoodsDAOImpl implements GoodsDAO {
                         .set("goods_ stock",goods.getStock()),
                 Entity.create("t_goods").set("goods_barcode",goods.getBarcode())
         );
-
+    }
+    @Override
+    public  int countByType(long typeId) throws  SQLException{
+        return  Db.use().queryNumber("SELECT COUNT(*) FROM t_goods WHERE type_id = ? ",typeId).intValue();
     }
 }

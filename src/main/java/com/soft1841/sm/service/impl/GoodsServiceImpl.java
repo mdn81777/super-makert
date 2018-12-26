@@ -8,6 +8,14 @@ import com.soft1841.sm.utils.DAOFactory;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import com.soft1841.sm.dao.GoodsDAO;
+import com.soft1841.sm.entity.Goods;
+import com.soft1841.sm.service.GoodsService;
+import com.soft1841.sm.utils.DAOFactory;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 商品服务实现类
@@ -22,7 +30,7 @@ public class GoodsServiceImpl implements GoodsService {
         try {
             result = goodsDAO.insertGoods(goods);
         } catch (SQLException e) {
-           System.err.println("新增商品出现异常");
+            System.err.println("新增商品出现异常");
         }
         return result;
     }
@@ -57,7 +65,7 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-   public List<Goods> getGoodsByTypeId(long typeId){
+    public List<Goods> getGoodsByTypeId(long typeId){
         List<Goods> goodsList = new ArrayList<>();
         try {
             goodsList = goodsDAO.selectGoodsByTypeId(typeId);
@@ -88,5 +96,16 @@ public class GoodsServiceImpl implements GoodsService {
             System.err.println("根据ID查询商品出现异常");
         }
         return  goods;
+    }
+
+    @Override
+    public int countByType(long typeId) {
+        int result = 0;
+        try{
+            result = goodsDAO.countByType(typeId);
+        }catch (SQLException e){
+            System.err.println("根据类别统计商品信息出现异常");
+        }
+        return 0;
     }
 }
