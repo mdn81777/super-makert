@@ -20,43 +20,32 @@ public class MemberDAOTest {
     @Test
     public void insertMember() throws SQLException {
         Member member = new Member();
-        member.setId("");
-        member.setName("");
-        member.setAddress("");
-        member.setPhone("");
+        member.setId(223);
+        member.setName("hkbk");
+        member.setAddress("vjgh");
+        member.setPhone("gjvbn");
         member.setIntegral(1);
         System.out.println(memberDAO.insertMember(member));
     }
 
     @Test
     public void deleteMember() throws SQLException {
-    memberDAO.deleteMemberByMemberId(1);
+        memberDAO.deleteMemberByMemberId(1);
     }
 
     @Test
     public void selectAllMember() throws SQLException {
-        List<Entity> MemberList = memberDAO.selectAllMember();
-        MemberList.forEach(entity -> System.out.println(entity.getStr("name")));
+        List<Member> memberList = memberDAO.selectAllMember();
+        memberList.forEach(member -> System.out.println(member));
     }
 
     @Test
-    public void getMemberByMemberId()throws SQLException  {
-        Entity entity = memberDAO.getMemberByMemberId(1);
-        System.out.println(entity);
+    public void getMemberByMemberId() throws SQLException {
     }
 
     @Test
-    public void selectMemberLike() throws SQLException{
-        List<Entity> memberList = memberDAO.selectMemberLike("");
-        memberList.forEach(entity -> System.out.println(entity.getStr("name")));
-    }
-
-    @Test
-    public void updateMember() throws SQLException{
-        Member member = new Member();
-        member.setName("");
-        member.setAddress("");
-        member.setPhone("");
-        memberDAO.updateMember(member);
+    public void selectMemberLike() throws SQLException {
+        List<Member> memberList = memberDAO.selectMemberLike("李");
+        memberList.forEach(member -> System.out.println(member.getName()));
     }
 }

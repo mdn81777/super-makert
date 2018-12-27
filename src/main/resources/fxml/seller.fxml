@@ -25,10 +25,10 @@
     </FlowPane>
 
     <GridPane   hgap="50" vgap="50"
-              AnchorPane.topAnchor="90"
-              AnchorPane.leftAnchor="600"
-              AnchorPane.rightAnchor="10"
-              AnchorPane.bottomAnchor="10">
+                AnchorPane.topAnchor="90"
+                AnchorPane.leftAnchor="600"
+                AnchorPane.rightAnchor="10"
+                AnchorPane.bottomAnchor="10">
         <!--下部是一个网格布局，一行两列-->
 
         <!--指定行列从零开始-->

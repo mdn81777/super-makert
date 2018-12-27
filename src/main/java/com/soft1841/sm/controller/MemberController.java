@@ -1,43 +1,32 @@
 package com.soft1841.sm.controller;
 import cn.hutool.db.Entity;
-import com.soft1841.sm.dao.MemberDAO;
+import com.soft1841.sm.entity.Goods;
 import com.soft1841.sm.entity.Member;
-import com.soft1841.sm.dao.MemberDAO;
-import com.soft1841.sm.entity.Member;
+import com.soft1841.sm.entity.Type;
 import com.soft1841.sm.service.MemberService;
-import com.soft1841.sm.utils.DAOFactory;
-import com.soft1841.sm.utils.DAOFactory;
+import com.soft1841.sm.service.TypeService;
+import com.soft1841.sm.utils.ComponentUtil;
 import com.soft1841.sm.utils.ServiceFactory;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import com.sun.xml.internal.bind.v2.model.core.ID;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 
-import java.awt.*;
 import java.net.URL;
-import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.*;
 import java.util.List;
 
@@ -46,140 +35,105 @@ import java.util.List;
  * @author 李启鹏
  * 2018-12-25
  */
-public class MemberController implements Initializable {
+public class    MemberController implements Initializable {
     @FXML
-    private FlowPane memberPane;
-    //读取数据
+    private TableView<Member> memberTable;
+
+    private ObservableList<Member> membersData = FXCollections.observableArrayList();
+
     private MemberService memberService = ServiceFactory.getMemberServiceInstance();
-    //接口回调
-    List<Entity> memberList = new ArrayList<>();
+
+    private List<Member> memberList = null;
+
+    private TableColumn<Member, Member> delCol = new TableColumn<>("操作");
+
+
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        initTable();
+
+}
+
+    private void initTable() {
+        memberTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         memberList = memberService.getAllMember();
-        System.out.println(memberList.size());
-        showMembers(memberList);
+     showMembersData(memberList);
+    delCol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+     delCol.setCellFactory(param -> new TableCell<Member, Member>() {          private final Button deleteButton = ComponentUtil.getButton("删除", "blue-theme");
 
+        @Override
+        protected void updateItem(Member member, boolean empty) {
+           if (member == null) {
+                setGraphic(null);
+                return;
+          }
+
+              setGraphic(deleteButton);
+              deleteButton.setOnAction(event -> {
+                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                  alert.setTitle("确认对话框");
+                 alert.setHeaderText("请确认");
+                  alert.setContentText("确定要删除这行记录吗？");
+                  Optional<ButtonType> result = alert.showAndWait();
+                  if (result.get() == ButtonType.OK) {
+                     long id = member.getId();
+                      membersData.remove(member);
+                      memberService.deleteMember(id);
+                  }
+               });
+          }
+      });
+      memberTable.getColumns().add(delCol);
+       memberTable.setRowFactory(tv -> {
+          TableRow<Member> row = new TableRow<>();
+          row.setOnMouseClicked(event -> {
+               if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                  long id = row.getItem().getId();
+        Member member = memberService .getMember(id);
+                  Stage memberInfoStage = new Stage();
+
+                   memberInfoStage.setTitle("会员详情界面");
+                    VBox vBox = new VBox();
+                  vBox.setSpacing(10);
+                  vBox.setAlignment(Pos.CENTER);
+                  vBox.setPrefSize(600, 400);
+                vBox.setPadding(new Insets(10, 10, 10, 10));
+                 Label nameLabel = new Label("姓名：" + member.getName());
+                   nameLabel.getStyleClass().add("btn-basic");
+                 Label addressLabel = new Label("地址:" + member.getAddress());
+                   Label phoneLabel = new Label("电话:" + member.getPhone());
+                 Label integralLabel = new Label("积分：" + member.getIntegral());
+                  vBox.getChildren().addAll(nameLabel, addressLabel, phoneLabel, integralLabel);
+                Scene scene = new Scene(vBox, 700, 540);
+                  scene.getStylesheets().add("/css/style.css");
+                  memberInfoStage.setScene(scene);
+                  memberInfoStage.show();
+              }
+         });
+          return row;
+      });
+   }
+
+
+     private void showMembersData(List<Member> memberList) {
+      membersData.addAll(memberList);
+      memberTable.setItems(membersData);
     }
-    //通过循环遍历集合，创建HBox来显示每个会员信息
-    private void showMembers(List<Entity>memberList){
-        ObservableList<Node>observableList = memberPane.getChildren();
-        memberPane.getChildren().removeAll(observableList);
-        for (Entity entity :memberList) {
-            HBox hBox = new HBox();
-            hBox.setPrefSize(320,280);
-            hBox.setSpacing(10);
-            hBox.setPadding(new Insets(10,10,10,10));
-            hBox.getStyleClass().add("box");
-            //创建左侧垂直布局
-            VBox leftBox = new VBox();
-            leftBox.setSpacing(10);
-            leftBox.setAlignment(Pos.TOP_CENTER);
-            Label roleLabel =  new Label(entity.getStr("role"));
-            leftBox.getChildren().add(roleLabel);
-            //左边加入主布局
-            hBox.getChildren().add(leftBox);
-            memberPane.getChildren().add(hBox);
-            //创建右侧垂直布局
-            VBox rightBox = new VBox();
-            rightBox.setSpacing(20);
-            rightBox.setAlignment(Pos.TOP_LEFT);
-            Label idLabel = new Label(entity.getStr("id"));
-            Label nameLabel = new Label(entity.getStr("name"));
-            Label addressLabel = new Label(entity.getStr("address"));
-            Label phoneLabel = new Label(entity.getStr("phone"));
-            Label integralLabel = new Label(entity.getStr("integral"));
-            Button delBtn = new Button("删除");
-            //点击删除按钮做的事件
-            delBtn.setOnAction(event -> {
-                //弹一个确认对话框
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("确认对话框");
-                alert.setContentText("确定要删除这行记录吗？");
-                Optional<ButtonType> result =alert.showAndWait();
-                if (result.get() == ButtonType.OK){
-                    //得到这个人的ID
-                    long id = entity.getLong("id");
-                    memberService.deleteMember(id);
-                    memberPane.getChildren().remove(hBox);
-                }
-            });
-            delBtn.getStyleClass().addAll("warning-theme","btn-radius-larger");
-            rightBox.getChildren().addAll(idLabel,nameLabel,addressLabel,phoneLabel,integralLabel,delBtn);
-            hBox.getChildren().add(rightBox);
-
-        }
-    }
-    //新增会员方法
-    public void addMember() throws SQLException{
-        Member member = new Member();
-        Stage stage = new Stage();
-        stage.setTitle("新增会员界面");
-        VBox vBox = new VBox();
-        vBox.setSpacing(10);
-        vBox.setPadding(new Insets(20,10,10,10));
-        TextField nameField = new TextField("请输入姓名");
-        TextField addressField = new TextField("请输入地址");
-        HBox roleBox = new HBox();
-        roleBox.setSpacing(20);
-        ToggleGroup group = new ToggleGroup();
-        RadioButton teacherButton = new RadioButton("教师");
-        teacherButton.setToggleGroup(group);
-        teacherButton.setSelected(true);
-        teacherButton.setUserData("教师");
-        RadioButton studentButton = new RadioButton("学生");
-        studentButton.setToggleGroup(group);
-        studentButton.setUserData("学生");
-        roleBox.getChildren().addAll(teacherButton,studentButton);
-        group.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
 
 
-            @Override
-            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-                System.out.println(group.getSelectedToggle().getUserData().toString());
-                member.setId(group.getSelectedToggle().getUserData().toString());
-            }
-        });
-        String[] names = {"刘伟","李明","林斌涛","李启鹏","王东东","王刚","王超"};
-        List<String> list = Arrays.asList(names);
-        ObservableList<String> observableList = FXCollections.observableArrayList();
-        observableList.addAll(list);
-        ComboBox<String> depComboBox = new ComboBox<>();
-        depComboBox.setPromptText("请选择姓名");
-        depComboBox.setItems(observableList);
-        depComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-
-
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                member.setName(newValue);
-            }
-        });
-        DatePicker datePicker = new DatePicker();
-        datePicker.setValue(LocalDate.now());
-        // TextField addressField = new TextField("请输入地址");
-        TextField phoneField = new TextField("请输入电话");
-        Button addBtn = new Button("新增");
-        addBtn.getStyleClass().add("blue-theme");
-        vBox.getChildren().addAll(nameField,roleBox,depComboBox,addressField,phoneField,addBtn);
-        Scene scene = new Scene(vBox,600,300);
-        scene.getStylesheets().add("/css/style.css");
-        stage.setScene(scene);
-        stage.show();
-        addBtn.setOnAction(event -> {
-            String nameString = nameField.getText().trim();
-            String addressString = addressField.getText().trim();
-            String phoneString = phoneField.getText().trim();
-
-            member.setName(nameString);
-            member.setAddress(addressString);
-            member.setPhone(phoneString);
-
-            //System.out.println(member.getMemberId() + member.getId() + member.);
-            memberService.addMember(member);
-
-            stage.close();
-            memberList = memberService.getAllMember();
-            showMembers(memberList);
-        });
-    }
+    public void newMemberStage() throws Exception {
+       Stage addMemberStage = new Stage();
+      FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/add_member.fxml"));
+     AnchorPane root = fxmlLoader.load();
+    Scene scene = new Scene(root);
+      scene.getStylesheets().add("/css/style.css");
+      AddMemberController addMemberController = fxmlLoader.getController();
+    addMemberController.setMembersData(membersData);
+     addMemberStage.setTitle("新增会员界面");
+     addMemberStage.setResizable(false);
+     addMemberStage.setScene(scene);
+     addMemberStage.show();
+   }
 }

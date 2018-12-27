@@ -46,48 +46,47 @@ public class LoginController {
         String password = passwordField.getText().trim();
         //将从输入框读取到的账号转为长整型
         Long account = Long.parseLong(accountStr);
-        //定义布朗值flag
-        boolean flag;
         //获取员工的职位ID
         int typeId = staffService.getType(account);
+        System.out.println(typeId);
+        //根据typeId决定调用哪个界面
+        //定义一个空string用于存放对应职位的fxml
+
+
         //登陆判断
         if (staffService.login(account, password)) {
-            flag = true;
-        } else {
-            flag = false;
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("提示");
-            alert.setContentText("账号或密码错误，登录失败!");
+            alert.setContentText("登陆成功!");
             alert.showAndWait();
-        }
-        //定义一个空string用于存放对应职位的fxml
-        String position = new String();
-        //职位判断
-        if (typeId == 1) {
-            //店长
-            position = "store_manager.fxml";
-        } else if (typeId == 2) {
-            //会计
-            position = "bookkeeper.fxml";
-        } else if (typeId == 3) {
-            //收货员
-            position = "receipt.fxml";
-        } else if (typeId == 4) {
-            //收银员
-            flag = false;
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("提示");
-            alert.setContentText("您的权限不足!");
-            alert.showAndWait();
-        } else if (typeId == 5) {
-            //客服
-            position = "customer_service.fxml";
-        }
-        //当flag为真时，打开新窗口
-        if (flag) {
+            String position = new String();
+            //职位判断
+            if (typeId == 1) {
+                //店长
+                position = "store_manager.fxml";
+            } else if (typeId == 2) {
+                //会计
+                position = "bookkeeper.fxml";
+            } else if (typeId == 3) {
+                //收货员
+                position = "receipt.fxml";
+            } else if (typeId == 4) {
+                //收银员
+                Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+                alert1.setTitle("提示");
+                alert1.setContentText("你是收银员，权限不足!");
+                alert1.showAndWait();
+
+            } else if (typeId == 5) {
+                //客服
+                position = "customer_service.fxml";
+            }
+
+
+            //显示主界面
             Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/" + position));
-            BorderPane root = null;
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/"+position));
+            BorderPane root = new BorderPane();
             try {
                 root = fxmlLoader.load();
             } catch (IOException e) {
@@ -102,6 +101,11 @@ public class LoginController {
             stage.setMaximized(true);
             Stage loginStage = (Stage) closeButton.getScene().getWindow();
             loginStage.close();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("提示");
+            alert.setContentText("账号或密码错误，登录失败!");
+            alert.showAndWait();
         }
     }
 }
