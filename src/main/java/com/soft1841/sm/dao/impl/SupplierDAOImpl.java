@@ -46,6 +46,11 @@ public class SupplierDAOImpl implements SupplierDAO {
     }
 
     @Override
+    public Supplier getSupplierByID(long id) throws SQLException {
+        return null;
+    }
+
+    @Override
     public int updateSupplier(Supplier supplier) throws SQLException {
         return Db.use().update(
                 Entity.create().set("supplier_name", supplier.getSupplierName())

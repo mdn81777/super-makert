@@ -26,9 +26,11 @@ public  interface TypeDAO {
 
     /**
      * 查询所有类别
+     *
      * @return
      */
-    List<Type> selectAllTypes() throws SQLException;
+     List<Type> selectAllTypes() throws SQLException ;
+
 
     /**
      * 根据id查询类别信息

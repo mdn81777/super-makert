@@ -4,11 +4,12 @@ package com.soft1841.sm.entity;
  * @author 孟妮
  */
 
+import cn.hutool.db.Entity;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 
-public class Type {
+public class Type extends Entity {
     //以JavaFx属性绑定的形式，定义和数据表字段id和type_name,type_cover对应的属性，注意命名规范
     private final SimpleLongProperty id = new SimpleLongProperty();
     private final SimpleStringProperty typeName = new SimpleStringProperty("");

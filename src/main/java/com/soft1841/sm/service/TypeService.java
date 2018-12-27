@@ -11,9 +11,11 @@ import java.util.List;
 public interface TypeService {
     /**
      * 获取所有类别
+     *
      * @return
      */
-    List<Type> getAllTypes();
+     List<Type> getAllTypes() ;
+
 
     /**
      * 添加类别

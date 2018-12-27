@@ -31,16 +31,16 @@ public interface MemberDAO {
      * @return
      * @throws SQLException
      */
-    List<Entity> selectAllMember() throws SQLException;
+    List<Member> selectAllMember() throws SQLException;
 
     /**
      * 通过会员id查询
      *
      * @param memberId
-     * @return
+     * @return Member
      * @throws SQLException
      */
-    Entity getMemberByMemberId(long memberId) throws SQLException;
+    Member getMemberByMemberId(long memberId) throws SQLException;
 
     /**
      * 通过关键词查询会员
@@ -49,7 +49,7 @@ public interface MemberDAO {
      * @return
      * @throws SQLException
      */
-    List<Entity> selectMemberLike(String keywords) throws SQLException;
+    List<Member> selectMemberLike(String keywords) throws SQLException;
 
 
     /**

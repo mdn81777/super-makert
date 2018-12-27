@@ -94,7 +94,7 @@ public class SupplierController implements Initializable {
                 if (event.getClickCount() == 2 && (!row.isEmpty())) {
                     long id = row.getItem().getId();
 
-                    Supplier supplier = supplierService.getAllSupplier(id);
+                    Supplier supplier = (Supplier) supplierService.getAllSupplier(id);
                     Stage supplierInfoStage = new Stage();
                     supplierInfoStage.setTitle("供应商详情界面");
                     VBox vBox = new VBox();
@@ -137,11 +137,12 @@ public class SupplierController implements Initializable {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/css/style.css");
         AddSupplierController addSupplierController = fxmlLoader.getController();
-        addSupplierController.setSupplierDate(supplierData);
+        addSupplierController.setSuppliersData(supplierData);
         addsupplierStage.setTitle("新增供应商界面");
         addsupplierStage.setResizable(false);
         addsupplierStage.setScene(scene);
         addsupplierStage.show();
-    }}
+    }
+}
 
 

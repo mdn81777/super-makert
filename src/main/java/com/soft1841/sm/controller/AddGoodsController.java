@@ -53,21 +53,19 @@ public class AddGoodsController implements Initializable {
 
     private TypeService typeService = ServiceFactory.getTypeServiceInstance();
     private GoodsService goodsService = ServiceFactory.getGoodsServiceInstance();
-    private List<Type> entityList = null;
+    private List<Type> typeList = null;
 
     private Long typeId;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        entityList = typeService.getAllTypes();
-        for (Type entity : entityList) {
-            typeData.add(entity);
-        }
-        goodsType.setItems(typeData);
-        goodsType.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
-            typeId = newValue.getId();
-        });
+//        typeList =  TypeService.getAlltypes;
+//        typeData.addAll(typeList);
+//        goodsType.setItems(typeData);
+//        goodsType.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
+//            typeId = newValue.getId();
+//        });
     }
 
     public void addGoods() throws Exception {
@@ -91,7 +89,7 @@ public class AddGoodsController implements Initializable {
         this.getGoodsData().add(goods);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("提示信息");
-        alert.setHeaderText("新增商品成功！");
+        alert.setHeaderText("新增会员成功！");
         alert.showAndWait();
         Stage stage = (Stage) goodsName.getScene().getWindow();
         stage.close();

@@ -37,37 +37,20 @@ public  class AddMemberController implements Initializable {
     @FXML
     private TextField memberId, memberName, memberAddress, memberPhone, memberIntegral;
 
-    private ObservableList<Type> typeData = FXCollections.observableArrayList();
-
-    private TypeService typeService = ServiceFactory.getTypeServiceInstance();
     private MemberService memberService = ServiceFactory.getMemberServiceInstance();
-    private List<Type> entityList = null;
-
-    private Long typeId;
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        entityList = TypeService.getAllTypes();
-        for (Type entity : entityList) {
-            typeData.add(entity);
-        }
-        memberType.setItems(typeData);
-        memberType.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
-            typeId = newValue.getId();
-        });
+
     }
 
-    public void addMember() throws Exception {
+    public void addMember()  {
 
         String name = memberName.getText();
         String address = memberAddress.getText();
         String phone = memberPhone.getText();
         String integral = memberIntegral.getText();
-
-
         Member member = new Member();
-        member.setTypeId(typeId);
         member.setName(name);
         member.setAddress(String.valueOf(Double.parseDouble(address)));
         member.setPhone(phone);

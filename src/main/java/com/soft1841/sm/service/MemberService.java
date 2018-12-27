@@ -28,20 +28,20 @@ public interface MemberService {
      * 查询所有会员
      * @return
      */
-    List<Entity> getAllMember();
+    List<Member> getAllMember();
 
     /**
      * 根据id查询会员
      * @param memberId
      * @return
      */
-    Entity getMember(long memberId);
+    Member getMember(long memberId);
     /**
      * 根据关键词模糊查询图书
      * @param keywords
      * @return List<Book>
      */
 
-    List<Entity> getMemberLike(String keywords);
+    List<Member> getMemberLike(String keywords);
 
 }

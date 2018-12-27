@@ -52,5 +52,10 @@ public class SupplierServiceImpl implements SupplierService {
         return supplierList;
     }
 
+    @Override
+    public List<Supplier> getAllSupplier(long id) {
+        return null;
+    }
+
 
 }

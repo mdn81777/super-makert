@@ -12,7 +12,7 @@
     <HBox AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
           minHeight="50" alignment="CENTER" styleClass="blue-theme">
         <Label text="新增供应商" styleClass="btn3-basic"/>
-    </HBox>
+  </HBox>
         <HBox spacing="10">
             <TextField promptText="供应商名称" fx:id="supplierName"/>
             <TextField promptText="供应商地址" fx:id="supplierAddress"/>
