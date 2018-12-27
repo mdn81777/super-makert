@@ -55,6 +55,8 @@ public class SupplierDAOImpl implements SupplierDAO {
                 Entity.create("t_supplier").set("id", supplier.getId()));
     }
 
+
+
     private Supplier convertSupplier(Entity entity) {
         Supplier supplier = new Supplier();
         supplier.setId(entity.getLong("id"));
