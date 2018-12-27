@@ -21,6 +21,7 @@ public class LoginApp extends Application{
         scene.getStylesheets().add(LoginApp.class.getResource("/css/style.css").toExternalForm());
         primaryStage.getIcons().add(new Image("/img/TeamLogo.png"));
         primaryStage.setScene(scene);
+//        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 

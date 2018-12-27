@@ -13,12 +13,16 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
-<BorderPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<BorderPane
+            xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.soft1841.sm.controller.MainController">
     <top>
-        <AnchorPane prefHeight="80.0">
-            <Label text="盐系超市后台管理系统" onMouseClicked="#listDefault" AnchorPane.leftAnchor="10" AnchorPane.topAnchor="20">
+        <AnchorPane prefHeight="80.0" styleClass="blue-theme">
+            <Label text="盐系超市后台管理系统" onMouseClicked="#listDefault"
+            AnchorPane.leftAnchor="10" AnchorPane.topAnchor="20" >
                 <effect>
                     <Reflection bottomOpacity="0.2" fraction="0.5" topOffset="-5.0" />
                 </effect>
@@ -26,34 +30,39 @@
                     <Font name="System Bold" size="26.0" />
                 </font>
             </Label>
-            <Button fx:id="closeButton" onAction="#closeBtnOnAction" text="退出系统" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="20" />
-            <Button fx:id="outLogin" onAction="#outLoginBtnOnAction" text="退出登录" AnchorPane.rightAnchor="100" AnchorPane.topAnchor="20" />
+            <ImageView fitWidth="45" fitHeight="45" AnchorPane.topAnchor="15" AnchorPane.rightAnchor="210">
+                <Image url="/img/me.png"/>
+            </ImageView>
+            <Button fx:id="closeButton" onAction="#closeBtnOnAction" text="退出系统" AnchorPane.rightAnchor="13" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="1815" styleClass="menu-btn"/>
+            <Button fx:id="outLogin" onAction="#outLoginBtnOnAction" text="退出登录" AnchorPane.leftAnchor="1718" AnchorPane.rightAnchor="110" AnchorPane.topAnchor="20"  styleClass="menu-btn" />
         </AnchorPane>
     </top>
-    <left>
-        <SplitPane dividerPositions="0.5">
+    <center>
+        <SplitPane >
             <AnchorPane maxWidth="200" minWidth="200" styleClass="dark-gray-theme">
-                <Accordion AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <Accordion AnchorPane.leftAnchor="0.0"
+                           AnchorPane.rightAnchor="0.0"
+                           AnchorPane.topAnchor="0.0">
                     <panes>
                         <TitledPane alignment="TOP_LEFT" text="商品管理">
-                            <VBox minHeight="100" spacing="10">
+                            <VBox minHeight="100" spacing="10" styleClass="dark-theme">
                                 <Button onAction="#listProductcategory" styleClass="menu-btn" text="商品类别" />
                                 <Button onAction="#listProductinformation" styleClass="menu-btn" text="商品信息" />
                             </VBox>
                         </TitledPane>
-                        <TitledPane alignment="TOP_LEFT" text="员工管理">
+                        <TitledPane alignment="TOP_LEFT" text="员工管理" styleClass="dark-theme">
                             <VBox minHeight="130" spacing="10">
                                 <Button onAction="#listJobCategories" styleClass="menu-btn" text="职位类别" />
                                 <Button onAction="#listEmployeeInformation" styleClass="menu-btn" text="员工信息" />
                             </VBox>
                         </TitledPane>
-                        <TitledPane alignment="TOP_LEFT" text="会员管理">
+                        <TitledPane alignment="TOP_LEFT" text="会员管理" styleClass="dark-theme">
                             <VBox minHeight="130" spacing="10">
                                 <Button onAction="#listMemberInformation" styleClass="menu-btn" text="会员信息" />
                             </VBox>
                         </TitledPane>
                         <TitledPane alignment="TOP_LEFT" text="供应商管理">
-                            <VBox minHeight="130" spacing="10">
+                            <VBox minHeight="130" spacing="10" styleClass="dark-theme">
                                 <Button onAction="#listSupplierInformation" styleClass="menu-btn" text="供应商信息" />
                             </VBox>
                         </TitledPane>
@@ -65,7 +74,7 @@
                             </VBox>
                         </TitledPane>
                         <TitledPane alignment="TOP_LEFT" text="财政管理">
-                            <VBox minHeight="100" spacing="10">
+                            <VBox minHeight="100" spacing="10" styleClass="dark-theme">
                                 <Button onAction="#listPreferential" styleClass="menu-btn" text="优惠管理" />
                                 <Button onAction="#listStatisticalAnalysis" styleClass="menu-btn" text="数据统计分析" />
                             </VBox>
@@ -84,7 +93,7 @@
                 <Insets top="10" />
             </padding>
         </SplitPane>
-    </left>
+    </center>
     <center>
 
     </center>

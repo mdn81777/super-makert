@@ -6,6 +6,7 @@ import com.soft1841.sm.service.TypeService;
 import com.soft1841.sm.utils.ServiceFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.*;
 import javafx.scene.layout.StackPane;
@@ -16,6 +17,7 @@ import java.util.ResourceBundle;
 
 public class StatisticalAnalysisController implements Initializable {
 
+    @FXML
     private StackPane pieChartPane, barChartPane;
     private TypeService typeService = ServiceFactory.getTypeServiceInstance();
     private GoodsService goodsService = ServiceFactory.getGoodsServiceInstance();
@@ -29,7 +31,7 @@ public class StatisticalAnalysisController implements Initializable {
             pieChartData.add(new PieChart.Data(type.getTypeName(), count));
         }
         final PieChart chart = new PieChart(pieChartData);
-        chart.setTitle("按图书类别统计饼图");
+        chart.setTitle("按商品类别统计饼图");
         pieChartPane.getChildren().add(chart);
     }
 
@@ -41,8 +43,8 @@ public class StatisticalAnalysisController implements Initializable {
         final BarChart<String, Number> bc =
                 new BarChart<>(xAxis, yAxis);
         bc.setTitle("根据类别统计柱形图");
-        xAxis.setLabel("图书类别");
-        yAxis.setLabel("图书数量");
+        xAxis.setLabel("商品类别");
+        yAxis.setLabel("商品数量");
         XYChart.Series series1 = new XYChart.Series();
         series1.setName("2018年统计数据");
         List<Type> typeList = typeService.getAllTypes();

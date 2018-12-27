@@ -66,7 +66,9 @@ public class MainController  implements Initializable {
     public void listDefault() throws Exception {
         switchView("default.fxml");
     }
-    public  void  listStatisticalAnalysis() throws  Exception{}
+    public  void  listStatisticalAnalysis() throws  Exception{
+        switchView("statisticalanalysis.fxml");
+    }
 
     public void listProductinformation() throws Exception {
         switchView("Goods.fxml");

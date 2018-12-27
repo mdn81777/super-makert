@@ -10,43 +10,42 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="btn8-basic" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.sm.controller.LoginController">
-    <children>
-        <VBox prefHeight="340.0" prefWidth="390.0" styleClass="btn9-basic" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="70.0" AnchorPane.rightAnchor="70" AnchorPane.bottomAnchor="70">
-            <children>
-                <HBox prefHeight="54.0" prefWidth="361.0" styleClass="btn7-basic">
-                    <children>
-                        <AnchorPane prefHeight="54.0" prefWidth="376.0">
-                            <children>
-                                <Label layoutX="83.0" layoutY="10.0" prefHeight="34.0" prefWidth="211.0" text="盐系Supermarket" styleClass="btn12-basic">
-                                    <padding>
-                                        <Insets left="30.0" right="10.0" />
-                                    </padding>
-                                    <font>
-                                        <Font size="20.0" />
-                                    </font>
-                                </Label>
-                            </children>
-                            <padding>
-                                <Insets right="30.0" />
-                            </padding>
-                        </AnchorPane>
-                    </children></HBox>
-                <AnchorPane prefHeight="252.0" prefWidth="361.0">
-                    <children>
-                        <TextField layoutX="60.0" layoutY="42.0" prefHeight="42.0" prefWidth="270.0" promptText="用户名" fx:id="accountField"/>
-                        <PasswordField layoutX="60.0" layoutY="105.0" prefHeight="42.0" prefWidth="270.0" promptText="密码" fx:id="passwordField"/>
-                        <Button layoutX="60.0" layoutY="169.0" mnemonicParsing="false"
-                                onAction="#loginBtnOnAction"
-                                prefHeight="42.0" prefWidth="94.0"
-                                styleClass="btn7-basic"
-                                text="登录" />
-                        <Button layoutX="236.0" layoutY="169.0" mnemonicParsing="false"
-                                onAction="#closeBtnOnAction"  fx:id="closeButton"
-                                prefHeight="42.0" prefWidth="94.0"
-                                styleClass="btn7-basic" text="退出" />
-                    </children>
-                </AnchorPane>
-            </children></VBox>
-    </children>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane prefHeight="400" prefWidth="550" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.sm.controller.LoginController">
+    <ImageView>
+        <Image url="/img/2.jpg"/>
+    </ImageView>
+
+       <children>
+           <VBox  styleClass="btn9-basic"  AnchorPane.bottomAnchor="255" AnchorPane.leftAnchor="390" AnchorPane.rightAnchor="425" AnchorPane.topAnchor="215">
+               <children>
+                   <HBox prefHeight="54.0" prefWidth="361.0">
+                       <children>
+                           <AnchorPane prefHeight="54.0" prefWidth="376.0">
+                               <children>
+                                   <Label layoutX="83.0" layoutY="10.0" prefHeight="34.0" prefWidth="211.0" text="盐系Supermarket">
+                                       <padding>
+                                           <Insets left="30.0" right="10.0" />
+                                       </padding>
+                                       <font>
+                                           <Font size="20.0" />
+                                       </font>
+                                   </Label>
+                               </children>
+                               <padding>
+                                   <Insets right="30.0" />
+                               </padding>
+                           </AnchorPane>
+                       </children></HBox>
+                   <AnchorPane prefHeight="252.0" prefWidth="361.0">
+                       <children>
+                           <TextField fx:id="accountField" layoutX="60.0" layoutY="42.0" prefHeight="42.0" prefWidth="270.0" promptText="用户名" />
+                           <PasswordField fx:id="passwordField" layoutX="60.0" layoutY="105.0" prefHeight="42.0" prefWidth="270.0" promptText="密码" />
+                           <Button layoutX="60.0" layoutY="169.0" mnemonicParsing="false" onAction="#loginBtnOnAction" prefHeight="42.0" prefWidth="94.0" styleClass="blue-theme" text="登录" />
+                           <Button fx:id="closeButton" layoutX="236.0" layoutY="169.0" mnemonicParsing="false" onAction="#closeBtnOnAction" prefHeight="42.0" prefWidth="94.0" styleClass="blue-theme" text="退出" />
+                       </children>
+                   </AnchorPane>
+               </children></VBox>
+       </children>
 </AnchorPane>

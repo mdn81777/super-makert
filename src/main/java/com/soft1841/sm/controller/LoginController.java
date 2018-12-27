@@ -96,6 +96,7 @@ public class LoginController {
             stage.getIcons().add(new Image("/img/TeamLogo.png"));
             stage.setTitle("盐系超市后台系统");
             Scene scene = new Scene(root);
+            scene.getStylesheets().add("/css/style.css");
             stage.setScene(scene);
             stage.show();
             stage.setMaximized(true);
