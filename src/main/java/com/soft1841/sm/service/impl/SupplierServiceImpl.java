@@ -1,6 +1,7 @@
 package com.soft1841.sm.service.impl;
 
 import com.soft1841.sm.dao.SupplierDAO;
+import com.soft1841.sm.entity.Goods;
 import com.soft1841.sm.entity.Supplier;
 import com.soft1841.sm.service.SupplierService;
 import com.soft1841.sm.utils.DAOFactory;
@@ -53,4 +54,17 @@ public class SupplierServiceImpl implements SupplierService {
     }
 
 
+
+    @Override
+    public Supplier getSupplier(long id) {
+        Supplier supplier = new Supplier();
+        try {
+            supplier = supplierDAO.getSupplierByID(id);
+        } catch (SQLException e) {
+            System.err.println("根据ID查询商品出现异常");
+        }
+        return supplier;
+
+
+    }
 }

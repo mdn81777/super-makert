@@ -46,6 +46,17 @@ public class SupplierDAOImpl implements SupplierDAO {
     }
 
     @Override
+    public Supplier getSupplierByID(long id) throws SQLException {
+        Entity entity = Db.use().queryOne("SELECT * FROM t_goods WHERE id = ?", id);
+        return convertSupplier(entity);
+    }
+
+    @Override
+    public int countByType(long typeId) throws SQLException {
+        return  Db.use().queryNumber("SELECT COUNT(*) FROM t_supplier WHERE type_id = ? ",typeId).intValue();
+    }
+
+    @Override
     public int updateSupplier(Supplier supplier) throws SQLException {
         return Db.use().update(
                 Entity.create().set("supplier_name", supplier.getSupplierName())
@@ -62,7 +73,7 @@ public class SupplierDAOImpl implements SupplierDAO {
         supplier.setId(entity.getLong("id"));
         supplier.setSupplierName(entity.getStr("supplier_name"));
         supplier.setSupplierAddress(entity.getStr("supplier_address"));
-        supplier.setSupplierAddress(entity.getStr("supplier_phone"));
+        supplier.setSupplierPhone(entity.getStr("supplier_phone"));
         supplier.setLinkman(entity.getStr("linkman"));
         return supplier;
     }
