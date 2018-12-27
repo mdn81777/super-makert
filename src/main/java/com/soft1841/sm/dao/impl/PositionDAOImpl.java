@@ -6,6 +6,7 @@ import com.soft1841.sm.dao.PositionDAO;
 import com.soft1841.sm.entity.Position;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PositionDAOImpl implements PositionDAO {
@@ -19,8 +20,13 @@ public class PositionDAOImpl implements PositionDAO {
     }
 
     @Override
-    public List<Entity> selectAllPosition() throws SQLException {
-        return Db.use().query("SELECT * FROM t_position");
+    public List<Position> selectAllPosition() throws SQLException {
+        List<Entity> entityList = Db.use().query("SELECT * FROM t_position");
+        List<Position> positionList = new ArrayList<>();
+        for (Entity entity:entityList){
+            positionList.add(convertPosition(entity));
+        }
+        return positionList;
     }
 
     @Override
@@ -28,5 +34,12 @@ public class PositionDAOImpl implements PositionDAO {
         return Db.use().del(
                 Entity.create("t_position").set("id", id)
         );
+    }
+
+    private Position convertPosition(Entity entity){
+        Position position = new Position();
+        position.setId(entity.getInt("id"));
+        position.setPosition(entity.getStr("position"));
+        return position;
     }
 }

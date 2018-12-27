@@ -4,7 +4,6 @@ package com.soft1841.sm.service.impl;
  * @author 林斌涛
  */
 
-import cn.hutool.db.Entity;
 import com.soft1841.sm.dao.PositionDAO;
 import com.soft1841.sm.entity.Position;
 import com.soft1841.sm.service.PositionService;
@@ -21,7 +20,6 @@ public class PositionServiceImpl implements PositionService {
         long result = 0;
         try {
             result = positionDAO.insertPosition(position);
-
         }catch (SQLException e){
             System.err.println("新增职位出现异常");
         }
@@ -29,8 +27,8 @@ public class PositionServiceImpl implements PositionService {
   }
 
     @Override
-    public List<Entity> getAllPosition() {
-        List<Entity> positionList = new ArrayList<>();
+    public List<Position> getAllPosition() {
+        List<Position> positionList = new ArrayList<>();
         try {
             positionList = positionDAO.selectAllPosition();
         }catch (SQLException e){

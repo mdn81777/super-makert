@@ -32,7 +32,7 @@ public class GoodsDAOImpl implements GoodsDAO {
     @Override
     public int deleteGoodsByBarcode(long barcode) throws SQLException {
         return Db.use().del(
-                Entity.create("t_goods").set("goods_barcode", barcode)
+                Entity.create("t_goods").set("barcode", barcode)
         );
     }
 
@@ -56,7 +56,7 @@ public class GoodsDAOImpl implements GoodsDAO {
 
     @Override
     public List<Goods> selectGoodsLike(String keywords) throws SQLException {
-        List<Entity> entityList = Db.use().findLike("t_goods", "name", keywords, Condition.LikeType.Contains);
+        List<Entity> entityList = Db.use().findLike("t_goods", "goods_name", keywords, Condition.LikeType.Contains);
         List<Goods> goodsList = new ArrayList<>();
         for (Entity entity : entityList) {
            goodsList.add(convertGoods(entity));
@@ -86,9 +86,9 @@ public class GoodsDAOImpl implements GoodsDAO {
     @Override
     public int updateGoods(Goods goods) throws SQLException {
         return Db.use().update(
-                Entity.create().set("goods_price", goods.getPrice())
-                        .set("goods_ stock", goods.getStock()),
-                Entity.create("t_goods").set("goods_barcode", goods.getBarcode())
+                Entity.create().set("price", goods.getPrice())
+                        .set("stock", goods.getStock()),
+                Entity.create("t_goods").set("barcode", goods.getBarcode())
         );
     }
     @Override

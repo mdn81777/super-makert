@@ -4,7 +4,6 @@ package com.soft1841.sm.service;
  * @author 孟妮
  */
 
-import cn.hutool.db.Entity;
 import com.soft1841.sm.entity.Position;
 
 import java.util.List;
@@ -21,7 +20,7 @@ public interface PositionService {
      * 查询所有职位
      * @return
      */
-    List<Entity> getAllPosition();
+    List<Position> getAllPosition();
 
     /**
      * 删除职位

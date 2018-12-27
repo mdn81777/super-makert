@@ -2,11 +2,11 @@ package com.soft1841.sm.controller;
 
 /**
  * 职位的控制器
+ *
  * @author 杨俣韬
  * 2018-12-25
  */
 
-import cn.hutool.db.Entity;
 import com.soft1841.sm.entity.Position;
 import com.soft1841.sm.service.PositionService;
 import com.soft1841.sm.utils.ComponentUtil;
@@ -19,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -31,15 +32,12 @@ public class PositionController implements Initializable {
 
     private PositionService positionService = ServiceFactory.getPositionServiceInstance();
 
+    private List<Position> positionList;
+
     private TableColumn<Position, Position> delCol = new TableColumn<>("操作");
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        initTable();
-    }
-
-    private void initTable(){
-
         //水平方向不显示滚动条
         typeTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
@@ -47,9 +45,10 @@ public class PositionController implements Initializable {
         delCol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
         delCol.setCellFactory(param -> new TableCell<Position, Position>() {
             private final Button deleteButton = ComponentUtil.getButton("删除", "warning-theme");
+
             @Override
             protected void updateItem(Position position, boolean empty) {
-                super.updateItem(position,empty);
+                super.updateItem(position, empty);
                 if (position == null) {
                     setGraphic(null);
                     return;
@@ -64,8 +63,8 @@ public class PositionController implements Initializable {
                     alert.setContentText("确定要删除这个职位吗？");
                     Optional<ButtonType> result = alert.showAndWait();
                     //点击了确认按钮，执行删除操作，同时移除一行模型数据
-                    if (result.get() == ButtonType.OK){
-                        int id =position.getId();
+                    if (result.get() == ButtonType.OK) {
+                        int id = position.getId();
                         positionDate.remove(position);
                         positionService.deletePosition(id);
                     }
@@ -74,6 +73,8 @@ public class PositionController implements Initializable {
         });
         //删除列加入表格
         typeTable.getColumns().add(delCol);
+        positionList = positionService.getAllPosition();
+        showPosition(positionList);
     }
 
     public void addType() {
@@ -94,5 +95,10 @@ public class PositionController implements Initializable {
             //加入ObservableList，刷新模型视图，不用重新查询数据库也可以立刻看到结果
             positionDate.add(position);
         }
+    }
+
+    private void showPosition(List<Position> positionList) {
+        positionDate.addAll(positionList);
+        typeTable.setItems(positionDate);
     }
 }

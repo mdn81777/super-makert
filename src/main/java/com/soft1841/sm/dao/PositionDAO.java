@@ -1,6 +1,5 @@
 package com.soft1841.sm.dao;
 
-import cn.hutool.db.Entity;
 import com.soft1841.sm.entity.Position;
 
 import java.sql.SQLException;
@@ -22,7 +21,7 @@ public interface PositionDAO {
      * @return
      * @throws SQLException
      */
-    List<Entity> selectAllPosition() throws SQLException;
+    List<Position> selectAllPosition() throws SQLException;
 
     /**
      * 根据ID删除职位

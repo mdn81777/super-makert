@@ -17,7 +17,7 @@ public class Type {
     public Type() {
     }
 
-    public  Type(String typeName, String typeCover) {
+    public Type(String typeName, String typeCover) {
         setTypeName(typeName);
         setTypeCover(typeCover);
     }
@@ -60,6 +60,6 @@ public class Type {
 
     @Override
     public String toString() {
-        return "typeName=" + typeName ;
+        return typeName.get();
     }
 }
