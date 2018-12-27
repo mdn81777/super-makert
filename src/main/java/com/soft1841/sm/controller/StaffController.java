@@ -121,7 +121,7 @@ public class StaffController implements Initializable {
             String coverString = coverField.getText().trim();
             String addressString = addressField.getText().trim();
             String password = null;
-            Integer employeeId = Integer.parseInt(employeeIdField.getText().trim());
+            Long employeeId = Long.parseLong(employeeIdField.getText().trim());
             if (passwordField1.getText().equals(passwordField2.getText())) {
                 password = passwordField1.getText().trim();
             } else {
@@ -130,7 +130,7 @@ public class StaffController implements Initializable {
                 alert.setContentText("两次密码输入不一致!");
                 alert.showAndWait();
             }
-            staff.setTypeId(employeeId);
+            staff.setEmployeeId(employeeId);
             staff.setPassWord(password);
             staff.setAddress(addressString);
             staff.setCover(coverString);
