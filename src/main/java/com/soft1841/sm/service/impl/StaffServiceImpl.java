@@ -1,6 +1,7 @@
 package com.soft1841.sm.service.impl;
 /**
  * 实现员工服务类
+ *
  * @author 孟妮
  */
 
@@ -9,7 +10,9 @@ import com.soft1841.sm.entity.Staff;
 import com.soft1841.sm.service.StaffService;
 import com.soft1841.sm.utils.DAOFactory;
 
+import java.rmi.ServerError;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class StaffServiceImpl implements StaffService {
@@ -21,9 +24,9 @@ public class StaffServiceImpl implements StaffService {
         try {
             staff = staffDAO.getStaffByEmployeeId(employeeId);
         } catch (NullPointerException e) {
-
+            System.err.println("得到职位出现空指针异常");
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("得到职位出现数据库异常");
         }
         if (staff != null) {
             if (password.equals(staff.getPassWord())) {
@@ -38,10 +41,8 @@ public class StaffServiceImpl implements StaffService {
         Staff staff = null;
         try {
             staff = staffDAO.getStaffByEmployeeId(employeeId);
-        } catch (NullPointerException e) {
-
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("得到职位出现数据库异常");
         }
         if (staff != null) {
             int typeId = staff.getTypeId();
@@ -51,32 +52,82 @@ public class StaffServiceImpl implements StaffService {
 
     @Override
     public Long addStaff(Staff staff) {
-        return null;
+        long result = 0;
+        try {
+            result = staffDAO.insertStaff(staff);
+        } catch (SQLException e) {
+            System.err.println("新增员工出现异常");
+        }
+        return result;
     }
 
     @Override
     public void deleteStaff(long employId) {
-
+        try {
+            staffDAO.deleteStaffByEmployeeId(employId);
+        } catch (SQLException e) {
+            System.err.println("根据工号删除员工出现异常");
+        }
     }
 
     @Override
     public List<Staff> getAllStaff() {
-        return null;
+        List<Staff> staffList = new ArrayList<>();
+        try {
+            staffList = staffDAO.selectAllStaff();
+        } catch (SQLException e) {
+            System.err.println("查询所有员工出现异常");
+        }
+        return staffList;
     }
 
     @Override
-    public Staff getStaff(long employId) {
-        return null;
+    public Staff getStaffByEmployId(long employId) {
+        Staff staff = new Staff();
+        try {
+            staff = staffDAO.getStaffByEmployeeId(employId);
+        } catch (SQLException e) {
+            System.err.println("根据工号查询员工出现异常");
+        } catch (NullPointerException e) {
+            System.err.println("根据工号查询员工出现空指针异常");
+        }
+        return staff;
     }
 
     @Override
-    public Staff getStaff(int typeId) {
-        return null;
+    public boolean employeeIdRepetition(Long employeeId) {
+        Staff staff = new Staff();
+        try {
+            staff = staffDAO.getStaffByEmployeeId(employeeId);
+        } catch (NullPointerException e) {
+            System.err.println("得到职位出现空指针异常");
+        } catch (SQLException e) {
+            System.err.println("得到职位出现数据库异常");
+        }
+        if(staff != null){
+            return true;
+        }
+        return false;
     }
 
     @Override
-    public void updateStaff(long employId) {
+    public List<Staff> getStaffByTypeId(int typeId) {
+        List<Staff> staffList = new ArrayList<>();
+        try {
+            staffList = staffDAO.getStaffByTypeId(typeId);
+        } catch (SQLException e) {
+            System.err.println("根据职位查询员工出现异常");
+        }
+        return staffList;
+    }
 
+    @Override
+    public void updateStaff(Staff staff) {
+        try {
+            staffDAO.updateStaff(staff);
+        } catch (SQLException e) {
+            System.err.println("修改员工信息出现异常");
+        }
     }
 
 }
