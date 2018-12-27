@@ -9,61 +9,153 @@ package com.soft1841.sm.controller;
 
 import cn.hutool.db.Entity;
 import com.soft1841.sm.dao.StaffDAO;
+import com.soft1841.sm.entity.Staff;
+import com.soft1841.sm.service.StaffService;
 import com.soft1841.sm.utils.DAOFactory;
+import com.soft1841.sm.utils.ServiceFactory;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.net.URL;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class StaffController implements Initializable {
     @FXML
     private FlowPane staffPane;
+    @FXML
+    private TextField findStaff;
 
-    private List<Entity> list = new ArrayList<>();
 
-    private StaffDAO staffDAO = DAOFactory.getStaffDAOInstance();
+    StaffService staffService = ServiceFactory.getStaffServiceInstance();
+    private List<Staff> staffList = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            list = staffDAO.selectAllStaff();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        showStaff(list);
+        staffList = staffService.getAllStaff();
+        showStaff(staffList);
     }
 
-    private void showStaff(List<Entity> list) {
+    public void addStaff() {
+        Staff staff = new Staff();
+        Stage stage = new Stage();
+        stage.setTitle("新增员工页面");
+        VBox vBox = new VBox();
+        vBox.setSpacing(20);
+        vBox.setPadding(new Insets(10, 10, 10, 10));
+        Label infoLabel = new Label("输入员工信息");
+        infoLabel.setPrefHeight(50);
+        infoLabel.setPrefWidth(580);
+        infoLabel.setAlignment(Pos.CENTER);
+        TextField nameField = new TextField();
+        nameField.setPromptText("请输入姓名");
+        nameField.setFocusTraversable(false);
+        TextField coverField = new TextField();
+        coverField.setPromptText("请输入头像地址");
+        coverField.setFocusTraversable(false);
+        TextField employeeIdField = new TextField();
+        employeeIdField.setPromptText("请输入员工工号");
+        employeeIdField.setFocusTraversable(false);
+        PasswordField passwordField1 = new PasswordField();
+        passwordField1.setPromptText("请输入密码");
+        passwordField1.setFocusTraversable(false);
+        PasswordField passwordField2 = new PasswordField();
+        passwordField2.setPromptText("请确认密码");
+        passwordField2.setFocusTraversable(false);
+        String[] positions = {"店长", "会计", "收货员", "收银员", "客服"};
+        List<String> list = Arrays.asList(positions);
+        ObservableList<String> observableList = FXCollections.observableArrayList();
+        observableList.addAll(list);
+        ComboBox<String> depComboBox = new ComboBox<>();
+        depComboBox.setPromptText("请选择职位");
+        depComboBox.setItems(observableList);
+        depComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                int positionId = 0;
+                if (newValue.equals("店长")) positionId = 1;
+                else if (newValue.equals("会计")) positionId = 2;
+                else if (newValue.equals("收货员")) positionId = 3;
+                else if (newValue.equals("收银员")) positionId = 4;
+                else if (newValue.equals("客服")) positionId = 5;
+                if (positionId == 0) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("提示");
+                    alert.setContentText("请选择职位!");
+                    alert.showAndWait();
+                } else {
+                    staff.setTypeId(positionId);
+                }
+            }
+        });
+        TextField addressField = new TextField();
+        addressField.setPromptText("请输入员工住址");
+        addressField.setFocusTraversable(false);
+        //新增按钮
+        FlowPane flowPane = new FlowPane();
+        Button addBtn = new Button("新增");
+        addBtn.setPrefWidth(120);
+        flowPane.getChildren().add(addBtn);
+        flowPane.setAlignment(Pos.CENTER);
+        vBox.getChildren().addAll(infoLabel, nameField, coverField, employeeIdField, passwordField1, passwordField2,
+                depComboBox, addressField, flowPane);
+        Scene scene = new Scene(vBox, 450, 380);
+        stage.getIcons().add(new Image("/img/TeamLogo.png"));
+        stage.setScene(scene);
+        stage.show();
+        addBtn.setOnAction(event -> {
+            String nameString = nameField.getText().trim();
+            String coverString = coverField.getText().trim();
+            String addressString = addressField.getText().trim();
+            String password = null;
+            Long employeeId = Long.parseLong(employeeIdField.getText().trim());
+            if (passwordField1.getText().equals(passwordField2.getText())) {
+                password = passwordField1.getText().trim();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("提示");
+                alert.setContentText("两次密码输入不一致!");
+                alert.showAndWait();
+            }
+            staff.setEmployeeId(employeeId);
+            staff.setPassWord(password);
+            staff.setAddress(addressString);
+            staff.setCover(coverString);
+            staff.setName(nameString);
+            staffService.addStaff(staff);
+            stage.close();
+            staffList = staffService.getAllStaff();
+            showStaff(staffList);
+        });
+    }
+
+    private void showStaff(List<Staff> staffList) {
         ObservableList<Node> observableList = staffPane.getChildren();
         staffPane.getChildren().removeAll(observableList);
-        for (Entity entity : list) {
+        for (Staff staff : staffList) {
             VBox vBox = new VBox();
             vBox.setPrefSize(240, 300);
             vBox.setSpacing(10);
             vBox.setAlignment(Pos.CENTER);
-            Image image = new Image(entity.getStr("cover"));
+            Image image = new Image(staff.getCover());
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(100);
             imageView.setFitHeight(120);
-            Label nameLabel = new Label(entity.getStr("name"));
-            Label addressLabel = new Label(entity.getStr("address"));
+            Label nameLabel = new Label(staff.getName());
+            Label addressLabel = new Label(staff.getAddress());
             Button delBtn = new Button("删除");
             delBtn.getStyleClass().add("warning-theme");
             vBox.getChildren().addAll(imageView, nameLabel, addressLabel, delBtn);
@@ -74,13 +166,9 @@ public class StaffController implements Initializable {
                 alert.setContentText("确定要删除吗?");
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK) {
-                    try {
-                        long employeeId = entity.getLong("employee_id");
-                        staffDAO.deleteStaffByEmployeeId(employeeId);
-                        staffPane.getChildren().remove(vBox);
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
+                    long employeeId = staff.getEmployeeId();
+                    staffService.deleteStaff(employeeId);
+                    staffPane.getChildren().remove(vBox);
                 }
             });
         }
