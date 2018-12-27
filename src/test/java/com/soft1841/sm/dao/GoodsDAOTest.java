@@ -24,14 +24,14 @@ public class GoodsDAOTest {
         goods.setPrice(20);
         goods.setCover("sd");
         goods.setDescription("测试吗");
-        goods.setBarcode("123");
+        goods.setBarcode("");
         goods.setStock(123);
         System.out.println(goodsDAO.insertGoods(goods));
     }
 
     @Test
     public void deleteGoods() throws SQLException {
-    goodsDAO.deleteGoodsByBarcode(888889000);
+    goodsDAO.deleteGoodsByBarcode(1234657121);
     }
 
     @Test
@@ -47,13 +47,15 @@ public class GoodsDAOTest {
     }
     @Test
     public void selectGoodsLike() throws SQLException{
+        List<Goods> goodsList = goodsDAO.selectGoodsLike("开");
+        goodsList.forEach(goods -> System.out.println(goods.getName()));
     }
 
     @Test
     public void updateGoods() throws SQLException{
     Goods goods = new Goods();
-    goods.setBarcode("");
-    goods.setName("");
+    goods.setBarcode("12");
+    goods.setName("gdb");
     goods.setStock(12);
     goodsDAO.updateGoods(goods);
 }

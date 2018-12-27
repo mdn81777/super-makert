@@ -14,7 +14,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.sm.controller.MainController">
+<BorderPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.soft1841.sm.controller.MainController">
     <top>
         <AnchorPane prefHeight="80.0">
             <Label text="盐系超市后台管理系统" onMouseClicked="#listDefault" AnchorPane.leftAnchor="10" AnchorPane.topAnchor="20">

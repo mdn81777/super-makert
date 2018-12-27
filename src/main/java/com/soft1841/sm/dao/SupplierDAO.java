@@ -39,12 +39,14 @@ public interface SupplierDAO {
     int deleteSupplierById(long id) throws  SQLException;
 
     /**
-     * 更新供货商信息
-     * @param supplier
+     * 查询供货商信息
+     * @param
      * @return
      * @throws SQLException
      */
     Supplier getSupplierByID(long id) throws SQLException;
+
+    int countByType(long typeId) throws SQLException;
 
     int updateSupplier(Supplier supplier) throws SQLException;
 }

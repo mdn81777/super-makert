@@ -1,6 +1,5 @@
 package com.soft1841.sm.dao;
 
-import cn.hutool.db.Entity;
 import com.soft1841.sm.entity.Staff;
 
 import java.sql.SQLException;
@@ -31,7 +30,7 @@ public interface StaffDAO {
      * @return
      * @throws SQLException
      */
-    List<Entity> selectAllStaff() throws SQLException;
+    List<Staff> selectAllStaff() throws SQLException;
 
     /**
      * 通过员工号查询某一员工
@@ -49,7 +48,7 @@ public interface StaffDAO {
      * @return
      * @throws SQLException
      */
-    Staff getStaffByTypeId(int typeId) throws SQLException;
+    List<Staff> getStaffByTypeId(int typeId) throws SQLException;
 
     /**
      * 根据员工号更新员工数据
@@ -59,8 +58,5 @@ public interface StaffDAO {
      * @throws SQLException
      */
     int updateStaff(Staff staff) throws SQLException;
-
-    List<Staff> selectAllById(long employeeId) throws SQLException;
-
 
 }

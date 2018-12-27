@@ -70,6 +70,8 @@ public interface GoodsDAO {
      * @return
      */
     Goods getGoodsByID(long id) throws SQLException;
+
+
     int countByType(long typeId) throws SQLException;
 
 }

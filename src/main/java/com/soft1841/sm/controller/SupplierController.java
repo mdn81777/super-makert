@@ -1,4 +1,9 @@
 package com.soft1841.sm.controller;
+/**
+ * 供应商服务类
+ * @author 林斌涛
+ */
+
 import com.soft1841.sm.entity.Supplier;
 import com.soft1841.sm.entity.Type;
 import com.soft1841.sm.service.SupplierService;
@@ -29,23 +34,11 @@ public class SupplierController implements Initializable {
     @FXML
     private TableView<Supplier> supplierTable;
 
-    @FXML
-    private ComboBox<Type> typeComboBox;
-
-    @FXML
-    private TextField keywordsField;
-
     private ObservableList<Supplier> supplierData = FXCollections.observableArrayList();
-
-    private ObservableList<Type> typeData = FXCollections.observableArrayList();
 
     private SupplierService supplierService = ServiceFactory.getSupplierServiceInstance();
 
-    private TypeService typeService = ServiceFactory.getTypeServiceInstance();
-
     private List<Supplier> supplierList = null;
-
-    private List<Type> typeList = null;
 
     private TableColumn<Supplier,Supplier> delCol = new TableColumn<>("操作");
 
@@ -53,13 +46,13 @@ public class SupplierController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initTable();
-        initComBox();
     }
 
     private void initTable() {
         supplierTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         supplierList = supplierService.getAllSupplier();
-        showSupplierDate(supplierList);
+//        System.out.println(supplierList.size());
+        showSupplierData(supplierList);
         delCol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
         delCol.setCellFactory(param -> new TableCell<Supplier, Supplier>() {
             private final Button deleteButton = ComponentUtil.getButton("删除", "warning-theme");
@@ -94,7 +87,7 @@ public class SupplierController implements Initializable {
                 if (event.getClickCount() == 2 && (!row.isEmpty())) {
                     long id = row.getItem().getId();
 
-                    Supplier supplier = (Supplier) supplierService.getAllSupplier(id);
+                    Supplier supplier = supplierService.getSupplier(id);
                     Stage supplierInfoStage = new Stage();
                     supplierInfoStage.setTitle("供应商详情界面");
                     VBox vBox = new VBox();
@@ -117,20 +110,14 @@ public class SupplierController implements Initializable {
             return row;
         });
     }
-    private void initComBox() {
-        typeData.addAll(typeList);
-        typeComboBox.setItems(typeData);
 
 
-                }
-
-
-    private void showSupplierDate(List<Supplier> supplierList) {
+    private void showSupplierData(List<Supplier> supplierList) {
        supplierData.addAll(supplierList);
         supplierTable.setItems(supplierData);
     }
 
-    public void newSupplierStage() throws Exception {
+    public void addSupplierStage() throws Exception {
         Stage addsupplierStage = new Stage();
        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/add_supplier.fxml"));
         AnchorPane root = fxmlLoader.load();
@@ -142,7 +129,6 @@ public class SupplierController implements Initializable {
         addsupplierStage.setResizable(false);
         addsupplierStage.setScene(scene);
         addsupplierStage.show();
-    }
-}
+    }}
 
 

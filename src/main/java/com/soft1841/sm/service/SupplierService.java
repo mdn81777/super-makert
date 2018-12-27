@@ -36,5 +36,6 @@ public interface SupplierService {
      */
     List<Supplier> getAllSupplier();
 
-    List<Supplier> getAllSupplier(long id);
+
+    Supplier getSupplier(long id);
 }
