@@ -65,6 +65,7 @@ public class GoodsController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         initTable();
         initComBox();
+        System.out.println(goodsList.size());
     }
 
     private void initTable() {
@@ -131,8 +132,8 @@ public class GoodsController implements Initializable {
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && (!row.isEmpty())) {
                     long id = row.getItem().getId();
-                    Stage goodsInfoStage = new Stage();
                     Goods goods = goodsService.getGoods(id);
+                    Stage goodsInfoStage = new Stage();
                     goodsInfoStage.setTitle("商品详情界面");
                     VBox vBox = new VBox();
                     vBox.setSpacing(10);
@@ -148,7 +149,7 @@ public class GoodsController implements Initializable {
                     goodsImgView.setFitHeight(150);
                     goodsImgView.setFitWidth(120);
                     Label descriptionLabel = new Label(goods.getDescription());
-                    descriptionLabel.setPrefWidth(400);
+                    descriptionLabel.setPrefWidth(500);
                     descriptionLabel.setWrapText(true);
                     descriptionLabel.getStyleClass().add("box");
                     vBox.getChildren().addAll(nameLabel, priceLabel, barcodeLabel, stockLabel, goodsImgView, descriptionLabel);
@@ -164,19 +165,18 @@ public class GoodsController implements Initializable {
 
     private void initComBox() {
         typeList = typeService.getAllTypes();
+        typeData.addAll(typeList);
         typeComboBox.setItems(typeData);
         typeComboBox.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
                     goodsTable.getItems().removeAll(goodsData);
-
+                    goodsList = goodsService.getGoodsByTypeId(newValue.getId());
                     showGoodsData(goodsList);
                 }
         );
     }
 
     private void showGoodsData(List<Goods> goodsList) {
-        for (Goods goods : goodsList) {
-            goodsData.add(goods);
-        }
+        goodsData.addAll(goodsList);
         goodsTable.setItems(goodsData);
     }
 

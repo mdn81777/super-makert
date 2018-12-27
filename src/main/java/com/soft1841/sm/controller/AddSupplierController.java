@@ -37,37 +37,22 @@ public class AddSupplierController implements Initializable {
     }
 
     @FXML
-    private ComboBox<Type> supplierType;
-    @FXML
-    private TextField supplierName, supplierAddress, supplierPhone, supplierLinkMen;
-    @FXML
-    private TextArea supplierDescription;
-
-    private ObservableList<Type> typeData = FXCollections.observableArrayList();
-    private TypeService typeService = ServiceFactory.getTypeServiceInstance();
+    private TextField supplierName, supplierAddress, supplierPhone, linkMen;
 
     private SupplierService supplierService = ServiceFactory.getSupplierServiceInstance();
-    private List<Type> typeList = null;
-
-    private Long typeId;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        typeList = typeService.getAllTypes();
-        typeData.addAll(typeList);
 
-        supplierType.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
-            typeId = newValue.getId();
-        });
     }
 
-    public void addsupplier() throws Exception {
+    public void addSupplier(){
         String name = supplierName.getText();
         String address = supplierAddress.getText();
         String phone = supplierPhone.getText();
-        String linkmen = supplierLinkMen.getText();
+        String linkmen = linkMen.getText();
         Supplier supplier = new Supplier();
-        supplier.setId(typeId);
+        supplier.setSupplierName(name);
         supplier.setSupplierAddress(address);
         supplier.setSupplierPhone(phone);
         supplier.setLinkman(linkmen);

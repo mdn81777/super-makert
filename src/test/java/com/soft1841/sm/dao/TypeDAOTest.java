@@ -1,6 +1,7 @@
 package com.soft1841.sm.dao;
 
 import cn.hutool.db.Entity;
+import com.soft1841.sm.entity.Goods;
 import com.soft1841.sm.entity.Type;
 import com.soft1841.sm.utils.DAOFactory;
 import org.junit.Test;
@@ -28,6 +29,8 @@ public class TypeDAOTest {
 
     @Test
     public void selectAllTypes() throws SQLException {
+        List<Type> typeList = typeDAO.selectAllTypes();
+        typeList.forEach(type -> System.out.println(type.getTypeName()));
     }
 
     @Test

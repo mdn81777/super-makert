@@ -1,81 +1,94 @@
 package com.soft1841.sm.entity;
 
-import com.sun.org.apache.xalan.internal.xsltc.dom.SimpleResultTreeImpl;
+
+import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 
 /**
  * 供应商实体类
  * @author 孟妮
  */
-public class Supplier{
-    private  Long id;
-    private  String supplierName;
-    private  String supplierAddress;
-    private  String supplierPhone;
-    private  String linkman;
+public class Supplier {
+    public final SimpleLongProperty id = new SimpleLongProperty();
+    public final SimpleStringProperty supplierName = new SimpleStringProperty("");
+    public final SimpleStringProperty supplierAddress = new SimpleStringProperty("");
+    public final SimpleStringProperty supplierPhone = new SimpleStringProperty("");
+    public final SimpleStringProperty linkman = new SimpleStringProperty("");
 
-    public Supplier(Long id, String supplierName, String supplierAddress, String supplierPhone, String linkman) {
-        this.id = id;
-        this.supplierName = supplierName;
-        this.supplierAddress = supplierAddress;
-        this.supplierPhone = supplierPhone;
-        this.linkman = linkman;
-    }
 
     public Supplier() {
     }
 
-    public Long getId() {
+    public long getId() {
+        return id.get();
+    }
+
+    public SimpleLongProperty idProperty() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(long id) {
+        this.id.set(id);
     }
 
     public String getSupplierName() {
+        return supplierName.get();
+    }
+
+    public SimpleStringProperty supplierNameProperty() {
         return supplierName;
     }
 
     public void setSupplierName(String supplierName) {
-        this.supplierName = supplierName;
+        this.supplierName.set(supplierName);
     }
 
     public String getSupplierAddress() {
+        return supplierAddress.get();
+    }
+
+    public SimpleStringProperty supplierAddressProperty() {
         return supplierAddress;
     }
 
     public void setSupplierAddress(String supplierAddress) {
-        this.supplierAddress = supplierAddress;
+        this.supplierAddress.set(supplierAddress);
     }
 
     public String getSupplierPhone() {
+        return supplierPhone.get();
+    }
+
+    public SimpleStringProperty supplierPhoneProperty() {
         return supplierPhone;
     }
 
     public void setSupplierPhone(String supplierPhone) {
-        this.supplierPhone = supplierPhone;
+        this.supplierPhone.set(supplierPhone);
     }
 
     public String getLinkman() {
+        return linkman.get();
+    }
+
+    public SimpleStringProperty linkmanProperty() {
         return linkman;
     }
 
     public void setLinkman(String linkman) {
-        this.linkman = linkman;
+        this.linkman.set(linkman);
     }
 
     @Override
     public String toString() {
         return "Supplier{" +
                 "id=" + id +
-                ", supplierName='" + supplierName + '\'' +
-                ", supplierAddress='" + supplierAddress + '\'' +
-                ", supplierPhone='" + supplierPhone + '\'' +
-                ", linkman='" + linkman + '\'' +
+                ", supplierName=" + supplierName +
+                ", supplierAddress=" + supplierAddress +
+                ", supplierPhone=" + supplierPhone +
+                ", linkman=" + linkman +
                 '}';
     }
 }
-
-
-
 

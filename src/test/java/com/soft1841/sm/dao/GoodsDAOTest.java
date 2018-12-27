@@ -20,10 +20,10 @@ public class GoodsDAOTest {
     public void insertGoods() throws SQLException {
         Goods goods = new Goods();
         goods.setTypeId(1);
-        goods.setName("");
+        goods.setName("df");
         goods.setPrice(20);
-        goods.setCover("");
-        goods.setDescription("");
+        goods.setCover("sd");
+        goods.setDescription("测试吗");
         goods.setBarcode("");
         goods.setStock(123);
         System.out.println(goodsDAO.insertGoods(goods));
@@ -31,28 +31,31 @@ public class GoodsDAOTest {
 
     @Test
     public void deleteGoods() throws SQLException {
-    goodsDAO.deleteGoodsByBarcode(888889000);
+    goodsDAO.deleteGoodsByBarcode(1234657121);
     }
 
     @Test
     public void selectAllGoods() throws SQLException {
+        List<Goods> goodsList = goodsDAO.selectAllGoods();
+        goodsList.forEach(goods -> System.out.println(goods.getName()));
     }
 
     @Test
     public void selectGoodsByTypeId() throws SQLException {
-        Entity entity = (Entity) goodsDAO.selectGoodsByTypeId(1);
-        System.out.println(entity);
-}
-
+        List<Goods> goodsList = goodsDAO.selectGoodsByTypeId(1);
+        goodsList.forEach(goods -> System.out.println(goods.getName()));
+    }
     @Test
     public void selectGoodsLike() throws SQLException{
+        List<Goods> goodsList = goodsDAO.selectGoodsLike("开");
+        goodsList.forEach(goods -> System.out.println(goods.getName()));
     }
 
     @Test
     public void updateGoods() throws SQLException{
     Goods goods = new Goods();
-    goods.setBarcode("");
-    goods.setName("");
+    goods.setBarcode("12");
+    goods.setName("gdb");
     goods.setStock(12);
     goodsDAO.updateGoods(goods);
 }

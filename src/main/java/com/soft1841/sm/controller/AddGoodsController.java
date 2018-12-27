@@ -53,24 +53,22 @@ public class AddGoodsController implements Initializable {
 
     private TypeService typeService = ServiceFactory.getTypeServiceInstance();
     private GoodsService goodsService = ServiceFactory.getGoodsServiceInstance();
-    private List<Type> entityList = null;
+    private List<Type> typeList = null;
 
     private Long typeId;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        entityList = typeService.getAllTypes();
-        for (Type entity : entityList) {
-            typeData.add(entity);
-        }
+        typeList = typeService.getAllTypes();
+        typeData.addAll(typeList);
         goodsType.setItems(typeData);
         goodsType.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
             typeId = newValue.getId();
         });
     }
 
-    public void addGoods() throws Exception {
+    public void addGoods() {
         String name = goodsName.getText();
         String price = goodsPrice.getText();
         String cover = goodsCover.getText();
