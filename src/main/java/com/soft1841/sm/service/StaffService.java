@@ -81,5 +81,13 @@ public interface StaffService {
      * @param staff
      */
     void updateStaff(Staff staff);
+
+    /**
+     * 根据人名模糊查询员工
+     *
+     * @param keywords
+     * @return
+     */
+    List<Staff> getStaffLike(String keywords);
 }
 

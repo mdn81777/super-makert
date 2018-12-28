@@ -7,11 +7,8 @@ package com.soft1841.sm.controller;
  * 2018-12-25
  */
 
-import cn.hutool.db.Entity;
-import com.soft1841.sm.dao.StaffDAO;
 import com.soft1841.sm.entity.Staff;
 import com.soft1841.sm.service.StaffService;
-import com.soft1841.sm.utils.DAOFactory;
 import com.soft1841.sm.utils.ServiceFactory;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -141,6 +138,13 @@ public class StaffController implements Initializable {
             showStaff(staffList);
         });
     }
+
+    public void findStaffOnAction() {
+        String keywords = findStaff.getText().trim();
+        staffList = staffService.getStaffLike(keywords);
+        showStaff(staffList);
+    }
+
 
     private void showStaff(List<Staff> staffList) {
         ObservableList<Node> observableList = staffPane.getChildren();

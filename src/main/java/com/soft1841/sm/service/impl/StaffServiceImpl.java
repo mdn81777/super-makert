@@ -10,7 +10,6 @@ import com.soft1841.sm.entity.Staff;
 import com.soft1841.sm.service.StaffService;
 import com.soft1841.sm.utils.DAOFactory;
 
-import java.rmi.ServerError;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,9 +23,9 @@ public class StaffServiceImpl implements StaffService {
         try {
             staff = staffDAO.getStaffByEmployeeId(employeeId);
         } catch (NullPointerException e) {
-            System.err.println("得到职位出现空指针异常");
+            System.err.println("登陆出现空指针异常");
         } catch (SQLException e) {
-            System.err.println("得到职位出现数据库异常");
+            System.err.println("登陆出现数据库异常");
         }
         if (staff != null) {
             if (password.equals(staff.getPassWord())) {
@@ -43,6 +42,8 @@ public class StaffServiceImpl implements StaffService {
             staff = staffDAO.getStaffByEmployeeId(employeeId);
         } catch (SQLException e) {
             System.err.println("得到职位出现数据库异常");
+        }catch (NullPointerException e){
+            System.err.println("得到职位出现空指针异常");
         }
         if (staff != null) {
             int typeId = staff.getTypeId();
@@ -128,6 +129,17 @@ public class StaffServiceImpl implements StaffService {
         } catch (SQLException e) {
             System.err.println("修改员工信息出现异常");
         }
+    }
+
+    @Override
+    public List<Staff> getStaffLike(String keywords) {
+        List<Staff> staffList = new ArrayList<>();
+        try {
+            staffList = staffDAO.getStaffsLike(keywords);
+        } catch (SQLException e) {
+            System.err.println("根据关键字查询员工出现异常");
+        }
+        return staffList;
     }
 
 }

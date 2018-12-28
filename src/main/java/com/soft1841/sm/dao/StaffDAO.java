@@ -59,4 +59,12 @@ public interface StaffDAO {
      */
     int updateStaff(Staff staff) throws SQLException;
 
+    /**
+     * 模糊查询员工
+     *
+     * @param keywords
+     * @return
+     */
+    List<Staff> getStaffsLike(String keywords) throws SQLException;
+
 }

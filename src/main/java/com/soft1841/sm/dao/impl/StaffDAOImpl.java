@@ -2,6 +2,7 @@ package com.soft1841.sm.dao.impl;
 
 import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
+import cn.hutool.db.sql.Condition;
 import com.soft1841.sm.dao.StaffDAO;
 import com.soft1841.sm.entity.Staff;
 
@@ -63,6 +64,16 @@ public class StaffDAOImpl implements StaffDAO {
                 Entity.create().set("type_id", staff.getTypeId())
                         .set("password", staff.getPassWord()),
                 Entity.create("t_staff").set("employee_id", staff.getEmployeeId()));
+    }
+
+    @Override
+    public List<Staff> getStaffsLike(String keywords) throws SQLException{
+        List<Entity> entityList = Db.use().findLike("t_staff","name",keywords, Condition.LikeType.Contains);
+        List<Staff> staffList = new ArrayList<>();
+        for (Entity entity :entityList){
+            staffList.add(convertStaff(entity));
+        }
+        return staffList;
     }
 
     private Staff convertStaff(Entity entity) {
