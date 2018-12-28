@@ -54,86 +54,86 @@ public class    MemberController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         initTable();
 
-}
+    }
 
     private void initTable() {
         memberTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         memberList = memberService.getAllMember();
-     showMembersData(memberList);
-    delCol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
-     delCol.setCellFactory(param -> new TableCell<Member, Member>() {          private final Button deleteButton = ComponentUtil.getButton("删除", "blue-theme");
+        showMembersData(memberList);
+        delCol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+        delCol.setCellFactory(param -> new TableCell<Member, Member>() {          private final Button deleteButton = ComponentUtil.getButton("删除", "blue-theme");
 
-        @Override
-        protected void updateItem(Member member, boolean empty) {
-           if (member == null) {
-                setGraphic(null);
-                return;
-          }
+            @Override
+            protected void updateItem(Member member, boolean empty) {
+                if (member == null) {
+                    setGraphic(null);
+                    return;
+                }
 
-              setGraphic(deleteButton);
-              deleteButton.setOnAction(event -> {
-                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                  alert.setTitle("确认对话框");
-                 alert.setHeaderText("请确认");
-                  alert.setContentText("确定要删除这行记录吗？");
-                  Optional<ButtonType> result = alert.showAndWait();
-                  if (result.get() == ButtonType.OK) {
-                     long id = member.getId();
-                      membersData.remove(member);
-                      memberService.deleteMember(id);
-                  }
-               });
-          }
-      });
-      memberTable.getColumns().add(delCol);
-       memberTable.setRowFactory(tv -> {
-          TableRow<Member> row = new TableRow<>();
-          row.setOnMouseClicked(event -> {
-               if (event.getClickCount() == 2 && (!row.isEmpty())) {
-                  long id = row.getItem().getId();
-        Member member = memberService .getMember(id);
-                  Stage memberInfoStage = new Stage();
+                setGraphic(deleteButton);
+                deleteButton.setOnAction(event -> {
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("确认对话框");
+                    alert.setHeaderText("请确认");
+                    alert.setContentText("确定要删除这行记录吗？");
+                    Optional<ButtonType> result = alert.showAndWait();
+                    if (result.get() == ButtonType.OK) {
+                        long id = member.getId();
+                        membersData.remove(member);
+                        memberService.deleteMember(id);
+                    }
+                });
+            }
+        });
+        memberTable.getColumns().add(delCol);
+        memberTable.setRowFactory(tv -> {
+            TableRow<Member> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                    long id = row.getItem().getId();
+                    Member member = memberService .getMember(id);
+                    Stage memberInfoStage = new Stage();
 
-                   memberInfoStage.setTitle("会员详情界面");
+                    memberInfoStage.setTitle("会员详情界面");
                     VBox vBox = new VBox();
-                  vBox.setSpacing(10);
-                  vBox.setAlignment(Pos.CENTER);
-                  vBox.setPrefSize(600, 400);
-                vBox.setPadding(new Insets(10, 10, 10, 10));
-                 Label nameLabel = new Label("姓名：" + member.getName());
-                   nameLabel.getStyleClass().add("btn-basic");
-                 Label addressLabel = new Label("地址:" + member.getAddress());
-                   Label phoneLabel = new Label("电话:" + member.getPhone());
-                 Label integralLabel = new Label("积分：" + member.getIntegral());
-                  vBox.getChildren().addAll(nameLabel, addressLabel, phoneLabel, integralLabel);
-                Scene scene = new Scene(vBox, 700, 540);
-                  scene.getStylesheets().add("/css/style.css");
-                  memberInfoStage.setScene(scene);
-                  memberInfoStage.show();
-              }
-         });
-          return row;
-      });
-   }
+                    vBox.setSpacing(10);
+                    vBox.setAlignment(Pos.CENTER);
+                    vBox.setPrefSize(600, 400);
+                    vBox.setPadding(new Insets(10, 10, 10, 10));
+                    Label nameLabel = new Label("姓名：" + member.getName());
+                    nameLabel.getStyleClass().add("btn-basic");
+                    Label addressLabel = new Label("地址:" + member.getAddress());
+                    Label phoneLabel = new Label("电话:" + member.getPhone());
+                    Label integralLabel = new Label("积分：" + member.getIntegral());
+                    vBox.getChildren().addAll(nameLabel, addressLabel, phoneLabel, integralLabel);
+                    Scene scene = new Scene(vBox, 700, 540);
+                    scene.getStylesheets().add("/css/style.css");
+                    memberInfoStage.setScene(scene);
+                    memberInfoStage.show();
+                }
+            });
+            return row;
+        });
+    }
 
 
-     private void showMembersData(List<Member> memberList) {
-      membersData.addAll(memberList);
-      memberTable.setItems(membersData);
+    private void showMembersData(List<Member> memberList) {
+        membersData.addAll(memberList);
+        memberTable.setItems(membersData);
     }
 
 
     public void newMemberStage() throws Exception {
-       Stage addMemberStage = new Stage();
-      FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/add_member.fxml"));
-     AnchorPane root = fxmlLoader.load();
-    Scene scene = new Scene(root);
-      scene.getStylesheets().add("/css/style.css");
-      AddMemberController addMemberController = fxmlLoader.getController();
-    addMemberController.setMembersData(membersData);
-     addMemberStage.setTitle("新增会员界面");
-     addMemberStage.setResizable(false);
-     addMemberStage.setScene(scene);
-     addMemberStage.show();
-   }
+        Stage addMemberStage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/add_member.fxml"));
+        AnchorPane root = fxmlLoader.load();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/css/style.css");
+        AddMemberController addMemberController = fxmlLoader.getController();
+        addMemberController.setMembersData(membersData);
+        addMemberStage.setTitle("新增会员界面");
+        addMemberStage.setResizable(false);
+        addMemberStage.setScene(scene);
+        addMemberStage.show();
+    }
 }
