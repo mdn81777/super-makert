@@ -16,9 +16,9 @@ public class MemberServiceTest {
     public void addMember() {
         Member member = new Member();
         member.setId(223);
-        member.setName("h");
-        member.setAddress("vj");
-        member.setPhone("gjv");
+        member.setName("");
+        member.setAddress("");
+        member.setPhone("");
         member.setIntegral(1);
         memberService.addMember(member);
     }
@@ -41,7 +41,7 @@ public class MemberServiceTest {
 
     @Test
     public void getMemberLike() {
-        List<Member> memberList = memberService.getMemberLike("王");
+        List<Member> memberList = memberService.getMemberLike("");
         memberList.forEach(member -> System.out.println(member.getName()));
     }
 }

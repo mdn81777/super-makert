@@ -6,17 +6,16 @@
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.soft1841.sm.controller.GoodsController">
-    <HBox alignment="BOTTOM_CENTER" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" spacing="20">
-        <Button styleClass="btn7-basic" text="添加商品" onAction="#newGoodsStage"/>
-        <Button styleClass="btn5-basic" text="导出数据"/>
+    <HBox alignment="BOTTOM_CENTER" AnchorPane.topAnchor="18" AnchorPane.leftAnchor="200" spacing="10" prefWidth="270">
+        <Button text="添加商品" onAction="#newGoodsStage"  styleClass="green-theme" AnchorPane.leftAnchor="10" />
+        <Button  text="导出数据"  styleClass="green-theme" AnchorPane.leftAnchor="350"/>
     </HBox>
-    <HBox alignment="CENTER" AnchorPane.topAnchor="60" AnchorPane.leftAnchor="10" spacing="10">
-        <ComboBox promptText="选择商品类别" fx:id="typeComboBox" prefWidth="150"/>
-        <TextField promptText="请输入关键词" fx:id="keywordsField"/>
-        <Button styleClass="btn9-basic" text="搜索" onAction="#search"/>
+    <HBox alignment="CENTER" AnchorPane.topAnchor="70" AnchorPane.leftAnchor="220"  spacing="10" prefWidth="550">
+        <ComboBox promptText="选择商品类别" fx:id="typeComboBox" prefWidth="220"/>
+        <TextField promptText="请输入关键词" fx:id="keywordsField" AnchorPane.leftAnchor="370"/>
+        <Button   styleClass="green-theme" text="搜索" onAction="#search"/>
     </HBox>
-    <TableView fx:id="goodsTable" prefWidth="1000"
-    AnchorPane.topAnchor="150" AnchorPane.leftAnchor="10">
+    <TableView fx:id="goodsTable"  prefHeight="600" prefWidth="1490" AnchorPane.topAnchor="140" AnchorPane.leftAnchor="220">
         <columns>
             <TableColumn text="ID">
                 <cellValueFactory>

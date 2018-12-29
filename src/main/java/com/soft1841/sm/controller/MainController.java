@@ -1,5 +1,4 @@
 package com.soft1841.sm.controller;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -41,6 +42,7 @@ public class MainController  implements Initializable {
         LoginStage.getIcons().add(new Image("/img/TeamLogo.png"));
         LoginStage.setTitle("盐系超市后台系统");
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("/css/style.css");
         LoginStage.setScene(scene);
         LoginStage.show();
         stageNow.close();
@@ -63,6 +65,30 @@ public class MainController  implements Initializable {
             e.printStackTrace();
         }
     }
+
+  public  void  shijian(){
+        Stage stage = new Stage();
+      WebView brower = new WebView();
+      WebEngine webEngine = brower.getEngine();
+      webEngine.load("https://time.is/zh/China");
+      Scene scene = new Scene(brower);
+      stage.setScene(scene);
+      stage.setWidth(1000);
+      stage.setHeight(599);
+      stage.show();
+
+  }
+    public  void  tianqi() {
+        Stage stage = new Stage();
+        WebView brower = new WebView();
+        WebEngine webEngine = brower.getEngine();
+        webEngine.load("http://tianqi.moji.com/forecast15/china/jiangsu/nanjing");
+        Scene scene = new Scene(brower);
+        stage.setScene(scene);
+        stage.setWidth(1000);
+        stage.setHeight(600);
+        stage.show();
+    }
     public void listDefault() throws Exception {
         switchView("default.fxml");
     }
@@ -71,7 +97,7 @@ public class MainController  implements Initializable {
     }
 
     public void listProductinformation() throws Exception {
-        switchView("Goods.fxml");
+        switchView("goods.fxml");
     }
 
     public void listProductcategory() throws Exception {

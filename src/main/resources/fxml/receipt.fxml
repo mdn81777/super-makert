@@ -14,60 +14,54 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.HBox?>
 <BorderPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.soft1841.sm.controller.MainController">
+            fx:controller="com.soft1841.sm.controller.MainController"  >
     <top>
-        <AnchorPane prefHeight="80.0">
-            <Label text="盐系超市后台管理系统" AnchorPane.leftAnchor="10" AnchorPane.topAnchor="20">
+        <AnchorPane prefHeight="50.0" styleClass="dark-black-theme">
+            <ImageView layoutX="365.0" layoutY="16.0">
+                <Image url="/img/gps.png" />
+            </ImageView>
+            <ImageView layoutX="449.0" layoutY="16.0">
+                <Image url="/img/sunny.png" />
+            </ImageView>
+            <Label layoutX="404.0" layoutY="10.0" styleClass="font-white" text="南京" AnchorPane.leftAnchor="404.0" AnchorPane.topAnchor="10.0" />
+            <Label layoutX="489.0" layoutY="9.0" prefHeight="22.0" prefWidth="21.0"  onMouseClicked="#tianqi" styleClass="font-white" text="晴" AnchorPane.leftAnchor="489.0" AnchorPane.topAnchor="9.0" />
+            <Label layoutX="528.0" layoutY="10.0" styleClass="font-white" text="2019/1/2 星期三" onMouseClicked="#shijian"  AnchorPane.leftAnchor="528.0" AnchorPane.topAnchor="10.0" />
+
+            <Button fx:id="closeButton" onAction="#closeBtnOnAction" styleClass="menu-btn" text="退出系统" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="10.0" />
+            <Button fx:id="outLogin" onAction="#outLoginBtnOnAction" styleClass="menu-btn" text="退出登录" AnchorPane.rightAnchor="188.0" AnchorPane.topAnchor="10.0" />
+            <Label layoutX="217.0" layoutY="16.0" onMouseClicked="#listDefault" prefHeight="33.0" prefWidth="110.0" text="盐系超市" AnchorPane.leftAnchor="217.0" AnchorPane.topAnchor="16.0">
                 <effect>
-                    <Reflection bottomOpacity="0.2" fraction="0.5" topOffset="-5.0"/>
+                    <Reflection bottomOpacity="0.2" fraction="0.5" topOffset="-5.0" />
                 </effect>
                 <font>
-                    <Font name="System Bold" size="26.0"/>
+                    <Font name="System Bold" size="25.0" />
                 </font>
             </Label>
-            <Button fx:id="closeButton" onAction="#closeBtnOnAction" text="退出系统" AnchorPane.rightAnchor="20"
-                    AnchorPane.topAnchor="20"/>
-            <Button fx:id="outLogin" onAction="#outLoginBtnOnAction" text="退出登录" AnchorPane.topAnchor="20"
-                    AnchorPane.rightAnchor="100"/>
         </AnchorPane>
     </top>
-    <left>
-        <SplitPane>
-            <AnchorPane styleClass="dark-gray-theme" minWidth="200" maxWidth="200">
-                <Accordion AnchorPane.leftAnchor="0.0"
-                           AnchorPane.rightAnchor="0.0"
-                           AnchorPane.topAnchor="0.0">
-                    <panes>
-                        <TitledPane alignment="TOP_LEFT" text="商品管理">
-                            <VBox minHeight="100" spacing="10">
-                                <Button styleClass="menu-btn" text="商品类别" onAction="#listProductcategory"/>
-                                <Button styleClass="menu-btn" text="商品信息" onAction="#listProductinformation"/>
-                            </VBox>
-                        </TitledPane>
-                        <TitledPane alignment="TOP_LEFT" text="供应商管理">
-                            <VBox minHeight="130" spacing="10">
-                                <Button styleClass="menu-btn" text="供应商信息" onAction="#listSupplierInformation"/>
-                            </VBox>
-                        </TitledPane>
-                    </panes>
-                </Accordion>
-            </AnchorPane>
-            <ScrollPane fitToWidth="true" hbarPolicy="NEVER"
-                        vbarPolicy="AS_NEEDED" styleClass="default-theme">
-                <StackPane fx:id="mainContainer" styleClass="default-theme" minWidth="1060">
-                    <padding>
-                        <Insets top="10" left="30" bottom="5" right="10"/>
-                    </padding>
-                </StackPane>
-            </ScrollPane>
-            <padding>
-                <Insets top="10"/>
-            </padding>
-        </SplitPane>
-    </left>
     <center>
-
+        <BorderPane>
+            <top>
+                <HBox alignment="CENTER" prefHeight="50" spacing="1" styleClass="blue-theme">
+                    <ImageView>
+                        <!--<Image url=""/>-->
+                    </ImageView>
+                    <Button onAction="#listProductcategory" styleClass="menu-btn" text="商品类别" />
+                    <Button onAction="#listProductinformation" styleClass="menu-btn" text="商品信息" />
+                    <Button styleClass="menu-btn" text="供应商信息" onAction="#listSupplierInformation"/>
+                </HBox>
+            </top>
+            <center>
+                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="default-theme" vbarPolicy="AS_NEEDED">
+                    <StackPane fx:id="mainContainer" minWidth="1060" styleClass="default-theme">
+                    </StackPane>
+                </ScrollPane>
+            </center>
+        </BorderPane>
     </center>
 
 </BorderPane>

@@ -2,7 +2,7 @@ package com.soft1841.sm.controller;
 /**
  * 商品管理模块
  *
- * @author 蔡一帆
+ * @author  蔡一帆
  */
 
 import cn.hutool.db.Entity;
@@ -102,7 +102,7 @@ public class GoodsController implements Initializable {
         goodsTable.getColumns().add(editCol);
         delCol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
         delCol.setCellFactory(param -> new TableCell<Goods, Goods>() {
-            private final Button deleteButton = ComponentUtil.getButton("删除", "blue-theme");
+            private final Button deleteButton = ComponentUtil.getButton("删除", "warning-theme");
 
             @Override
             protected void updateItem(Goods goods, boolean empty) {

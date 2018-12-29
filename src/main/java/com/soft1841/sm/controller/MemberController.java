@@ -61,7 +61,7 @@ public class    MemberController implements Initializable {
         memberList = memberService.getAllMember();
         showMembersData(memberList);
         delCol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
-        delCol.setCellFactory(param -> new TableCell<Member, Member>() {          private final Button deleteButton = ComponentUtil.getButton("删除", "blue-theme");
+        delCol.setCellFactory(param -> new TableCell<Member, Member>() {          private final Button deleteButton = ComponentUtil.getButton("删除", "warning-theme");
 
             @Override
             protected void updateItem(Member member, boolean empty) {

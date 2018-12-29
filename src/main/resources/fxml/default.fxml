@@ -1,14 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.effect.Reflection?>
-<?import javafx.scene.text.Font?>
-<AnchorPane xmlns="http://javafx.com/javafx">
+<AnchorPane fx:id="defaultContent" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+          <ImageView AnchorPane.leftAnchor="220" AnchorPane.topAnchor="30">
+              <Image url="/img/picture1.jpg" />
+          </ImageView>
+    <VBox prefHeight="540" prefWidth="502" styleClass="box2" AnchorPane.leftAnchor="1199.0" AnchorPane.topAnchor="30">
+        <ImageView>
+            <Image url="/img/3.png" />
+        </ImageView>
+        <Label alignment="CENTER" text="更换头像" />
+
+    </VBox>
+    <VBox prefHeight="545" prefWidth="490" styleClass="box1" AnchorPane.leftAnchor="1413.0" AnchorPane.topAnchor="30">
+        <Label styleClass="label1" text="上午好！孟妮" />
+        <Label prefWidth="400" text="工号：18023411111" />
+        <Label text="职位名称：" />
+        <Label text="店长" />
+        <Label text="IP地址：10.40.205.156" />
+        <Label text="上次登录时间：" />
+        <Label text="Dec 29,2018 2:10:34 PM" />
+    </VBox>
+    <VBox styleClass="box" AnchorPane.leftAnchor="1199" AnchorPane.topAnchor="303">
+        <Label alignment="TOP_LEFT" styleClass="label2" text="重要提醒" />
+        <AnchorPane prefHeight="341.0" prefWidth="321.0">
+            <Label text="工资余额：2000元" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="57.0" />
+            <Label text="我的会议：待开会议0个" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="124.0" />
+            <Label text="我的邮件：未读邮件1条" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="203.0"  />
+            <Label text="资产代办：待办事项" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="270.0" />
+            <ImageView layoutX="57.0" layoutY="29.0">
+                <Image url="/img/gongzi.png" />
+            </ImageView>
+            <ImageView layoutX="57.0" layoutY="96.0">
+                <Image url="/img/Meeting.png" />
+            </ImageView>
+            <ImageView layoutX="57.0" layoutY="175.0">
+                <Image url="/img/email.png" />
+            </ImageView>
+            <ImageView layoutX="57.0" layoutY="262.0">
+                <Image url="/img/zichan.png" />
+            </ImageView>
+        </AnchorPane>
+    </VBox>
+    <ImageView fitHeight="211.0" fitWidth="954.0" layoutX="232.0" layoutY="570.0">
+        <Image url="/img/zhuanqian.png" />
+    </ImageView>
 
 
 </AnchorPane>

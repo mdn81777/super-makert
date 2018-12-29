@@ -151,13 +151,14 @@ public class StaffController implements Initializable {
         staffPane.getChildren().removeAll(observableList);
         for (Staff staff : staffList) {
             VBox vBox = new VBox();
-            vBox.setPrefSize(240, 300);
+            vBox.setPrefSize(180, 200);
             vBox.setSpacing(10);
+            vBox.getStyleClass().add("box3");
             vBox.setAlignment(Pos.CENTER);
             Image image = new Image(staff.getCover());
             ImageView imageView = new ImageView(image);
-            imageView.setFitWidth(100);
-            imageView.setFitHeight(120);
+            imageView.setFitWidth(90);
+            imageView.setFitHeight(100);
             Label nameLabel = new Label(staff.getName());
             Label addressLabel = new Label(staff.getAddress());
             Button delBtn = new Button("删除");

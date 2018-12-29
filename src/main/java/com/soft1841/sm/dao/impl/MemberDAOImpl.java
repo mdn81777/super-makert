@@ -48,7 +48,7 @@ public class MemberDAOImpl implements MemberDAO {
 
     @Override
     public List<Member> selectMemberLike(String keywords) throws SQLException {
-        List<Entity> entityList = Db.use().findLike("t_member", "member_name,", keywords, Condition.LikeType.Contains);
+        List<Entity> entityList = Db.use().findLike("t_member", "member_name", keywords, Condition.LikeType.Contains);
         List<Member> memberList = new ArrayList<>();
         for (Entity entity : entityList) {
             memberList.add(convertMember(entity));

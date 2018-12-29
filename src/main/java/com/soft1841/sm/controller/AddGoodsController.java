@@ -2,7 +2,7 @@ package com.soft1841.sm.controller;
 /**
  * 新增书籍控制
  *
- * @author 蔡一帆
+ * @author 蔡 一帆
  */
 
 import cn.hutool.db.Entity;

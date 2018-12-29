@@ -20,11 +20,16 @@ public class FrontDesk extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("盐系supermarket");
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/feontdesk.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/frontdesk.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
         scene.getStylesheets().add(LoginApp.class.getResource("/css/style.css").toExternalForm());
         primaryStage.getIcons().add(new Image("/img/TeamLogo.png"));
         primaryStage.setScene(scene);
         primaryStage.show();
-    }}
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}

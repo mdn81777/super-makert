@@ -21,9 +21,9 @@ public class MemberDAOTest {
     public void insertMember() throws SQLException {
         Member member = new Member();
         member.setId(223);
-        member.setName("hkbk");
-        member.setAddress("vjgh");
-        member.setPhone("gjvbn");
+        member.setName("");
+        member.setAddress("");
+        member.setPhone("");
         member.setIntegral(1);
         System.out.println(memberDAO.insertMember(member));
     }
@@ -45,7 +45,7 @@ public class MemberDAOTest {
 
     @Test
     public void selectMemberLike() throws SQLException {
-        List<Member> memberList = memberDAO.selectMemberLike("李");
+        List<Member> memberList = memberDAO.selectMemberLike("");
         memberList.forEach(member -> System.out.println(member.getName()));
     }
 }

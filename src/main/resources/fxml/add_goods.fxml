@@ -11,10 +11,10 @@
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="800" prefWidth="1000" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.sm.controller.AddGoodsController">
-        <HBox alignment="CENTER" minHeight="100" styleClass="blue-theme" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
-            <Label styleClass="btn3-basic" text="新增商品信息" />
+        <HBox alignment="CENTER" minHeight="100"  AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            <Label  text="新增商品信息" />
         </HBox>
-        <VBox minHeight="800" spacing="40" styleClass="green-theme" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="60">
+        <VBox minHeight="800" spacing="40" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="60">
             <ComboBox fx:id="goodsType" prefWidth="400" promptText="选择类别" />
             <TextField fx:id="goodsName" promptText="商品名称" />
             <TextField fx:id="goodsPrice" promptText="价格" />

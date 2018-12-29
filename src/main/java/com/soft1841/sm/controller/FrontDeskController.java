@@ -1,7 +1,7 @@
 package com.soft1841.sm.controller;
 /**
  * 前台登录
- * @author 孟妮
+ * @author  孟妮
  */
 
 import com.soft1841.sm.service.StaffService;
@@ -53,7 +53,7 @@ public class FrontDeskController {
             if (flag) {
                 Stage mainStage = new Stage();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/cashregister.fxml"));
-                AnchorPane root = null;
+                BorderPane root = null;
 
                 try {
                     root = fxmlLoader.load();

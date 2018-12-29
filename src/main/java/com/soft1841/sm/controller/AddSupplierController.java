@@ -2,7 +2,7 @@ package com.soft1841.sm.controller;
 /**
  * 新增供应商服务类
  *
- * @author 林斌涛
+ * @author  林斌涛
  */
 
 
