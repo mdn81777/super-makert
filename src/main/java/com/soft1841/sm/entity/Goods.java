@@ -12,13 +12,13 @@ public class Goods {
     private final SimpleDoubleProperty price = new SimpleDoubleProperty();
     private final SimpleStringProperty cover = new SimpleStringProperty("");
     private final SimpleStringProperty description = new SimpleStringProperty("");
-    private final SimpleStringProperty barcode = new SimpleStringProperty("");
+    private final SimpleLongProperty barcode = new SimpleLongProperty();
     private final SimpleIntegerProperty stock = new SimpleIntegerProperty();
 
     public Goods() {
     }
 
-    public Goods(Long typeId, String name, Double price, String cover, String description, String barcode, Integer stock) {
+    public Goods(Long typeId, String name, Double price, String cover, String description, Long barcode, Integer stock) {
         setTypeId(typeId);
         setName(name);
         setPrice(price);
@@ -101,14 +101,14 @@ public class Goods {
     }
 
     public long getBarcode() {
-        return Long.parseLong(barcode.get());
+        return barcode.get();
     }
 
-    public SimpleStringProperty barcodeProperty() {
+    public SimpleLongProperty barcodeProperty() {
         return barcode;
     }
 
-    public void setBarcode(String barcode) {
+    public void setBarcode(long barcode) {
         this.barcode.set(barcode);
     }
 

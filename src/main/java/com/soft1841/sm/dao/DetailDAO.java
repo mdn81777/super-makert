@@ -25,7 +25,7 @@ public interface DetailDAO {
      * @return
      * @throws SQLException
      */
-    List<Detail> selectDetailByReceiptId(long receiptId) throws SQLException;
+    Detail getDetailByReceiptId(long receiptId) throws SQLException;
 
     /**
      * 获取所有明细
@@ -40,4 +40,14 @@ public interface DetailDAO {
      * @throws SQLException
      */
     List<Detail> selectAllDetail()throws SQLException;
+
+    /**
+     * 修改明细的总价
+     * @param detail
+     * @return
+     * @throws SQLException
+     */
+    int updateDetail(Detail detail) throws SQLException;
+
+    List<Detail> selectDetailByReceiptId(long receiptId) throws SQLException;
 }

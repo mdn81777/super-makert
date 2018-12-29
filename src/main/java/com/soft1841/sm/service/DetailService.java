@@ -19,6 +19,7 @@ public interface DetailService {
      * @return
      */
     List<Detail> getAllDetail();
+
     /**
      * 新增收银明细，返回自增主键
      * @param detail
@@ -32,5 +33,7 @@ public interface DetailService {
      * @return Book
      */
     List<Detail> getDetailByReceiptId(long receiptId);
+
+    
 
 }

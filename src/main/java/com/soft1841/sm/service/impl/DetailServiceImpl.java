@@ -53,4 +53,6 @@ public class DetailServiceImpl implements DetailService {
        }
         return detailList;
     }
+
+
 }

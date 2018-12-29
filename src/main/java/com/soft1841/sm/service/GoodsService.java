@@ -43,6 +43,13 @@ public interface GoodsService {
     List<Goods>getGoodsByTypeId(long typeId);
 
     /**
+     * 根据条形码查询商品
+     * @param barcode
+     * @return
+     */
+    List<Goods>getGoodsByBarcode(long barcode);
+
+    /**
      * 根据商品名称关键词模糊查询商品
      * @param keywords
      * @return
