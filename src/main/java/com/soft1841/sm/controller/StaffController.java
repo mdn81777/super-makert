@@ -9,6 +9,7 @@ package com.soft1841.sm.controller;
 
 import com.soft1841.sm.entity.Staff;
 import com.soft1841.sm.service.StaffService;
+
 import com.soft1841.sm.utils.ServiceFactory;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -26,20 +27,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.*;
 
 public class StaffController implements Initializable {
     @FXML
     private FlowPane staffPane;
-    @FXML
-    private TextField findStaff;
-
-
     StaffService staffService = ServiceFactory.getStaffServiceInstance();
     private List<Staff> staffList = new ArrayList<>();
-
+    @FXML
+    private TextField findStaff;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         staffList = staffService.getAllStaff();
@@ -138,7 +135,6 @@ public class StaffController implements Initializable {
             showStaff(staffList);
         });
     }
-
     public void findStaffOnAction() {
         String keywords = findStaff.getText().trim();
         staffList = staffService.getStaffLike(keywords);
@@ -177,5 +173,4 @@ public class StaffController implements Initializable {
                 }
             });
         }
-    }
-}
+    }}

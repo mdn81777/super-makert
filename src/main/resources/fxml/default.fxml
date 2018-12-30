@@ -6,11 +6,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="defaultContent" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
-          <ImageView AnchorPane.leftAnchor="220" AnchorPane.topAnchor="30">
-              <Image url="/img/picture1.jpg" />
-          </ImageView>
-    <VBox prefHeight="540" prefWidth="502" styleClass="box2" AnchorPane.leftAnchor="1199.0" AnchorPane.topAnchor="30">
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ListView?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.soft1841.sm.controller.DefaultController">
+    <HBox  AnchorPane.topAnchor="30" AnchorPane.leftAnchor="223"
+           AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+        <ImageView fx:id="goodImg" fitWidth="900" fitHeight="500">
+        </ImageView>
+    </HBox>
+    <VBox styleClass="box2" AnchorPane.leftAnchor="1202.0" AnchorPane.topAnchor="30">
         <ImageView>
             <Image url="/img/3.png" />
         </ImageView>
@@ -27,29 +32,30 @@
         <Label text="Dec 29,2018 2:10:34 PM" />
     </VBox>
     <VBox styleClass="box" AnchorPane.leftAnchor="1199" AnchorPane.topAnchor="303">
-        <Label alignment="TOP_LEFT" styleClass="label2" text="重要提醒" />
         <AnchorPane prefHeight="341.0" prefWidth="321.0">
-            <Label text="工资余额：2000元" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="57.0" />
-            <Label text="我的会议：待开会议0个" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="124.0" />
-            <Label text="我的邮件：未读邮件1条" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="203.0"  />
-            <Label text="资产代办：待办事项" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="270.0" />
-            <ImageView layoutX="57.0" layoutY="29.0">
-                <Image url="/img/gongzi.png" />
-            </ImageView>
-            <ImageView layoutX="57.0" layoutY="96.0">
-                <Image url="/img/Meeting.png" />
-            </ImageView>
-            <ImageView layoutX="57.0" layoutY="175.0">
-                <Image url="/img/email.png" />
-            </ImageView>
-            <ImageView layoutX="57.0" layoutY="262.0">
-                <Image url="/img/zichan.png" />
-            </ImageView>
+           <ImageView>
+               <Image url="/img/1.png"/>
+           </ImageView>
         </AnchorPane>
     </VBox>
-    <ImageView fitHeight="211.0" fitWidth="954.0" layoutX="232.0" layoutY="570.0">
-        <Image url="/img/zhuanqian.png" />
-    </ImageView>
-
-
+   <VBox styleClass="box4" AnchorPane.topAnchor="546" AnchorPane.leftAnchor="220">
+       <AnchorPane>
+               <ImageView AnchorPane.leftAnchor="30" AnchorPane.topAnchor="13">
+                   <Image url="/img/4.png"/>
+               </ImageView>
+           <Label text="SK-II  晶莹剔透  送她惊喜元旦礼  至高享689元六件礼品  爆款低至2折" styleClass="label2" AnchorPane.topAnchor="17" AnchorPane.leftAnchor="100"/>
+           <ImageView AnchorPane.leftAnchor="24" AnchorPane.topAnchor="73">
+               <Image url="/img/5.png"/>
+           </ImageView>
+           <Label text="拉夏贝尔  季末大促  优惠畅销  选你所爱" styleClass="label2" AnchorPane.topAnchor="78" AnchorPane.leftAnchor="106"/>
+           <ImageView AnchorPane.leftAnchor="24" AnchorPane.topAnchor="130">
+               <Image url="/img/6.png"/>
+           </ImageView>
+           <Label text="百草味  猪肉脯  大促销  买二送二  元旦享好礼" styleClass="label2" AnchorPane.topAnchor="133" AnchorPane.leftAnchor="106"/>
+           <ImageView AnchorPane.leftAnchor="24" AnchorPane.topAnchor="193">
+               <Image url="/img/7.png"/>
+           </ImageView>
+           <Label text="卓诗尼  新年狂欢  前50名5折" styleClass="label2" AnchorPane.topAnchor="193" AnchorPane.leftAnchor="106"/>
+       </AnchorPane>
+   </VBox>
 </AnchorPane>

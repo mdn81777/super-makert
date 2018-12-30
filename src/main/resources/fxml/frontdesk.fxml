@@ -12,19 +12,19 @@
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<AnchorPane  minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.sm.controller.FrontDeskController">
+<AnchorPane prefHeight="400" prefWidth="500" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.sm.controller.FrontDeskController">
     <ImageView>
         <Image url="/img/2.jpg"/>
     </ImageView>
 
     <children>
-        <VBox prefHeight="315.0" prefWidth="389.0" AnchorPane.leftAnchor="145" AnchorPane.topAnchor="70">
+        <VBox  styleClass="btn9-basic"  AnchorPane.bottomAnchor="255" AnchorPane.leftAnchor="390" AnchorPane.rightAnchor="425" AnchorPane.topAnchor="215">
             <children>
-                <HBox prefHeight="54.0" prefWidth="361.0" >
+                <HBox prefHeight="54.0" prefWidth="361.0">
                     <children>
                         <AnchorPane prefHeight="54.0" prefWidth="376.0">
                             <children>
-                                <Label  prefHeight="34.0" prefWidth="211.0" text="盐系超市">
+                                <Label  prefHeight="34.0" prefWidth="250.0" AnchorPane.leftAnchor="110" text="盐系超市" AnchorPane.topAnchor="50" >
                                     <padding>
                                         <Insets left="30.0" right="10.0" />
                                     </padding>
@@ -37,18 +37,16 @@
                                 <Insets right="30.0" />
                             </padding>
                         </AnchorPane>
-                    </children></HBox>
-                <AnchorPane prefHeight="230.0" prefWidth="383.0">
+                    </children>
+                </HBox>
+                <AnchorPane prefHeight="252.0" prefWidth="361.0">
                     <children>
-                        <TextField prefHeight="42.0" prefWidth="270.0" text="用户名" fx:id="accountField"/>
-                        <PasswordField  prefHeight="42.0" prefWidth="270.0" fx:id="passwordField"/>
-                        <Button  mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" styleClass="btn6-basic" text="登录"
-                                onAction="#loginBtnOnAction" fx:id="loginButton"/>
-                        <Button  mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" styleClass="btn6-basic"
-                                onAction="#closeBtnOnAction" text="退出"  fx:id="closeButton"/>
+                        <TextField fx:id="accountField" layoutX="60.0" layoutY="42.0" prefHeight="42.0" prefWidth="270.0" promptText="用户名" />
+                        <PasswordField fx:id="passwordField" layoutX="60.0" layoutY="105.0" prefHeight="42.0" prefWidth="270.0" promptText="密码" />
+                        <Button layoutX="60.0" layoutY="169.0" mnemonicParsing="false" onAction="#loginBtnOnAction" prefHeight="42.0" prefWidth="94.0" styleClass="blue-theme" text="登录" />
+                        <Button fx:id="closeButton" layoutX="236.0" layoutY="169.0" mnemonicParsing="false" onAction="#closeBtnOnAction" prefHeight="42.0" prefWidth="94.0" styleClass="blue-theme" text="退出" />
                     </children>
                 </AnchorPane>
-            </children>
-        </VBox>
+            </children></VBox>
     </children>
 </AnchorPane>

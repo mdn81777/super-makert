@@ -116,20 +116,7 @@
 
 
 /*内容盒子样式，设置一下圆角和内边距*/
-.box1 {
-    -fx-border-color: rgb(215, 215, 215);
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
-    -fx-padding: 5 5 5 5;
-    -fx-pref-height: 260;
-    -fx-pref-width: 306;
-}
-.box3{
-    -fx-border-color: rgb(215, 215, 215);
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
-    -fx-padding: 5 5 5 5;
-}
+
 
 .box{
     -fx-border-color: rgb(215, 215, 215);
@@ -140,6 +127,14 @@
     -fx-pref-width: 527;
 
 }
+.box1 {
+    -fx-border-color: rgb(215, 215, 215);
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 5 5 5 5;
+    -fx-pref-height: 260;
+    -fx-pref-width: 306;
+}
 .box2{
     -fx-pref-height: 257;
     -fx-pref-width: 200;
@@ -148,6 +143,22 @@
     -fx-background-radius: 5px;
     -fx-padding: 5 5 12 5;
 }
+.box3{
+    -fx-border-color: rgb(215, 215, 215);
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 5 5 5 5;
+}
+.box4{
+    -fx-border-color: rgb(215, 215, 215);
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 5 5 5 5;
+    -fx-pref-height: 278;
+    -fx-pref-width: 820;
+}
+
+
 /*输入框样式*/
 .input-group {
     /*对齐方式*/
@@ -182,6 +193,7 @@
 /*灰色字体*/
 .font-gray {
     -fx-text-fill: rgb(121, 111, 118);
+    -fx-font-size: 28px;
 }
 
 /*绿色字体*/
@@ -253,7 +265,7 @@
 }
 .label{
     -fx-pref-width: 260px;
-    -fx-pref-height: 40px;
+    -fx-pref-height: 50px;
     -fx-background-color:  rgba(0,0,0,0);
     -fx-text-fill: rgb(90, 90, 90);
 }
@@ -265,11 +277,10 @@
     -fx-text-fill: rgb(110, 148, 203);
 }
 .label2 {
-    -fx-pref-width: 527px;
+    -fx-pref-width: 840;
     -fx-pref-height: 43px;
-    -fx-font-size: 23px;
-    -fx-background-color: rgba(221, 225, 221, 0.61);
-    -fx-text-fill: rgb(254, 180, 110);
+    -fx-font-size: 25px;
+    -fx-text-fill: rgb(123, 123, 123);
 }
 
 

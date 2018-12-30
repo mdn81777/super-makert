@@ -15,5 +15,8 @@
         <StackPane fx:id="pieChartPane" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
         <StackPane fx:id="barChartPane" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
     </GridPane>
+    <Label text="图书类别统计分析" styleClass="font-title"
+           AnchorPane.topAnchor="10"
+           AnchorPane.leftAnchor="50"/>
 
 </AnchorPane>

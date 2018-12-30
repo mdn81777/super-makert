@@ -24,7 +24,7 @@
                        <children>
                            <AnchorPane prefHeight="54.0" prefWidth="376.0">
                                <children>
-                                   <Label  prefHeight="34.0" prefWidth="250.0" AnchorPane.leftAnchor="110" text="盐系超市" AnchorPane.topAnchor="50" >
+                                   <Label  prefHeight="34.0" prefWidth="250.0" AnchorPane.leftAnchor="100"  styleClass="font-gray" text="盐系超市" AnchorPane.topAnchor="70" >
                                        <padding>
                                            <Insets left="30.0" right="10.0" />
                                        </padding>
