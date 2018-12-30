@@ -313,4 +313,7 @@
 .list-view .scroll-bar:horizontal .decrement-button {
     -fx-padding: 0;
 }
+.hands{
+    -fx-cursor: hand;
+}
 

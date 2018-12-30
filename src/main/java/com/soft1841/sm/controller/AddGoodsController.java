@@ -81,7 +81,7 @@ public class AddGoodsController implements Initializable {
         goods.setName(name);
         goods.setPrice(Double.parseDouble(price));
         goods.setCover(cover);
-        goods.setBarcode(barcode);
+        goods.setBarcode(Long.parseLong(barcode));
         goods.setStock(Integer.parseInt(stock));
         goods.setDescription(description);
         long id = goodsService.addGoods(goods);

@@ -16,7 +16,7 @@
         </ImageView>
     </HBox>
     <VBox styleClass="box2" AnchorPane.leftAnchor="1202.0" AnchorPane.topAnchor="30">
-        <ImageView>
+        <ImageView styleClass="hands">
             <Image url="/img/3.png" />
         </ImageView>
         <Label alignment="CENTER" text="更换头像" />
@@ -43,19 +43,19 @@
                <ImageView AnchorPane.leftAnchor="30" AnchorPane.topAnchor="13">
                    <Image url="/img/4.png"/>
                </ImageView>
-           <Label text="SK-II  晶莹剔透  送她惊喜元旦礼  至高享689元六件礼品  爆款低至2折" styleClass="label2" AnchorPane.topAnchor="17" AnchorPane.leftAnchor="100"/>
-           <ImageView AnchorPane.leftAnchor="24" AnchorPane.topAnchor="73">
+           <Label text="SK-II  晶莹剔透  送她惊喜元旦礼  至高享689元六件礼品  爆款低至2折" styleClass="label2,hands" AnchorPane.topAnchor="17" AnchorPane.leftAnchor="100"/>
+           <ImageView AnchorPane.leftAnchor="24" AnchorPane.topAnchor="73" styleClass="hands">
                <Image url="/img/5.png"/>
            </ImageView>
-           <Label text="拉夏贝尔  季末大促  优惠畅销  选你所爱" styleClass="label2" AnchorPane.topAnchor="78" AnchorPane.leftAnchor="106"/>
-           <ImageView AnchorPane.leftAnchor="24" AnchorPane.topAnchor="130">
+           <Label text="拉夏贝尔  季末大促  优惠畅销  选你所爱" styleClass="label2,hands" AnchorPane.topAnchor="78" AnchorPane.leftAnchor="106"/>
+           <ImageView AnchorPane.leftAnchor="24" AnchorPane.topAnchor="130" styleClass="hands">
                <Image url="/img/6.png"/>
            </ImageView>
-           <Label text="百草味  猪肉脯  大促销  买二送二  元旦享好礼" styleClass="label2" AnchorPane.topAnchor="133" AnchorPane.leftAnchor="106"/>
-           <ImageView AnchorPane.leftAnchor="24" AnchorPane.topAnchor="193">
+           <Label text="百草味  猪肉脯  大促销  买二送二  元旦享好礼" styleClass="label2,hands" AnchorPane.topAnchor="133" AnchorPane.leftAnchor="106"/>
+           <ImageView AnchorPane.leftAnchor="24" AnchorPane.topAnchor="193" styleClass="hands">
                <Image url="/img/7.png"/>
            </ImageView>
-           <Label text="卓诗尼  新年狂欢  前50名5折" styleClass="label2" AnchorPane.topAnchor="193" AnchorPane.leftAnchor="106"/>
+           <Label text="卓诗尼  新年狂欢  前50名5折" styleClass="label2,hands" AnchorPane.topAnchor="193" AnchorPane.leftAnchor="106"/>
        </AnchorPane>
    </VBox>
 </AnchorPane>

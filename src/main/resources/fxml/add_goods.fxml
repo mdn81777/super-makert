@@ -15,7 +15,7 @@
             <Label  text="新增商品信息" />
         </HBox>
         <VBox minHeight="800" spacing="40" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="60">
-            <ComboBox fx:id="goodsType" prefWidth="400" promptText="选择类别" />
+            <ComboBox fx:id="goodsType" prefWidth="400" promptText="选择类别" styleClass="hands"/>
             <TextField fx:id="goodsName" promptText="商品名称" />
             <TextField fx:id="goodsPrice" promptText="价格" />
             <HBox spacing="20">
@@ -28,5 +28,5 @@
                 <Insets bottom="10" left="50" right="50" top="10" />
             </padding>
         </VBox>
-    <Button onAction="#addGoods" styleClass="btn4-basic" text="确认" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="300" AnchorPane.rightAnchor="300" />
+    <Button onAction="#addGoods" styleClass="btn4-basic,hands" text="确认" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="300" AnchorPane.rightAnchor="300" />
 </AnchorPane>
