@@ -19,7 +19,20 @@ import java.util.List;
 
 public class DetailServiceImpl implements DetailService {
     private DetailDAO detailDAO = DAOFactory.getDetailDAOInstance();
+    private GoodsDAO goodsDAO = DAOFactory.getGoodsDAOInstance();
 
+
+    @Override
+    public Double getSubtotal(Detail detail) {
+        Double price = 0.0;
+        try {
+            price = goodsDAO.getGoodsByBarcode(detail.getBarcode()).getPrice();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        Double subtotal = price*detail.getAmount();
+        return subtotal;
+    }
 
     @Override
     public List<Detail> getAllDetail() {
@@ -49,7 +62,7 @@ public class DetailServiceImpl implements DetailService {
        try {
            detailList = detailDAO.selectDetailByReceiptId(receiptId);
        } catch (SQLException e) {
-         System.err.println("根据收银小票号码查询出现的异常");
+         System.err.println("根据收银小票号查询明细出现的异常");
        }
         return detailList;
     }
