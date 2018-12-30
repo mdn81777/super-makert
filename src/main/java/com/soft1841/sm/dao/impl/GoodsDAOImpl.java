@@ -52,6 +52,11 @@ public class GoodsDAOImpl implements GoodsDAO {
         return convertGoods(entity);
 
     }
+    @Override
+    public Goods getGoodsByBarcode(long barcode) throws SQLException{
+        Entity entity = Db.use().queryOne("SELECT * FROM t_goods WHERE barcode = ?",barcode);
+        return convertGoods(entity) ;
+    }
 
 
     @Override
@@ -74,6 +79,16 @@ public class GoodsDAOImpl implements GoodsDAO {
             goodsList.add(convertGoods(entity));
         }
         return goodsList;
+    }
+
+    @Override
+    public List<Goods> selectGoodsByBarcode(long barcode) throws SQLException {
+        List<Entity> entityList = Db.use().query("SELECT * FROM t_goods WHERE barcode = ?",barcode);
+        List<Goods> goodsList = new ArrayList<>();
+        for (Entity entity:entityList) {
+            goodsList.add(convertGoods(entity));
+        }
+        return goodsList ;
     }
 
     @Override
@@ -103,7 +118,7 @@ public class GoodsDAOImpl implements GoodsDAO {
         goods.setName(entity.getStr("goods_name"));
         goods.setPrice(entity.getDouble("price"));
         goods.setCover(entity.getStr("cover"));
-        goods.setBarcode(entity.getStr("barcode"));
+        goods.setBarcode(entity.getLong("barcode"));
         goods.setDescription(entity.getStr("description"));
         goods.setStock(entity.getInt("stock"));
         return goods;

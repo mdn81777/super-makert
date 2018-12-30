@@ -42,6 +42,14 @@ public interface GoodsDAO {
     Goods getGoodsByTypeId(long typeId) throws SQLException;
 
     /**
+     * 根据商品条形码获取商品
+     * @param barcode
+     * @return
+     * @throws SQLException
+     */
+    Goods getGoodsByBarcode(long barcode) throws SQLException;
+
+    /**
      * 根据关键词查询
      * @param keywords
      * @return
@@ -64,6 +72,8 @@ public interface GoodsDAO {
      */
     List<Goods> selectGoodsByTypeId(long id) throws SQLException;
 
+    List<Goods> selectGoodsByBarcode(long barcode) throws SQLException;
+
     /**
      * 通过ID查询单件商品
      * @param id
@@ -77,5 +87,7 @@ public interface GoodsDAO {
      * @throws SQLException
      */
     int countByType(long typeId) throws SQLException;
+
+
 
 }

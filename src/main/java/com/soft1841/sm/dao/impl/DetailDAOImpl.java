@@ -28,10 +28,9 @@ public class DetailDAOImpl implements DetailDAO {
     }
 
     @Override
-    public List<Detail> selectDetailByReceiptId(long receiptId) throws SQLException {
-     List<Entity> entityList = Db.use().query("SELECT * FROM t_detail WHERE receipt_id = ?",receiptId);
-     List<Detail> detailList = new ArrayList<>();
-     return detailList;
+     public Detail getDetailByReceiptId(long receiptId) throws SQLException {
+     Entity entity = Db.use().queryOne("SELECT * FROM t_detail WHERE receipt_id = ?",receiptId);
+     return convertDetail(entity);
     }
 
     @Override
@@ -44,5 +43,32 @@ public class DetailDAOImpl implements DetailDAO {
         List<Entity> entityList = Db.use().query("SELECT * FROM t_detail");
         List<Detail> detailList = new ArrayList<>();
         return detailList;
+    }
+
+    @Override
+    public int updateDetail(Detail detail) throws SQLException {
+        return Db.use().update(
+                Entity.create().set("amount", detail.getAmount()),
+                Entity.create("t_detail").set("barcode", detail.getBarcode())
+        );
+    }
+
+    @Override
+    public List<Detail> selectDetailByReceiptId(long receiptId) throws SQLException {
+        List<Entity> entityList = Db.use().query("SELECT * FROM t_detail WHERE receipt_id = ?",receiptId);
+        List<Detail> detailList = new ArrayList<>();
+        for (Entity entity:entityList) {
+            detailList.add(convertDetail(entity));
+        }
+        return detailList ;
+    }
+
+    private Detail convertDetail(Entity entity){
+        Detail detail = new Detail();
+        detail.setId(entity.getLong("id"));
+        detail.setReceiptId(entity.getLong("receipt_id"));
+        detail.setBarcode(entity.getLong("barcode"));
+        detail.setAmount(entity.getDouble("amount"));
+        return detail;
     }
 }

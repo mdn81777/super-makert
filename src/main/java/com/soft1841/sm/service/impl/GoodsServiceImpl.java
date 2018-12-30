@@ -75,6 +75,17 @@ public class GoodsServiceImpl implements GoodsService {
         return goodsList;
     }
 
+    @Override
+    public List<Goods> getGoodsByBarcode(long barcode) {
+        List<Goods> goodsList = new ArrayList<>();
+        try {
+            goodsList = goodsDAO.selectGoodsByBarcode(barcode);
+        } catch (SQLException e) {
+            System.out.println("根据条形码查询商品");
+        }
+        return goodsList;
+    }
+
 
     @Override
     public List<Goods> getGoodsLike(String keywords) {
