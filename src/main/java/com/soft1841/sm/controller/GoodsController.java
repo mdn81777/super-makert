@@ -77,9 +77,11 @@ public class GoodsController implements Initializable {
         showGoodsData(goodsList);
         //2.编辑列的相关设置
         editCol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+
         editCol.setCellFactory(param -> new TableCell<Goods, Goods>() {
             //通过ComponentUtil工具类的静态方法，传入按钮文字和样式，获得一个按钮对象
             private final Button editButton = ComponentUtil.getButton("编辑", "blue-theme");
+
 
             @Override
             protected void updateItem(Goods goods, boolean empty) {
@@ -89,6 +91,7 @@ public class GoodsController implements Initializable {
                     return;
                 }
                 setGraphic(editButton);
+                editButton.setStyle("-fx-cursor: hand;");
                 //点击编辑按钮，弹出窗口，输入需要修改的图书价格
                 editButton.setOnAction(event -> {
                     TextInputDialog dialog = new TextInputDialog("请输入价格");
@@ -123,6 +126,7 @@ public class GoodsController implements Initializable {
                     return;
                 }
                 setGraphic(deleteButton);
+                deleteButton.setStyle("-fx-cursor: hand;");
                 deleteButton.setOnAction(event -> {
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                     alert.setTitle("确认对话框");

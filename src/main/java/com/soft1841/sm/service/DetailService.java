@@ -1,7 +1,8 @@
 package com.soft1841.sm.service;
 /**
  * 小票服务类
- * author蔡一帆
+ *
+ * @author 蔡一帆
  */
 
 import com.soft1841.sm.entity.Detail;
@@ -14,6 +15,14 @@ import java.util.List;
  */
 
 public interface DetailService {
+
+    /**
+     * 根据某一收银明细得到小计
+     * @param detail
+     * @return
+     */
+    Double getSubtotal(Detail detail);
+
     /**
      * 获取所有收银明细的功能
      * @return
@@ -34,6 +43,5 @@ public interface DetailService {
      */
     List<Detail> getDetailByReceiptId(long receiptId);
 
-    
 
 }

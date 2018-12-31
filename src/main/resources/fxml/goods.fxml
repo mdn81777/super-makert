@@ -7,13 +7,13 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.soft1841.sm.controller.GoodsController">
     <HBox alignment="BOTTOM_CENTER" AnchorPane.topAnchor="18" AnchorPane.leftAnchor="200" spacing="10" prefWidth="270">
-        <Button text="添加商品" onAction="#newGoodsStage"  styleClass="green-theme" AnchorPane.leftAnchor="10" />
-        <Button  text="导出数据"  styleClass="green-theme" AnchorPane.leftAnchor="350"/>
+        <Button text="添加商品" onAction="#newGoodsStage"  styleClass="green-theme,hands" AnchorPane.leftAnchor="10" />
+        <Button  text="导出数据"  styleClass="green-theme,hands" AnchorPane.leftAnchor="350"/>
     </HBox>
     <HBox alignment="CENTER" AnchorPane.topAnchor="70" AnchorPane.leftAnchor="220"  spacing="10" prefWidth="550">
-        <ComboBox promptText="选择商品类别" fx:id="typeComboBox" prefWidth="220"/>
+        <ComboBox promptText="选择商品类别" fx:id="typeComboBox" prefWidth="220" styleClass="hands"/>
         <TextField promptText="请输入关键词" fx:id="keywordsField" AnchorPane.leftAnchor="370"/>
-        <Button   styleClass="green-theme" text="搜索" onAction="#search"/>
+        <Button   styleClass="green-theme,hands" text="搜索" onAction="#search" />
     </HBox>
     <TableView fx:id="goodsTable"  prefHeight="600" prefWidth="1490" AnchorPane.topAnchor="140" AnchorPane.leftAnchor="220">
         <columns>
@@ -43,6 +43,6 @@
                 </cellValueFactory>
             </TableColumn>
         </columns>
-
     </TableView>
+
 </AnchorPane>
