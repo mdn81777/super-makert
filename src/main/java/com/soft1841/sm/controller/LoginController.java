@@ -7,8 +7,10 @@ package com.soft1841.sm.controller;
  * 2018-12-25
  */
 
+import com.soft1841.sm.entity.Staff;
 import com.soft1841.sm.service.StaffService;
 import com.soft1841.sm.utils.ServiceFactory;
+import com.sun.xml.internal.bind.v2.model.core.ID;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,6 +22,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import javax.imageio.IIOParam;
 import java.io.IOException;
 
 public class LoginController {
@@ -96,6 +99,9 @@ public class LoginController {
                 scene.getStylesheets().add("/css/style.css");
                 stage.setScene(scene);
                 stage.show();
+//                Staff staff = staffService.getStaffByEmployId(account);
+//                MainController mainController = loader.getController();
+
                 stage.setMaximized(true);
                 Stage loginStage = (Stage) closeButton.getScene().getWindow();
                 loginStage.close();

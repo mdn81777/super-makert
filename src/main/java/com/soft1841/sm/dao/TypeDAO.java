@@ -23,15 +23,12 @@ public  interface TypeDAO {
      * @return
      */
     int deleteTypeById(long id)throws  SQLException;
-
     /**
      * 查询所有类别
      *
      * @return
      */
      List<Type> selectAllTypes() throws SQLException ;
-
-
     /**
      * 根据id查询类别信息
      * @param id
@@ -39,7 +36,6 @@ public  interface TypeDAO {
      * @throws SQLException
      */
      Type getTypeByID(long id) throws  SQLException;
-
     /**
      *修改商品类别信息
      * @param type
@@ -47,4 +43,12 @@ public  interface TypeDAO {
      * @throws SQLException
      */
      int updateType(Type type) throws  SQLException;
+
+    /**
+     * 统计类别总数
+     *
+     * @return
+     * @throws SQLException
+     */
+    int countTypes() throws SQLException;
 }

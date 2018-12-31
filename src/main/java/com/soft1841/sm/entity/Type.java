@@ -17,12 +17,11 @@ public class Type extends Entity {
 
     public Type() {
     }
-
-    public Type(String typeName, String typeCover) {
+    public Type(long id, String typeName) {
+        setId(id);
         setTypeName(typeName);
-        setTypeCover(typeCover);
-    }
 
+    }
     public long getId() {
         return id.get();
     }
@@ -56,7 +55,7 @@ public class Type extends Entity {
     }
 
     public void setTypeCover(String typeCover) {
-        this.typeCover.set(typeCover);
+        this.typeCover.set(String.valueOf(typeCover));
     }
 
     @Override

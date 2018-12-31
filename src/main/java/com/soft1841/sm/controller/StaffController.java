@@ -1,5 +1,4 @@
 package com.soft1841.sm.controller;
-
 /**
  * 员工控制器
  *
@@ -26,15 +25,26 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import java.net.URL;
 import java.util.*;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class StaffController implements Initializable {
     @FXML
     private FlowPane staffPane;
     StaffService staffService = ServiceFactory.getStaffServiceInstance();
     private List<Staff> staffList = new ArrayList<>();
+
+    private static final int MAX_THREADS = 8;
+    private final Executor exec = Executors.newFixedThreadPool(MAX_THREADS, runnable -> {
+        Thread t = new Thread(runnable);
+        t.setDaemon(true);
+        return t;
+    });
+
     @FXML
     private TextField findStaff;
     @Override
@@ -49,6 +59,14 @@ public class StaffController implements Initializable {
         stage.setTitle("新增员工页面");
         VBox vBox = new VBox();
         vBox.setSpacing(20);
+        //
+        ImageView imageView  = new ImageView();
+        exec.execute(new Runnable() {
+            @Override
+            public void run() {
+                imageView.setImage(new Image(staff.getCover()));
+            }
+        });
         vBox.setPadding(new Insets(10, 10, 10, 10));
         Label infoLabel = new Label("输入员工信息");
         infoLabel.setPrefHeight(50);
@@ -153,8 +171,13 @@ public class StaffController implements Initializable {
             vBox.setAlignment(Pos.CENTER);
             Image image = new Image(staff.getCover());
             ImageView imageView = new ImageView(image);
-            imageView.setFitWidth(90);
-            imageView.setFitHeight(100);
+            imageView.setFitWidth(80);
+            imageView.setFitHeight(80);
+            Circle circle = new Circle();
+            circle.setCenterY(40.0);
+            circle.setCenterX(40.0);
+            circle.setRadius(40.0);
+            imageView.setClip(circle);
             Label nameLabel = new Label(staff.getName());
             Label addressLabel = new Label(staff.getAddress());
             Button delBtn = new Button("删除");

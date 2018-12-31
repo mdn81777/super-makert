@@ -132,8 +132,8 @@
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
     -fx-padding: 5 5 5 5;
-    -fx-pref-height: 260;
-    -fx-pref-width: 306;
+    -fx-pref-height: 410;
+    -fx-pref-width: 229;
 }
 .box2{
     -fx-pref-height: 257;
@@ -157,6 +157,25 @@
     -fx-pref-height: 278;
     -fx-pref-width: 820;
 }
+.box5{
+    -fx-border-color: rgb(254, 87, 34);
+    -fx-border-radius: 8px;
+    -fx-background-radius: 5px;
+    -fx-padding: 5 5 5 5;
+    -fx-font-size: 20px;
+    -fx-pref-height: 140;
+    -fx-pref-width: 140;
+}
+.box6 {
+    -fx-border-color: rgb(215, 215, 215);
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 5 5 5 5;
+    -fx-pref-height: 200;
+    -fx-pref-width: 600;
+}
+
+
 
 
 /*输入框样式*/
@@ -313,4 +332,11 @@
 .list-view .scroll-bar:horizontal .decrement-button {
     -fx-padding: 0;
 }
+.hover-change:hover {
+    -fx-opacity: 0.5;
+}
+.hands{
+    -fx-cursor:hand;
+}
+
 

@@ -31,5 +31,5 @@
             </TableColumn>
         </columns>
     </TableView>
-
+    <FlowPane AnchorPane.topAnchor="390" AnchorPane.leftAnchor="20" hgap="20" vgap="20" fx:id="positionPane" prefWidth="900"/>
 </AnchorPane>

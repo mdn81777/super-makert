@@ -17,22 +17,23 @@ import java.util.List;
 public class TypeDAOImpl implements TypeDAO {
     @Override
     public Long insertType(Type type) throws SQLException {
+        //采用了另一种新增方法，可以返回插入记录的主键（Long类型）
         return Db.use().insertForGeneratedKey(
                 Entity.create("t_type")
                         .set("type_name", type.getTypeName())
                         .set("type_cover", type.getTypeCover())
         );
     }
-
     @Override
     public int deleteTypeById(long id) throws SQLException {
         return Db.use().del(Entity.create("t_type").set("id", id));
     }
-
     @Override
     public List<Type> selectAllTypes() throws SQLException {
+        //查询得到List<Entity>
         List<Entity> entityList = Db.use().query("SELECT * FROM t_type");
         List<Type> typeList = new ArrayList<>();
+        //遍历entityList，转换为typeList
         for (Entity entity : entityList) {
             typeList.add(convertType(entity));
         }
@@ -41,10 +42,11 @@ public class TypeDAOImpl implements TypeDAO {
 
     @Override
     public Type getTypeByID(long id) throws SQLException {
+        //采用自定义带参查询语句，返回单个实体
         Entity entity = Db.use().queryOne("SELECT * FROM t_type WHERE id = ? ", id);
+        //将Entity转换为Type类型返回
         return convertType(entity);
     }
-
     @Override
     public int updateType(Type type) throws SQLException {
         return Db.use().update(
@@ -54,6 +56,16 @@ public class TypeDAOImpl implements TypeDAO {
         );
     }
 
+    @Override
+    public int countTypes() throws SQLException {
+        return Db.use().queryNumber("SELECT COUNT(*) FROM t_type  ").intValue();
+    }
+    /**
+     * 将Entity转换为Type类型
+     *
+     * @param entity
+     * @return Type
+     */
     private Type convertType(Entity entity) {
         Type type = new Type();
         type.setId(entity.getLong("id"));

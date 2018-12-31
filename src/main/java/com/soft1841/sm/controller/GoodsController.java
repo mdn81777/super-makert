@@ -11,6 +11,7 @@ import com.soft1841.sm.entity.Type;
 import com.soft1841.sm.service.GoodsService;
 import com.soft1841.sm.service.TypeService;
 import com.soft1841.sm.utils.ComponentUtil;
+import com.soft1841.sm.utils.ExcelExport;
 import com.soft1841.sm.utils.ServiceFactory;
 //import com.soft1841.sm.utils.ExcelExport;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -60,8 +61,6 @@ public class GoodsController implements Initializable {
     private TableColumn<Goods, Goods> editCol = new TableColumn<>("操作");
 
     private TableColumn<Goods, Goods> delCol = new TableColumn<>("操作");
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initTable();
@@ -229,5 +228,15 @@ public class GoodsController implements Initializable {
         goodsList = goodsService.getGoodsLike(keywords);
         showGoodsData(goodsList);
     }
+
+    //数据导出方法，采用hutool提供的工具类
+    public void export() {
+       ExcelExport.export(goodsList);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("提示信息");
+        alert.setHeaderText("图书数据已导出!请到D盘根目录查看!");
+        alert.showAndWait();
+    }
 }
+
 

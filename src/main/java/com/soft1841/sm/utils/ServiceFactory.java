@@ -1,10 +1,9 @@
 package com.soft1841.sm.utils;
-
-import com.soft1841.sm.entity.Receipt;
 import com.soft1841.sm.service.*;
 import com.soft1841.sm.service.impl.*;
-import org.apache.xmlbeans.impl.xb.xsdschema.Public;
-
+/**
+ * 业务逻辑类工厂
+ */
 public class ServiceFactory {
     public static StaffService getStaffServiceInstance() {
         return new StaffServiceImpl();

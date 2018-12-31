@@ -15,21 +15,17 @@ public interface TypeService {
      * @return
      */
      List<Type> getAllTypes() ;
-
-
     /**
      * 添加类别
      * @param type
      * @return
      */
     Long addType(Type type);
-
     /**
      * 删除类别
      * @param id
      */
     void deleteType(long id);
-
     /**
      * 更新商品信息
      * @param type

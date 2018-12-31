@@ -5,24 +5,16 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.ListView?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.soft1841.sm.controller.DefaultController">
-    <HBox  AnchorPane.topAnchor="30" AnchorPane.leftAnchor="223"
+    <HBox  AnchorPane.topAnchor="9" AnchorPane.leftAnchor="223"
            AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
         <ImageView fx:id="goodImg" fitWidth="900" fitHeight="500">
         </ImageView>
     </HBox>
-    <VBox styleClass="box2" AnchorPane.leftAnchor="1202.0" AnchorPane.topAnchor="30">
-        <ImageView>
-            <Image url="/img/3.png" />
-        </ImageView>
-        <Label alignment="CENTER" text="更换头像" />
-
-    </VBox>
-    <VBox prefHeight="545" prefWidth="490" styleClass="box1" AnchorPane.leftAnchor="1413.0" AnchorPane.topAnchor="30">
+    <VBox prefHeight="545" prefWidth="490" styleClass="box1" AnchorPane.leftAnchor="1459.0" AnchorPane.topAnchor="524">
         <Label styleClass="label1" text="上午好！孟妮" />
         <Label prefWidth="400" text="工号：18023411111" />
         <Label text="职位名称：" />
@@ -31,31 +23,10 @@
         <Label text="上次登录时间：" />
         <Label text="Dec 29,2018 2:10:34 PM" />
     </VBox>
-    <VBox styleClass="box" AnchorPane.leftAnchor="1199" AnchorPane.topAnchor="303">
-        <AnchorPane prefHeight="341.0" prefWidth="321.0">
-           <ImageView>
-               <Image url="/img/1.png"/>
-           </ImageView>
-        </AnchorPane>
+
+    <VBox styleClass="box6" AnchorPane.leftAnchor="220" AnchorPane.topAnchor="524">
+    <AnchorPane  AnchorPane.leftAnchor="0"  AnchorPane.topAnchor="0" >
+        <fx:include source="statisticalanalysis.fxml"/>
+    </AnchorPane>
     </VBox>
-   <VBox styleClass="box4" AnchorPane.topAnchor="546" AnchorPane.leftAnchor="220">
-       <AnchorPane>
-               <ImageView AnchorPane.leftAnchor="30" AnchorPane.topAnchor="13">
-                   <Image url="/img/4.png"/>
-               </ImageView>
-           <Label text="SK-II  晶莹剔透  送她惊喜元旦礼  至高享689元六件礼品  爆款低至2折" styleClass="label2" AnchorPane.topAnchor="17" AnchorPane.leftAnchor="100"/>
-           <ImageView AnchorPane.leftAnchor="24" AnchorPane.topAnchor="73">
-               <Image url="/img/5.png"/>
-           </ImageView>
-           <Label text="拉夏贝尔  季末大促  优惠畅销  选你所爱" styleClass="label2" AnchorPane.topAnchor="78" AnchorPane.leftAnchor="106"/>
-           <ImageView AnchorPane.leftAnchor="24" AnchorPane.topAnchor="130">
-               <Image url="/img/6.png"/>
-           </ImageView>
-           <Label text="百草味  猪肉脯  大促销  买二送二  元旦享好礼" styleClass="label2" AnchorPane.topAnchor="133" AnchorPane.leftAnchor="106"/>
-           <ImageView AnchorPane.leftAnchor="24" AnchorPane.topAnchor="193">
-               <Image url="/img/7.png"/>
-           </ImageView>
-           <Label text="卓诗尼  新年狂欢  前50名5折" styleClass="label2" AnchorPane.topAnchor="193" AnchorPane.leftAnchor="106"/>
-       </AnchorPane>
-   </VBox>
 </AnchorPane>

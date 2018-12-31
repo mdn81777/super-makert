@@ -6,13 +6,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DefaultController implements Initializable {
+public class SystemInitializationController implements Initializable {
     @FXML
-    private ImageView goodImg;
+    private ImageView systeminitializationImg;
 
     String[] imgPath = {"good1.png","good2.png","good3.png","good4.png","good5.png"};
     @Override
@@ -31,7 +30,7 @@ public class DefaultController implements Initializable {
                             @Override
                             public void run() {
                                 //将创建的Image对象设置给ImageView
-                                 goodImg.setImage(image);
+                                systeminitializationImg.setImage(image);
                             }
                         });
                         try {
@@ -48,7 +47,6 @@ public class DefaultController implements Initializable {
                 }
             }
         }).start();
-        }
-
     }
 
+}

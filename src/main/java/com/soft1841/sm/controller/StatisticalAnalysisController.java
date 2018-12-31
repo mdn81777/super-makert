@@ -1,5 +1,6 @@
 package com.soft1841.sm.controller;
 
+
 import com.soft1841.sm.entity.Type;
 import com.soft1841.sm.service.GoodsService;
 import com.soft1841.sm.service.TypeService;
@@ -16,7 +17,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class StatisticalAnalysisController implements Initializable {
-
     @FXML
     private StackPane pieChartPane, barChartPane;
     private TypeService typeService = ServiceFactory.getTypeServiceInstance();
@@ -25,6 +25,11 @@ public class StatisticalAnalysisController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        initPieChart();
+        initBarChart();
+    }
+
+    private void initPieChart() {
         List<Type> typeList = typeService.getAllTypes();
         for (Type type : typeList) {
             int count = goodsService.countByType(type.getId());
@@ -36,12 +41,10 @@ public class StatisticalAnalysisController implements Initializable {
     }
 
 
-
     private void initBarChart() {
         final CategoryAxis xAxis = new CategoryAxis();
         final NumberAxis yAxis = new NumberAxis();
-        final BarChart<String, Number> bc =
-                new BarChart<>(xAxis, yAxis);
+        final BarChart<String, Number> bc = new BarChart<>(xAxis, yAxis);
         bc.setTitle("根据类别统计柱形图");
         xAxis.setLabel("商品类别");
         yAxis.setLabel("商品数量");
@@ -56,3 +59,4 @@ public class StatisticalAnalysisController implements Initializable {
         barChartPane.getChildren().add(bc);
     }
 }
+
