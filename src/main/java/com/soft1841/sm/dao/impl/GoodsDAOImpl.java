@@ -47,11 +47,17 @@ public class GoodsDAOImpl implements GoodsDAO {
     }
 
     @Override
-    public Goods getGoodsByTypeId(long typeId) throws SQLException {
-        Entity entity = Db.use().queryOne("SELECT * FROM t_goods WHERE type_id = ?", typeId);
+    public Goods getGoodsById(long typeId) throws SQLException {
+        Entity entity = Db.use().queryOne("SELECT *FROM t_type_id = ? ",typeId);
         return convertGoods(entity);
-
     }
+//
+//    @Override
+//    public Goods getGoodsByTypeId(long typeId) throws SQLException {
+//        Entity entity = Db.use().queryOne("SELECT * FROM t_goods WHERE type_id = ?", typeId);
+//        return convertGoods(entity);
+//
+//    }
     @Override
     public Goods getGoodsByBarcode(long barcode) throws SQLException{
         Entity entity = Db.use().queryOne("SELECT * FROM t_goods WHERE barcode = ?",barcode);
@@ -109,6 +115,11 @@ public class GoodsDAOImpl implements GoodsDAO {
     @Override
     public  int countByType(long typeId) throws  SQLException{
         return  Db.use().queryNumber("SELECT COUNT(*) FROM t_goods WHERE type_id = ? ",typeId).intValue();
+    }
+
+    @Override
+    public int countGoods() throws SQLException {
+        return Db.use().queryNumber("SELECT COUNT(*) FROM t_goods ").intValue();
     }
 
     private Goods convertGoods(Entity entity) {

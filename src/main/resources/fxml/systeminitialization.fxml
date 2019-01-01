@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+        <?import javafx.scene.image.ImageView?>
+        <?import javafx.scene.control.Label?>
+        <?import javafx.geometry.Insets?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.soft1841.sm.controller.SystemInitializationController">
+<ImageView fx:id="bookImg"  AnchorPane.topAnchor="20" AnchorPane.leftAnchor="220" fitWidth="1500" fitHeight="700">
+</ImageView>
 
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<AnchorPane xmlns="http://javafx.com/javafx" prefHeight="400.0" prefWidth="600.0">
-    <ImageView  fx:id="" fitWidth="900" fitHeight="500">
-    </ImageView>
 </AnchorPane>

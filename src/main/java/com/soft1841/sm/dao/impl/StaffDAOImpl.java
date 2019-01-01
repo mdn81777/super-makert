@@ -76,6 +76,11 @@ public class StaffDAOImpl implements StaffDAO {
         return staffList;
     }
 
+    @Override
+    public int countStaff() throws SQLException {
+        return Db.use().queryNumber("SELECT COUNT(*) FROM t_staff").intValue();
+    }
+
     private Staff convertStaff(Entity entity) {
         Staff staff = new Staff(entity.getInt("id"),
                 entity.getInt("type_id"),

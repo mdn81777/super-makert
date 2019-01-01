@@ -39,7 +39,7 @@ public interface GoodsDAO {
      * @return
      * @throws SQLException
      */
-    Goods getGoodsByTypeId(long typeId) throws SQLException;
+    Goods getGoodsById(long typeId) throws SQLException;
 
     /**
      * 根据商品条形码获取商品
@@ -63,7 +63,6 @@ public interface GoodsDAO {
      * @throws SQLException
      */
     int updateGoods(Goods goods) throws SQLException;
-
     /**
      *
      * @param id
@@ -73,7 +72,6 @@ public interface GoodsDAO {
     List<Goods> selectGoodsByTypeId(long id) throws SQLException;
 
     List<Goods> selectGoodsByBarcode(long barcode) throws SQLException;
-
     /**
      * 通过ID查询单件商品
      * @param id
@@ -81,13 +79,18 @@ public interface GoodsDAO {
      */
     Goods getGoodsByID(long id) throws SQLException;
     /**
-     * 根据图书类别统计图书数量
+     * 根据商品类别统计商品数量
      * @param typeId
      * @return
      * @throws SQLException
      */
     int countByType(long typeId) throws SQLException;
-
-
+    /**
+     * 统计商品总数
+     *
+     * @return
+     * @throws SQLException
+     */
+    int countGoods() throws SQLException;
 
 }

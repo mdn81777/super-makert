@@ -119,12 +119,12 @@ public class StaffController implements Initializable {
         //新增按钮
         FlowPane flowPane = new FlowPane();
         Button addBtn = new Button("新增");
-        addBtn.setPrefWidth(120);
+        addBtn.setPrefWidth(160);
         flowPane.getChildren().add(addBtn);
         flowPane.setAlignment(Pos.CENTER);
         vBox.getChildren().addAll(infoLabel, nameField, coverField, employeeIdField, passwordField1, passwordField2,
                 depComboBox, addressField, flowPane);
-        Scene scene = new Scene(vBox, 450, 380);
+        Scene scene = new Scene(vBox, 900, 700);
         stage.getIcons().add(new Image("/img/TeamLogo.png"));
         stage.setScene(scene);
         stage.show();
@@ -171,12 +171,12 @@ public class StaffController implements Initializable {
             vBox.setAlignment(Pos.CENTER);
             Image image = new Image(staff.getCover());
             ImageView imageView = new ImageView(image);
-            imageView.setFitWidth(80);
-            imageView.setFitHeight(80);
+            imageView.setFitWidth(140);
+            imageView.setFitHeight(140);
             Circle circle = new Circle();
-            circle.setCenterY(40.0);
-            circle.setCenterX(40.0);
-            circle.setRadius(40.0);
+            circle.setCenterY(70.0);
+            circle.setCenterX(70.0);
+            circle.setRadius(50.0);
             imageView.setClip(circle);
             Label nameLabel = new Label(staff.getName());
             Label addressLabel = new Label(staff.getAddress());

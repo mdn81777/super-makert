@@ -60,6 +60,12 @@ public interface MemberDAO {
      * @throws SQLException
      */
     int updateMember(Member member) throws SQLException;
+    /**
+     * @param
+     * @return
+     * @throws SQLException
+     */
+    int countMember() throws SQLException;
 
 
 }

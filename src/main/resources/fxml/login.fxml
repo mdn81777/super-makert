@@ -18,7 +18,7 @@
     </ImageView>
 
        <children>
-           <VBox  styleClass="btn9-basic"  AnchorPane.bottomAnchor="255" AnchorPane.leftAnchor="390" AnchorPane.rightAnchor="425" AnchorPane.topAnchor="215">
+           <VBox   AnchorPane.bottomAnchor="255" AnchorPane.leftAnchor="390" AnchorPane.rightAnchor="425" AnchorPane.topAnchor="215">
                <children>
                    <HBox prefHeight="54.0" prefWidth="361.0">
                        <children>

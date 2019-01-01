@@ -6,14 +6,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SystemInitializationController implements Initializable {
+public class ThemeSettingsController implements Initializable {
     @FXML
-    private ImageView bookImg;
-    String[] imgPath = {"good6.png","good7.png","good8.png","good9.png","good10.png"};
+    private ImageView themeImg;
+    String[] imgPath = {"good11.png","good12.png","good3.png","good4.png","good5.png"};
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //新建一个线程，用来轮播
@@ -30,7 +29,7 @@ public class SystemInitializationController implements Initializable {
                             @Override
                             public void run() {
                                 //将创建的Image对象设置给ImageView
-                                bookImg.setImage(image);
+                                themeImg.setImage(image);
                             }
                         });
                         try {
@@ -49,3 +48,4 @@ public class SystemInitializationController implements Initializable {
         }).start();
     }
 }
+

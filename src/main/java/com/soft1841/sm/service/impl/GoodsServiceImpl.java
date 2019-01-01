@@ -117,6 +117,6 @@ public class GoodsServiceImpl implements GoodsService {
         }catch (SQLException e){
             System.err.println("根据类别统计商品信息出现异常");
         }
-        return 0;
+        return result;
     }
 }

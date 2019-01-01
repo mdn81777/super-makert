@@ -12,7 +12,6 @@
     <Button onAction="#addStaff" AnchorPane.topAnchor="17" AnchorPane.leftAnchor="220" text="新增员工" styleClass="blue-theme"/>
     <TextField fx:id="findStaff" promptText="请输入搜索关键词" AnchorPane.topAnchor="19" AnchorPane.leftAnchor="350"/>
     <Button onAction="#findStaffOnAction" AnchorPane.leftAnchor="603" text="搜索员工"   AnchorPane.topAnchor="17" styleClass="green-theme"/>
-    <FlowPane fx:id="staffPane"  hgap="10" vgap="10"
-              AnchorPane.leftAnchor="220" AnchorPane.topAnchor="100" AnchorPane.rightAnchor="10" minWidth="100"/>
-
+    <FlowPane fx:id="staffPane"  hgap="30" vgap="30"
+              AnchorPane.leftAnchor="220" AnchorPane.topAnchor="100" AnchorPane.rightAnchor="220"/>
 </AnchorPane>

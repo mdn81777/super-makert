@@ -133,7 +133,7 @@
     -fx-background-radius: 5px;
     -fx-padding: 5 5 5 5;
     -fx-pref-height: 410;
-    -fx-pref-width: 229;
+    -fx-pref-width: 280;
 }
 .box2{
     -fx-pref-height: 257;
@@ -173,6 +173,25 @@
     -fx-padding: 5 5 5 5;
     -fx-pref-height: 200;
     -fx-pref-width: 600;
+}
+.box7 {
+    -fx-border-color: rgb(215, 215, 215);
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 5 5 5 5;
+    -fx-pref-height: 230;
+    -fx-pref-width: 230;
+    -fx-font-size: 20px;
+
+}
+.box8 {
+    -fx-border-color: rgb(215, 215, 215);
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 5 5 5 5;
+    -fx-font-size: 15px;
+    -fx-pref-height: 410;
+    -fx-pref-width: 313;
 }
 
 

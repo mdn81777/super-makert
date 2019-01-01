@@ -46,7 +46,9 @@ public interface SupplierDAO {
      */
     Supplier getSupplierByID(long id) throws SQLException;
 
-    int countByType(long typeId) throws SQLException;
-
     int updateSupplier(Supplier supplier) throws SQLException;
+    /**
+     *
+     */
+    int countSupplier() throws SQLException;
 }

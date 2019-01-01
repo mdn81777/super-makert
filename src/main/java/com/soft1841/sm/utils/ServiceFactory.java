@@ -21,7 +21,7 @@ public class ServiceFactory {
         return new SupplierServiceImpl();
     }
 
-    public static ReceiptService getReceiptServiceInstancw() {
+    public static ReceiptService getReceiptServiceInstance() {
         return new ReceiptServiceImpl();
     }
 
@@ -36,4 +36,5 @@ public class ServiceFactory {
     public static DetailService getDetailServiceInstance() {
         return new DetailServiceImpl();
     }
+    public  static  AnalysisService getAnalysisServiceInstance(){return  new AnalysisServiceImpl();}
 }

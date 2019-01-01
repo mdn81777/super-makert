@@ -11,7 +11,7 @@
             fx:controller="com.soft1841.sm.controller.StatisticalAnalysisController"
             prefHeight="200.0" prefWidth="500.0">
 
-    <GridPane hgap="1" vgap="1" AnchorPane.leftAnchor="220" AnchorPane.topAnchor="0">
+    <GridPane hgap="43" vgap="1" AnchorPane.leftAnchor="100" AnchorPane.topAnchor="0">
         <StackPane fx:id="pieChartPane" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
         <StackPane fx:id="barChartPane" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
     </GridPane>

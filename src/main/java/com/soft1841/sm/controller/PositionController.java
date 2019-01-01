@@ -1,5 +1,8 @@
 package com.soft1841.sm.controller;
 
+
+
+
 /**
  * 职位的控制器
  *
@@ -21,6 +24,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
 
+import javax.swing.event.TreeModelEvent;
 import java.net.URL;
 import java.util.List;
 import java.util.Optional;
@@ -31,8 +35,8 @@ public class PositionController implements Initializable {
     //获得布局文件中的表格对象
     @FXML
     private TableView<Position> typeTable;
-//    @FXML
-//    private FlowPane positionPane;
+    @FXML
+    private FlowPane positionPane;
 
     private ObservableList<Position> positionDate = FXCollections.observableArrayList();
 
@@ -73,6 +77,7 @@ public class PositionController implements Initializable {
                         int id = position.getId();
                         positionDate.remove(position);
                         positionService.deletePosition(id);
+                        showPositionPane();
                     }
                 });
             }
@@ -81,7 +86,8 @@ public class PositionController implements Initializable {
         typeTable.getColumns().add(delCol);
         positionList = positionService.getAllPosition();
         showPosition(positionList);
-    }
+        showPositionPane();
+        }
 
     public void addType() {
         //创建一个输入对话框
@@ -107,38 +113,38 @@ public class PositionController implements Initializable {
         positionDate.addAll(positionList);
         typeTable.setItems(positionDate);
     }
-//    private void showPositionPane() {
-//        positionPane.getChildren().clear();
-//        positionList = positionService.getAllPosition();
-//        //遍历类别集合数据
-//        for( Position position: positionList) {
-//            //给每个类别创建一个面板
-//            StackPane stackPane = new StackPane();
-//            //添加外部box样式（边框、圆矩形）
-//            stackPane.getStyleClass().add("box");
-//            //设置合适大小
-//            stackPane.setPrefSize(120, 120);
-//            //通过工具类获取一个随机色值
-//            String colorString = ColorUtil.getColor();
-//            //给面板设置背景色
-//            stackPane.setStyle("-fx-background-color: " + colorString);
-//            //创建一个文本标签，内容为该类别的名称
-//            Label positionLabel= new Label(position.getPosition());
-//            //给标签添加外部title样式
-//          positionLabel .getStyleClass().add("title");
-//            //标签加入面板
-//            stackPane.getChildren().add(positionLabel);
-//            //面板加入布局文件钟的流式布局
-//            positionPane.getChildren().add(stackPane);
-//            //鼠标进入和离开，透明度变化效果
-//            stackPane.setOnMouseEntered(event -> {
-//                stackPane.setOpacity(0.5);
-//            });
-//            stackPane.setOnMouseExited(event -> {
-//                stackPane.setOpacity(1.0);
-//            });
-//        }
-//    }
+    private void showPositionPane() {
+        positionPane.getChildren().clear();
+        positionList = positionService.getAllPosition();
+        //遍历类别集合数据
+        for( Position position: positionList) {
+            //给每个类别创建一个面板
+            StackPane stackPane = new StackPane();
+            //添加外部box样式（边框、圆矩形）
+            stackPane.getStyleClass().add("box7");
+            //设置合适大小
+            stackPane.setPrefSize(120, 120);
+            //通过工具类获取一个随机色值
+            String colorString = ColorUtil.getColor();
+            //给面板设置背景色
+            stackPane.setStyle("-fx-background-color: " + colorString);
+            //创建一个文本标签，内容为该类别的名称
+            Label positionLabel= new Label(position.getPosition());
+            //给标签添加外部title样式
+          positionLabel .getStyleClass().add("title");
+            //标签加入面板
+            stackPane.getChildren().add(positionLabel);
+            //面板加入布局文件钟的流式布局
+            positionPane.getChildren().add(stackPane);
+            //鼠标进入和离开，透明度变化效果
+            stackPane.setOnMouseEntered(event -> {
+                stackPane.setOpacity(0.5);
+            });
+            stackPane.setOnMouseExited(event -> {
+                stackPane.setOpacity(1.0);
+            });
+        }
+    }
 
 }
 

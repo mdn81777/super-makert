@@ -51,10 +51,10 @@ public class SupplierDAOImpl implements SupplierDAO {
         return convertSupplier(entity);
     }
 
-    @Override
-    public int countByType(long typeId) throws SQLException {
-        return  Db.use().queryNumber("SELECT COUNT(*) FROM t_supplier WHERE type_id = ? ",typeId).intValue();
-    }
+//    @Override
+//    public int countByID(long typeId) throws SQLException {
+//        return  Db.use().queryNumber("SELECT COUNT(*) FROM t_supplier WHERE type_id = ? ",typeId).intValue();
+//    }
 
     @Override
     public int updateSupplier(Supplier supplier) throws SQLException {
@@ -66,6 +66,10 @@ public class SupplierDAOImpl implements SupplierDAO {
                 Entity.create("t_supplier").set("id", supplier.getId()));
     }
 
+    @Override
+    public int countSupplier() throws SQLException {
+        return Db.use().queryNumber("SELECT COUNT(*) FROM t_supplier").intValue();
+    }
 
 
     private Supplier convertSupplier(Entity entity) {

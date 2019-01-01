@@ -66,5 +66,9 @@ public interface StaffDAO {
      * @return
      */
     List<Staff> getStaffsLike(String keywords) throws SQLException;
+    /**
+     *
+     */
+    int countStaff() throws SQLException;
 
 }
