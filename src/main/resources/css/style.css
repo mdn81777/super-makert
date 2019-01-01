@@ -193,6 +193,14 @@
     -fx-pref-height: 410;
     -fx-pref-width: 313;
 }
+.box9{ -fx-border-color: rgb(215, 215, 215);
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 5 5 5 5;
+    -fx-pref-height: 500;
+    -fx-pref-width: 620;
+
+}
 
 
 
@@ -236,7 +244,9 @@
 
 /*绿色字体*/
 .font-blue {
-    -fx-text-fill: rgb(104, 140, 191)
+    -fx-text-fill: rgb(104, 140, 191);
+    -fx-font-size: 20px;
+
 }
 
 /*标题字体*/

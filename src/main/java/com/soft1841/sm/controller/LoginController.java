@@ -11,6 +11,7 @@ import com.soft1841.sm.entity.Staff;
 import com.soft1841.sm.service.StaffService;
 import com.soft1841.sm.utils.ServiceFactory;
 import com.sun.xml.internal.bind.v2.model.core.ID;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,6 +21,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -100,9 +102,6 @@ public class LoginController {
                 scene.getStylesheets().add("/css/style.css");
                 stage.setScene(scene);
                 stage.show();
-//                Staff staff = staffService.getStaffByEmployId(account);
-//                MainController mainController = loader.getController();
-
                 stage.setMaximized(true);
                 Stage loginStage = (Stage) closeButton.getScene().getWindow();
                 loginStage.close();
@@ -114,6 +113,13 @@ public class LoginController {
             alert.setTitle("提示");
             alert.setContentText("账号或密码错误，登录失败!");
             alert.showAndWait();
+        }
+    }
+    public void loginBtnOnAction(ActionEvent event){
+        try {
+            loginBtnOnAction();
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 }

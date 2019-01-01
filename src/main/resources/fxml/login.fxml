@@ -12,7 +12,7 @@
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<AnchorPane prefHeight="400" prefWidth="500" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.sm.controller.LoginController">
+<AnchorPane prefHeight="400" prefWidth="500" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.sm.controller.LoginController" >
     <ImageView>
         <Image url="/img/2.jpg"/>
     </ImageView>
@@ -43,7 +43,7 @@
                        <children>
                            <TextField fx:id="accountField" layoutX="60.0" layoutY="42.0" prefHeight="42.0" prefWidth="270.0" promptText="用户名" />
                            <PasswordField fx:id="passwordField" layoutX="60.0" layoutY="105.0" prefHeight="42.0" prefWidth="270.0" promptText="密码" />
-                           <Button layoutX="60.0" layoutY="169.0" mnemonicParsing="false" onAction="#loginBtnOnAction" prefHeight="42.0" prefWidth="94.0" styleClass="blue-theme,hands" text="登录" />
+                           <Button layoutX="60.0" layoutY="169.0" mnemonicParsing="false" onAction="#loginBtnOnAction" prefHeight="42.0" prefWidth="94.0" styleClass="blue-theme,hands" text="登录"  fx:id="loginButton" defaultButton="true"/>
                            <Button fx:id="closeButton" layoutX="236.0" layoutY="169.0" mnemonicParsing="false" onAction="#closeBtnOnAction" prefHeight="42.0" prefWidth="94.0" styleClass="blue-theme,hands" text="退出" />
                        </children>
                    </AnchorPane>

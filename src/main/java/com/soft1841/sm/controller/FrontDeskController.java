@@ -6,6 +6,7 @@ package com.soft1841.sm.controller;
 
 import com.soft1841.sm.service.StaffService;
 import com.soft1841.sm.utils.ServiceFactory;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -71,4 +72,11 @@ public class FrontDeskController {
             }
 
         }
+    public void loginBtnOnAction(ActionEvent event){
+        try {
+            loginBtnOnAction();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     }
