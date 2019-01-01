@@ -57,6 +57,25 @@ public class MainController implements Initializable {
 
     }
 
+    public void onLockBtnOnAction() {
+        Stage stageNow = (Stage) outLogin.getScene().getWindow();
+        Stage LockStage = new Stage();
+        FXMLLoader fxmlLoader=  new FXMLLoader(getClass().getResource("/fxml/lock.fxml"));
+        AnchorPane root = null;
+        try {
+            root = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        LockStage.getIcons().add(new Image("/img/TeamLogo.png"));
+        LockStage.setTitle("盐系超市后台系统");
+        Scene scene = new Scene(root);
+        LockStage.setMaximized(true);
+        LockStage.setScene(scene);
+        LockStage.show();
+        stageNow.close();
+    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

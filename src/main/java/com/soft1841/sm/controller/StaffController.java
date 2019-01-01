@@ -178,6 +178,7 @@ public class StaffController implements Initializable {
             circle.setCenterX(70.0);
             circle.setRadius(50.0);
             imageView.setClip(circle);
+//            imageView.getStyleClass().add("hover-change:hover");
             Label nameLabel = new Label(staff.getName());
             Label addressLabel = new Label(staff.getAddress());
             Button delBtn = new Button("删除");

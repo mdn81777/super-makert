@@ -4,10 +4,6 @@
     -fx-text-fill: rgb(246, 246, 246);
 }
 
-.login-bg {
-    -fx-background-image: url(/img/bg.jpg);
-}
-
 .login-card {
     -fx-background-color: rgb(242, 242, 242);
     -fx-pref-width: 500;
@@ -254,6 +250,9 @@
     -fx-font-size: 18px;
     -fx-font-weight: bold;
 }
+.font-mn{
+    -fx-font-size: 46px;
+}
 
 /*复选框样式*/
 .check-box .box {
@@ -325,7 +324,12 @@
     -fx-text-fill: rgb(110, 148, 203);
 }
 .label2 {
-    -fx-pref-width: 840;
+     -fx-pref-width: 840;
+     -fx-pref-height: 43px;
+     -fx-font-size: 25px;
+     -fx-text-fill: rgb(123, 123, 123);
+ }
+.label3 {
     -fx-pref-height: 43px;
     -fx-font-size: 25px;
     -fx-text-fill: rgb(123, 123, 123);
@@ -367,5 +371,12 @@
 .hands{
     -fx-cursor:hand;
 }
+.btn1{
+    -fx-opacity: 0.5;
+    -fx-pref-width: 70px;
+    -fx-pref-height: 50px;
+
+}
+
 
 
